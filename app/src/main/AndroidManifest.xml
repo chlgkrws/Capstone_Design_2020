@@ -1,15 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.hjhs_project.capstone_design_2020">
+    package="com.hjhs_project.capstone_design_2020" >
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    //Internet 사용을 위한 권한 추가(volley)
     <application
+
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        >
+
+        <activity android:name=".login.Login">
+        </activity>
+        <activity android:name=".login.Sign_up">
+        </activity>
+        <activity android:name=".menu.Menu_main"></activity>
+        <activity android:name=".MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

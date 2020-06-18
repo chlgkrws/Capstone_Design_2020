@@ -1,0 +1,12 @@
+Login
+- 로그인 화면
+- Menu로 이동시키는 구문이 있음.
+- sign 페이지로 가는 id는 Button_Sign_up이고, sign페이지에서 가입에 해당하는 id는 Button_sign_up임.
+
+
+Login_request : Login 클래스에 정의되어있는 onClickListener를 volley방식으로 서버에 request를 보내기 위한 클래스
+
+Sign_up : 회원가입 화면
+Sign_up_request : 서버에 회원가입을 요청하는 클래스
+
+

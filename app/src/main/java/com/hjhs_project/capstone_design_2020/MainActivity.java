@@ -1,8 +1,11 @@
 package com.hjhs_project.capstone_design_2020;
 
+import android.content.Intent;
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
+import com.hjhs_project.capstone_design_2020.login.Login;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -10,5 +13,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Intent intent = new Intent(MainActivity.this, Login.class);
+        startActivity(intent);
     }
 }
