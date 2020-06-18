@@ -15,4 +15,50 @@
         app:layout_constraintTop_toTopOf="parent">
 
     </TextView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:gravity="center"
+        android:weightSum="15"
+        android:layout_marginBottom="20dp"
+        >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:layout_marginRight="15dp"
+            android:text="메모장"
+            android:textSize="24sp"
+            >
+        </Button>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/go_to_camera"
+            android:clickable="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            app:civ_border_width="2dp"
+            app:civ_border_color="#000000"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_launcher_foreground"
+            >
+
+        </de.hdodenhof.circleimageview.CircleImageView>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:layout_marginLeft="15dp"
+            android:text="내 정보"
+            android:textSize="24sp"
+            >
+        </Button>
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,3 +1,14 @@
+<.xml>
+
+activity_login_view :로그인 화면
+activity_main : 로그인 전 어플리케이션 스플래쉬화면
+activity_menu : 로그인 후 메인 메뉴
+activity_sign_up : 회원가입 화면-->
+
+
+
+<.java>
+
 Login
 - 로그인 화면
 - Menu로 이동시키는 구문이 있음.
@@ -8,5 +19,6 @@ Login_request : Login 클래스에 정의되어있는 onClickListener를 volley�
 
 Sign_up : 회원가입 화면
 Sign_up_request : 서버에 회원가입을 요청하는 클래스
+
 
 
