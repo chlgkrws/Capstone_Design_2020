@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.hjhs_project.capstone_design_2020.Detector.DetectorActivity;
 import com.hjhs_project.capstone_design_2020.R;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -32,7 +33,7 @@ public class Menu_main extends AppCompatActivity {
         go_to_camera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Menu_main.this, Menu_camera.class);
+                Intent intent = new Intent(Menu_main.this, DetectorActivity.class);
                 startActivity(intent);
             }
         });
