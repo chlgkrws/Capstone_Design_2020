@@ -1,0 +1,4 @@
+customeviwe,env,tflite, tracking 등 result_test 외 파일 수정금지
+
+
+result_test : 인식된 사진과 단어를 추출하여 띄워주는 클래스
