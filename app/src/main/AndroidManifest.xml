@@ -3,6 +3,13 @@
     package="com.hjhs_project.capstone_design_2020" >
 
     <uses-permission android:name="android.permission.INTERNET"/> <!--Internet 사용을 위한 권한 추가(volley)-->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>    <!--6,7,8 : 카메라 기능을 위한 퍼미션-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true"
+        />
+
 
     <application
         android:allowBackup="true"
@@ -19,6 +26,7 @@
         <activity android:name=".login.Sign_up">
         </activity>
         <activity android:name=".menu.Menu_main"></activity>
+        <activity android:name=".menu.Menu_camera"/>
         <activity android:name=".MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,6 +34,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
+        <provider
+            android:authorities="com.hjhs_project.capstone_design_2020.fileprovider"
+            android:name="androidx.core.content.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/external_path"
+                >
+            </meta-data>
+        </provider>
     </application>
 
 </manifest>
