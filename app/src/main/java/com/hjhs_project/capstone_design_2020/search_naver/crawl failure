@@ -1,0 +1,59 @@
+package com.hjhs_project.capstone_design_2020.search_naver;
+
+import android.os.Bundle;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.hjhs_project.capstone_design_2020.R;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
+import java.io.IOException;
+import java.io.Serializable;
+
+public class ShowWordsFromNaver extends AppCompatActivity  implements Serializable {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_showwordsfromnaver);
+        TextView textView = (TextView) findViewById(R.id.text1);
+        String user_Agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36";
+        new Thread(){
+            @Override
+            public void run() {
+                Document doc;
+                try {
+                    doc = Jsoup.connect("https://en.dict.naver.com/#/search?query=people").userAgent(user_Agent).get();
+                    Elements contents;
+                    contents = doc.select("#serachPage_example");
+                    //div.section section_example
+                    String a = "";
+                    String b = contents.size()+"";
+                    for (Element e : contents){
+                        a += e.text();
+                    }
+                    textView.setText(a+b);
+
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }.start();
+
+    }
+}
+
+
+
+네이버 api 부분
+
+Document doc;
+                NaverAPIRequest request = new NaverAPIRequest();
+                resultText = request.getRequestText(searchWord);
+                textView.setText(resultText);
