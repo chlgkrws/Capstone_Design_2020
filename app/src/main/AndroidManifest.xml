@@ -15,9 +15,9 @@
         android:name="android.hardware.camera.autofocus"
 
         />
-    //bGNddH8C19YInzn_0hCG 클라이언트 아이디
+  <!--  //bGNddH8C19YInzn_0hCG 클라이언트 아이디
     //kXTJ5ozK4_    클라이언트 시크릿
-
+-->
     <application
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
