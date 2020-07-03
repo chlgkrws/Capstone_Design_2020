@@ -16,6 +16,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class Menu_main extends AppCompatActivity {
     private final long FINISH_INTERVAL_TIME = 2000;         //2초내로 두번누르면 화면 종료
     private long backPressedTime = 0;                       //시간 관련
+    private static String user_id;
 
     CircleImageView go_to_camera;
     Button go_to_note, go_to_info;
@@ -24,6 +25,8 @@ public class Menu_main extends AppCompatActivity {
     protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+        Bundle bundle = getIntent().getExtras();
+        user_id = bundle.getString("user_id");
 
         go_to_camera = findViewById(R.id.go_to_camera);
         go_to_note = findViewById(R.id.go_to_note);
@@ -41,7 +44,9 @@ public class Menu_main extends AppCompatActivity {
 
 
 
-
+    public String getUser_id(){
+        return user_id;
+    }
 
 
     //뒤로가기 종료

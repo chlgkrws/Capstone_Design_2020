@@ -48,8 +48,10 @@ public class Login extends AppCompatActivity {
 
                             if(success){
                                 String user_name = jsonObject.getString("user_name");
+                                String user_id = jsonObject.getString("user_id");
                                 Toast.makeText(getApplicationContext(), "로그인성공", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(Login.this, Menu_main.class);
+                                intent.putExtra("user_id",user_id);
                                 intent.putExtra("user_name",user_name);
                                 startActivity(intent);
                             }else{
