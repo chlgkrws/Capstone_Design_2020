@@ -1,20 +1,27 @@
 package com.hjhs_project.capstone_design_2020.search_naver;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.hjhs_project.capstone_design_2020.Detector.DetectorActivity;
 import com.hjhs_project.capstone_design_2020.R;
 import com.hjhs_project.capstone_design_2020.menu.Menu_main;
+import com.hjhs_project.capstone_design_2020.myProfile.MyProfile;
+import com.hjhs_project.capstone_design_2020.notepad.NotePad;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -343,6 +350,37 @@ public class ShowWordsFromNaver extends AppCompatActivity  implements Serializab
         Addnote_request Addnote_request = new Addnote_request(user_id, en_word, kr_word, en_sentence, kr_sentence, responseListener);
         RequestQueue queue = Volley.newRequestQueue(ShowWordsFromNaver.this);                //하나만 설정
         queue.add(Addnote_request);
+
+
+
+
+
+        /*------------------------------바텀 네비게이션 액션--------------------------*/
+        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigationView_main_menu);
+        bottomNavigationView.setOnNavigationItemSelectedListener(
+                new BottomNavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                        switch (item.getItemId()){
+                            case R.id.bottom_bar_note:
+                                Intent intent = new Intent(ShowWordsFromNaver.this, NotePad.class);
+                                startActivity(intent);
+                                return true;
+                            case R.id.bottom_bar_camera:
+                                Intent intent2 = new Intent(ShowWordsFromNaver.this, DetectorActivity.class);
+                                startActivity(intent2);
+                                return true;
+                            case R.id.bottom_bar_profile:
+                                Intent intent3 = new Intent(ShowWordsFromNaver.this, MyProfile.class);
+                                startActivity(intent3);
+                                return true;
+                        }
+
+
+                        return false;
+                    }
+                }
+        );
     }
 
 

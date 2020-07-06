@@ -17,7 +17,6 @@ import com.hjhs_project.capstone_design_2020.R;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Sign_up extends AppCompatActivity {
@@ -97,7 +96,7 @@ public class Sign_up extends AppCompatActivity {
                     }
                 }
                 else{
-                    Toast.makeText(getApplicationContext(),"이메일은 영문@영문.영문 형태로 해주세요.",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"이메일은 영문@이메일 형태로 해주세요.",Toast.LENGTH_SHORT).show();
                 }
             }
         });
