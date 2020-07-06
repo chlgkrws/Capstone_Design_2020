@@ -37,6 +37,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:hint="이메일"
+                android:inputType="textShortMessage"
                 android:id="@+id/sign_up_user_id"
                 >
             </com.google.android.material.textfield.TextInputEditText>
@@ -50,6 +51,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:hint="비밀번호"
+                android:inputType="textShortMessage"
                 android:id="@+id/sign_up_user_pass"
                 >
             </com.google.android.material.textfield.TextInputEditText>
@@ -63,6 +65,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:hint="이름"
+                android:inputType="textShortMessage"
                 android:id="@+id/sign_up_user_name"
                 >
             </com.google.android.material.textfield.TextInputEditText>
@@ -76,6 +79,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:hint="나이"
+                android:inputType="number"
                 android:id="@+id/sign_up_user_age"
                 >
             </com.google.android.material.textfield.TextInputEditText>
