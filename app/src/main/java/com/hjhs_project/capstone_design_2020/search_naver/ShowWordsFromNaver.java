@@ -328,7 +328,6 @@ public class ShowWordsFromNaver extends AppCompatActivity  implements Serializab
                     boolean success = jsonObject.getBoolean("success");         //json 객체 success에 해당하는 값 가져오기
 
                     if(success){
-                        Toast.makeText(getApplicationContext(),en_word + kr_word + en_sentence + kr_sentence,Toast.LENGTH_SHORT).show();
                         Toast.makeText(getApplicationContext(),"성공!",Toast.LENGTH_SHORT).show();
                     }else{
                         Toast.makeText(getApplicationContext(),"실패!",Toast.LENGTH_SHORT).show();
