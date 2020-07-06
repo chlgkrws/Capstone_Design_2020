@@ -23,6 +23,8 @@ public class Login extends AppCompatActivity {
     Button Button_login;
     Button Button_sign_up;
 
+    public static String a = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +56,7 @@ public class Login extends AppCompatActivity {
                                 intent.putExtra("user_id",user_id);
                                 intent.putExtra("user_name",user_name);
                                 startActivity(intent);
+
                             }else{
                                 Toast.makeText(getApplicationContext(),"아이디와 비밀번호를 확인해주세요.",Toast.LENGTH_SHORT).show();
                             }

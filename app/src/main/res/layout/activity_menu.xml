@@ -40,6 +40,7 @@
             android:layout_marginRight="15dp"
             android:text="메모장"
             android:textSize="24sp"
+            android:clickable="true"
             >
         </Button>
 
@@ -65,6 +66,7 @@
             android:layout_marginLeft="15dp"
             android:text="내 정보"
             android:textSize="24sp"
+            android:clickable="true"
             >
         </Button>
     </LinearLayout>

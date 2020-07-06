@@ -16,6 +16,8 @@
         >
 
         <!--제목-->
+
+        <!--예문 1~5-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -26,17 +28,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="단어"
-                android:textSize="35sp"
-                />
+                android:textSize="35sp" />
+
             <TextView
+                android:id="@+id/meaning"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text=": 뜻"
-                android:textSize="35sp"
-                />
+                android:textSize="20sp"
+                android:gravity="center_vertical"/>
         </LinearLayout>
 
-        <!--예문 1~5-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="110dp"
@@ -54,7 +56,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
                     android:text="예문"
-                    android:textSize="24sp"
+                    android:textSize="20sp"
                     android:layout_marginLeft="4dp"
                     android:gravity="center_vertical"
                     ></TextView>
@@ -64,9 +66,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
                     android:text="해석"
-                    android:textSize="24sp"
+                    android:textSize="@dimen/kr_sentence"
                     android:layout_marginLeft="4dp"
-                    android:gravity="center_vertical"
+                    android:gravity="top"
                     >
                 </TextView>
             </LinearLayout>
@@ -97,7 +99,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
                     android:text="예문"
-                    android:textSize="24sp"
+                    android:textSize="20sp"
                     android:layout_marginLeft="4dp"
                     android:gravity="center_vertical"
                     ></TextView>
@@ -107,9 +109,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
                     android:text="해석"
-                    android:textSize="24sp"
+                    android:textSize="@dimen/kr_sentence"
                     android:layout_marginLeft="4dp"
-                    android:gravity="center_vertical"
+                    android:gravity="top"
                     >
                 </TextView>
             </LinearLayout>
@@ -140,7 +142,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
                     android:text="예문"
-                    android:textSize="24sp"
+                    android:textSize="20sp"
                     android:layout_marginLeft="4dp"
                     android:gravity="center_vertical"
                     ></TextView>
@@ -150,9 +152,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
                     android:text="해석"
-                    android:textSize="24sp"
+                    android:textSize="@dimen/kr_sentence"
                     android:layout_marginLeft="4dp"
-                    android:gravity="center_vertical"
+                    android:gravity="top"
                     >
                 </TextView>
             </LinearLayout>
@@ -183,7 +185,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
                     android:text="예문"
-                    android:textSize="24sp"
+                    android:textSize="20sp"
                     android:layout_marginLeft="4dp"
                     android:gravity="center_vertical"
                     ></TextView>
@@ -192,12 +194,10 @@
                     android:id="@+id/kr_sentence4"
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
-                    android:text="해석"
-                    android:textSize="24sp"
                     android:layout_marginLeft="4dp"
-                    android:gravity="center_vertical"
-                    >
-                </TextView>
+                    android:gravity="top"
+                    android:text="해석"
+                    android:textSize="@dimen/kr_sentence"></TextView>
             </LinearLayout>
             <Button
                 android:id="@+id/Button_sentence4"
@@ -226,7 +226,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
                     android:text="예문"
-                    android:textSize="24sp"
+                    android:textSize="20sp"
                     android:layout_marginLeft="4dp"
                     android:gravity="center_vertical"
                     ></TextView>
@@ -236,9 +236,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
                     android:text="해석"
-                    android:textSize="24sp"
+                    android:textSize="@dimen/kr_sentence"
                     android:layout_marginLeft="4dp"
-                    android:gravity="center_vertical"
+                    android:gravity="top"
                     >
                 </TextView>
             </LinearLayout>

@@ -42,7 +42,8 @@
         <activity android:name=".menu.Menu_camera"/>
         <activity android:name=".Detector.result_test"/>
         <activity android:name=".search_naver.ShowWordsFromNaver"/>
-
+        <activity android:name=".myProfile.MyProfile"/>
+        <activity android:name=".notepad.NotePad"/>
         <activity
             android:name=".Detector.DetectorActivity"
             android:label="@string/tfe_od_app_name"

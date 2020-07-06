@@ -10,13 +10,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.hjhs_project.capstone_design_2020.Detector.DetectorActivity;
 import com.hjhs_project.capstone_design_2020.R;
+import com.hjhs_project.capstone_design_2020.myProfile.MyProfile;
+import com.hjhs_project.capstone_design_2020.notepad.NotePad;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Menu_main extends AppCompatActivity {
     private final long FINISH_INTERVAL_TIME = 2000;         //2초내로 두번누르면 화면 종료
     private long backPressedTime = 0;                       //시간 관련
-    private static String user_id;
+    private static String user_id, user_name;
 
     CircleImageView go_to_camera;
     Button go_to_note, go_to_info;
@@ -27,6 +29,7 @@ public class Menu_main extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
         Bundle bundle = getIntent().getExtras();
         user_id = bundle.getString("user_id");
+        user_name = bundle.getString("user_name");
 
         go_to_camera = findViewById(R.id.go_to_camera);
         go_to_note = findViewById(R.id.go_to_note);
@@ -40,12 +43,37 @@ public class Menu_main extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+        //내 정보 가는 버튼
+        go_to_info.setClickable(true);
+        go_to_info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Menu_main.this, MyProfile.class);
+                startActivity(intent);
+            }
+        });
+
+        go_to_note.setClickable(true);
+        go_to_note.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Menu_main.this, NotePad.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
 
 
-    public String getUser_id(){
+    public static String getUser_id(){
         return user_id;
+    }
+
+    public static String getUser_name(){
+        return user_name;
     }
 
 
