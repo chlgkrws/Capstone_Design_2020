@@ -30,7 +30,7 @@ public class NotePad extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notepad);
 
-        testText = findViewById(R.id.TextText);
+        //testText = findViewById(R.id.TextText);
         String user_id = Menu_main.getUser_id();
 
         recyclerview = findViewById(R.id.recyclerview);
@@ -44,18 +44,37 @@ public class NotePad extends AppCompatActivity {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     boolean success = jsonObject.getBoolean("success");         //json 객체 success에 해당하는 값 가져오기
-                    String compareKey = "테스트";
+
                     if(success){
                         JSONArray arr = (JSONArray)jsonObject.get("univ");
-                        String s = "";
-                        for(int i = 0; i<arr.length(); i++){
+                        String word = (String)((JSONObject)arr.get(0)).get("en_word");                                     //메모장에 보여지는 header 단어
+                        String compareKey = word;
+                        String sentence ="";                                           //예문
+                        ExpandableListAdapter.Item places = new ExpandableListAdapter.Item(ExpandableListAdapter.HEADER, word);
+                        places.invisibleChildren = new ArrayList<>();
+                        for(int i = 0; i<arr.length(); i++){                           //en_word,kr_word,en_sentence_,kr_sentense를 한줄에 가져오는 object
                             JSONObject tmp =(JSONObject)arr.get(i);
 
                             String en_word = (String)tmp.get("en_word");
                             String kr_word = (String)tmp.get("kr_word");
-                            s += en_word + "&&"+ kr_word+"\n";
+                            String en_sentence = (String)tmp.get("en_sentence");
+                            String kr_sentence = (String)tmp.get("kr_sentence");
+
+                            word = en_word;
+                            sentence = en_sentence + "\n"+kr_sentence;
+
+                            if(!compareKey.equals(word)){
+                                data.add(places);
+                                places = new ExpandableListAdapter.Item(ExpandableListAdapter.HEADER, word);
+                                places.invisibleChildren = new ArrayList<>();
+                            }
+
+                            places.invisibleChildren.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, sentence));
+
+                            compareKey = word;
                         }
-                        testText.setText(s);
+                        data.add(places);
+                        recyclerview.setAdapter(new ExpandableListAdapter(data));
 
                     }else{
                         Toast.makeText(getApplicationContext(),"10099 오류",Toast.LENGTH_SHORT).show();

@@ -13,7 +13,7 @@
     <TextView
         android:id="@+id/header_title"
         android:textColor="#045CB1"
-        android:textSize="18sp"
+        android:textSize="24sp"
         android:gravity="center_vertical"
         android:layout_width="0dp"
         android:layout_height="match_parent"

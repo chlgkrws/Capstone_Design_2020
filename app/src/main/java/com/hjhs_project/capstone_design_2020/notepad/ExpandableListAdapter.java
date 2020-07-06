@@ -17,7 +17,8 @@ import java.util.List;
 public class ExpandableListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public static final int HEADER = 0;
     public static final int CHILD = 1;
-
+    public static final int CHILD2 = 2;
+    public static int index = 1;
     private List<Item> data;
 
     public ExpandableListAdapter(List<Item> data){
@@ -30,6 +31,7 @@ public class ExpandableListAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         View view = null;
         Context context = parent.getContext();
         float dp = context.getResources().getDisplayMetrics().density;
+
         int subItemPaddingLeft = (int) (18 * dp);
         int subItemPaddingTopAndBottom = (int) (5 * dp);
         switch (type) {
@@ -37,10 +39,16 @@ public class ExpandableListAdapter extends RecyclerView.Adapter<RecyclerView.Vie
                 LayoutInflater inflater = (LayoutInflater) parent.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 view = inflater.inflate(R.layout.list_header, parent, false);
                 ListHeaderViewHolder header = new ListHeaderViewHolder(view);
+                index = 1;
                 return header;
             case CHILD:
                 TextView itemTextView = new TextView(context);
-                itemTextView.setPadding(subItemPaddingLeft, subItemPaddingTopAndBottom, 0, subItemPaddingTopAndBottom);
+                if(index % 2 == 0){
+                    itemTextView.setPadding(subItemPaddingLeft, 0, 0, subItemPaddingTopAndBottom); //해석
+                }
+                else{
+                    itemTextView.setPadding(subItemPaddingLeft, subItemPaddingTopAndBottom, 0, 0); //예문
+                }
                 itemTextView.setTextColor(0x88000000);
                 itemTextView.setLayoutParams(
                         new ViewGroup.LayoutParams(
@@ -74,7 +82,7 @@ public class ExpandableListAdapter extends RecyclerView.Adapter<RecyclerView.Vie
                             while (data.size() > pos + 1 && data.get(pos + 1).type == CHILD) {
                                 item.invisibleChildren.add(data.remove(pos + 1));
                                 count++;
-                            }
+                             }
                             notifyItemRangeRemoved(pos + 1, count);
                             itemController.btn_expand_toggle.setImageResource(R.drawable.circle_plus);
                         } else {
@@ -105,7 +113,7 @@ public class ExpandableListAdapter extends RecyclerView.Adapter<RecyclerView.Vie
 
     @Override
     public int getItemCount() {
-        return 0;
+        return data.size();
     }
 
     private static class ListHeaderViewHolder extends RecyclerView.ViewHolder {

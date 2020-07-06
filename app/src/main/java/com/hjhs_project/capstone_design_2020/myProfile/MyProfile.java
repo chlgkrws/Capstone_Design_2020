@@ -79,10 +79,9 @@ public class MyProfile extends AppCompatActivity {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     boolean success = jsonObject.getBoolean("success");         //json 객체 success에 해당하는 값 가져오기
-
+                    String tierToText = "";
                     if(success){
                         String tier = jsonObject.getString("tier");
-                        String tierToText = "";
                         Double real_tier = Double.parseDouble(tier);
 
                         if(real_tier <= 0.1){
@@ -108,7 +107,9 @@ public class MyProfile extends AppCompatActivity {
 
                         //이미지 뷰도 같이 띄워주기
                     }else{
-                        Toast.makeText(getApplicationContext(),"10099 오류",Toast.LENGTH_SHORT).show();
+                        profile_tier_img.setImageResource(R.drawable.bronze);
+                        profile_tier.setText("티어 - Unranked");
+                        //Toast.makeText(getApplicationContext(),"10099 오류",Toast.LENGTH_SHORT).show();
                     }
                 } catch (JSONException e) {
                     Toast.makeText(getApplicationContext(),"10100 오류 (통신)",Toast.LENGTH_SHORT).show();
@@ -135,7 +136,8 @@ public class MyProfile extends AppCompatActivity {
                         profile_rank.setText("랭킹 - "+rank+"위");
 
                     }else{
-                        Toast.makeText(getApplicationContext(),"10099 오류",Toast.LENGTH_SHORT).show();
+                        profile_rank.setText("랭킹 -  --위 (단어를 공부해보세요!)");
+                        //Toast.makeText(getApplicationContext(),"10099 오류",Toast.LENGTH_SHORT).show();
                     }
                 } catch (JSONException e) {
                     Toast.makeText(getApplicationContext(),"10100 오류 (통신)",Toast.LENGTH_SHORT).show();
@@ -159,9 +161,13 @@ public class MyProfile extends AppCompatActivity {
                     if(success){
                         String wordCount = jsonObject.getString("user_word");
                         String sentenceCount = jsonObject.getString("user_sentence");
+
                         profile_study.setText("단어 - "+wordCount+"개   예문 - "+sentenceCount+"개");
+
+
                     }else{
-                        Toast.makeText(getApplicationContext(),"10099 오류",Toast.LENGTH_SHORT).show();
+                        profile_study.setText("단어 - "+"0개   예문 - "+"0개");
+                        //Toast.makeText(getApplicationContext(),"10099 오류",Toast.LENGTH_SHORT).show();
                     }
                 } catch (JSONException e) {
                     Toast.makeText(getApplicationContext(),"10100 오류 (통신)",Toast.LENGTH_SHORT).show();
