@@ -39,10 +39,10 @@
                 android:layout_height="?attr/actionBarSize"
                 android:background="@color/tfe_semi_transparent">
 
-                <ImageView
+                <!--<ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/tfl2_logo" />
+                    android:src="@drawable/tfl2_logo" />-->
             </androidx.appcompat.widget.Toolbar>
         </FrameLayout>
 
@@ -52,10 +52,11 @@
         android:id="@+id/bottom_sheet_layout"
         layout="@layout/tfe_od_layout_bottom_sheet" />
     <Button
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="150dp"
+        android:layout_height="70dp"
         android:id="@+id/Button_click"
         android:clickable="true"
+        android:text="Take a picture"
         android:layout_gravity="center|bottom"
 
         ></Button>

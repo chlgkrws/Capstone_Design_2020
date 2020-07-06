@@ -55,6 +55,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.0.0'
     implementation('org.tensorflow:tensorflow-lite:0.0.0-nightly') { changing = true }
     implementation 'org.jsoup:jsoup:1.11.3'         //jsoup 파서
+    implementation 'com.android.support:design:28.0.0'  //바텀 네비게이터 디자인
 
     api 'com.google.android.material:material:1.1.0-alpha06'
     testImplementation 'junit:junit:4.12'

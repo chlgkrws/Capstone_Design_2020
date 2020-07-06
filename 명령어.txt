@@ -1,0 +1,5 @@
+mysql -u root -p
+1234
+
+httpd.exe -k [restart | start | shutdown]
+

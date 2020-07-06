@@ -2,12 +2,14 @@ package com.hjhs_project.capstone_design_2020.menu;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.hjhs_project.capstone_design_2020.Detector.DetectorActivity;
 import com.hjhs_project.capstone_design_2020.R;
 import com.hjhs_project.capstone_design_2020.myProfile.MyProfile;
@@ -22,6 +24,8 @@ public class Menu_main extends AppCompatActivity {
 
     CircleImageView go_to_camera;
     Button go_to_note, go_to_info;
+   /* Button bottom_navigator_toNote,  bottom_navigator_toProfile;
+    ImageView bottom_navigator_toCamera;*/
 
     @Override
     protected void onCreate( Bundle savedInstanceState) {
@@ -31,11 +35,20 @@ public class Menu_main extends AppCompatActivity {
         user_id = bundle.getString("user_id");
         user_name = bundle.getString("user_name");
 
-        go_to_camera = findViewById(R.id.go_to_camera);
-        go_to_note = findViewById(R.id.go_to_note);
-        go_to_info = findViewById(R.id.go_to_info);
 
-        go_to_camera.setClickable(true);
+        /*------------------(구) 버튼들)
+        /*go_to_camera = findViewById(R.id.go_to_camera);
+        go_to_note = findViewById(R.id.go_to_note);
+        go_to_info = findViewById(R.id.go_to_info);*/
+
+        /*----------------바텀 네비게이터 버튼들--------------------------*/
+        /*bottom_navigator_toNote = findViewById(R.id.bottom_navigator_toNote);
+        bottom_navigator_toCamera = findViewById(R.id.bottom_navigator_toCamera);
+        bottom_navigator_toProfile = findViewById(R.id.bottom_navigator_toProfile);*/
+
+
+        /*-------------------(구) 버튼 리스너들--------------------*/
+        /*go_to_camera.setClickable(true);
         go_to_camera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,9 +75,48 @@ public class Menu_main extends AppCompatActivity {
                 Intent intent = new Intent(Menu_main.this, NotePad.class);
                 startActivity(intent);
             }
-        });
+        });*/
 
+        /*bottom_navigator_toNote.setClickable(true);
+        bottom_navigator_toNote.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Menu_main.this, NotePad.class);
+                startActivity(intent);
+
+            }
+        });
+        bottom_navigator_toCamera;
+        bottom_navigator_toProfile;*/
+
+        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigationView_main_menu);
+        bottomNavigationView.setOnNavigationItemSelectedListener(
+                new BottomNavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                        switch (item.getItemId()){
+                            case R.id.bottom_bar_note:
+                                Intent intent = new Intent(Menu_main.this, NotePad.class);
+                                startActivity(intent);
+                                return true;
+                            case R.id.bottom_bar_camera:
+                                Intent intent2 = new Intent(Menu_main.this, DetectorActivity.class);
+                                startActivity(intent2);
+                                return true;
+                            case R.id.bottom_bar_profile:
+                                Intent intent3 = new Intent(Menu_main.this, MyProfile.class);
+                                startActivity(intent3);
+                                return true;
+                        }
+
+
+                        return false;
+                    }
+                }
+        );
     }
+
+
 
 
 

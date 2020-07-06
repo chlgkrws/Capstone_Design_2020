@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="75dp"
+    android:orientation="horizontal"
+    android:gravity="center"
+    android:weightSum="10"
+    android:background="@drawable/ic_launcher_background"
+    >
+    <!--<Button
+        android:id="@+id/bottom_navigator_toNote"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="4"
+        android:text="Note"
+        ></Button>
+    <ImageView
+        android:id="@+id/bottom_navigator_toCamera"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:text="camera"
+        android:src="@drawable/ic_launcher_foreground"
+
+
+        ></ImageView>
+    <Button
+        android:id="@+id/bottom_navigator_toProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="4"
+        android:text="profile"
+        ></Button>-->
+
+</LinearLayout>
