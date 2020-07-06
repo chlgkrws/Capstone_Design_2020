@@ -17,6 +17,9 @@ import com.hjhs_project.capstone_design_2020.R;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Sign_up extends AppCompatActivity {
     TextInputEditText sign_up_user_id, sign_up_user_pass, sign_up_user_name, sign_up_user_age;
     Button Button_sign_up, Button_back_to_main;
@@ -39,29 +42,63 @@ public class Sign_up extends AppCompatActivity {
                 String sign_name = sign_up_user_name.getText().toString();
                 int sign_age = Integer.parseInt(sign_up_user_age.getText().toString());
 
-                Response.Listener<String> responseListener = new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            JSONObject jsonObject = new JSONObject(response);
-                            boolean success = jsonObject.getBoolean("success");
-                            //회원가입 성공 시
-                            if(success){
-                                Toast.makeText(getApplicationContext(),"회원가입 성공",Toast.LENGTH_SHORT).show();;
-                                Intent intent = new Intent(Sign_up.this, Login.class);
-                                startActivity(intent);
-                            }else{
-                                Toast.makeText(getApplicationContext(),"회원가입 실패",Toast.LENGTH_SHORT).show();;
+
+                String idPolicy = "^[_a-zA-Z0-9-\\.]+@[\\.a-zA-Z0-9-]+\\.[a-zA-Z]+$";               // 아이디 정규형 영문@영문.영문 형태
+                Boolean id_pattern = Pattern.matches(idPolicy, sign_id);
+
+                String passwordPolicy = "((?=.*[a-z])(?=.*[0-9])(?=.*[^a-zA-Z0-9]).{6,})";          // 비밀번호 정규형 영문, 숫자, 특수문자 6글자 이상의 형태
+                Boolean password_pattern = Pattern.matches(passwordPolicy, sign_pass);
+
+                String namePolicy = "^[가-힣]*$";                                                   // 이름 정규형 한글형태
+                Boolean name_pattern = Pattern.matches(namePolicy, sign_name);
+
+                String agePolicy = "^[0-9]+$";                                                      // 나이 정규형 숫자형태
+                Boolean age_pattern = Pattern.matches(agePolicy, String.valueOf(sign_age));
+
+
+                if(id_pattern){
+                    if(password_pattern){
+                        if(name_pattern){
+                            if(age_pattern){
+                                Response.Listener<String> responseListener = new Response.Listener<String>() {
+                                    @Override
+                                    public void onResponse(String response) {
+                                        try {
+                                            JSONObject jsonObject = new JSONObject(response);
+                                            boolean success = jsonObject.getBoolean("success");
+                                            //회원가입 성공 시
+                                            if(success){
+                                                Toast.makeText(getApplicationContext(),"회원가입 성공",Toast.LENGTH_SHORT).show();;
+                                                Intent intent = new Intent(Sign_up.this, Login.class);
+                                                startActivity(intent);
+                                            }else{
+                                                Toast.makeText(getApplicationContext(),"회원가입 실패",Toast.LENGTH_SHORT).show();;
+                                            }
+                                        } catch (JSONException e) {
+                                            Toast.makeText(getApplicationContext(),"통신 오류",Toast.LENGTH_SHORT).show();;
+                                            e.printStackTrace();
+                                        }
+                                    }
+                                };
+                                Sign_up_request sign_up_request = new Sign_up_request(sign_id,sign_pass,sign_name,sign_age,responseListener);
+                                RequestQueue queue = Volley.newRequestQueue(Sign_up.this);
+                                queue.add(sign_up_request);
                             }
-                        } catch (JSONException e) {
-                            Toast.makeText(getApplicationContext(),"통신 오류",Toast.LENGTH_SHORT).show();;
-                            e.printStackTrace();
+                            else{
+                                Toast.makeText(getApplicationContext(),"나이는 숫자만 사용해주세요.",Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                        else{
+                            Toast.makeText(getApplicationContext(),"이름은 한글만 사용해주세요.",Toast.LENGTH_SHORT).show();
                         }
                     }
-                };
-                Sign_up_request sign_up_request = new Sign_up_request(sign_id,sign_pass,sign_name,sign_age,responseListener);
-                RequestQueue queue = Volley.newRequestQueue(Sign_up.this);
-                queue.add(sign_up_request);
+                    else{
+                        Toast.makeText(getApplicationContext(),"비밀번호는 6자리이상 영문, 숫자, 특수문자를 조합해주세요.",Toast.LENGTH_SHORT).show();
+                    }
+                }
+                else{
+                    Toast.makeText(getApplicationContext(),"이메일은 영문@영문.영문 형태로 해주세요.",Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -71,11 +108,7 @@ public class Sign_up extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(Sign_up.this, Login.class);
                 startActivity(intent);
-
             }
         });
-
-
-
     }
 }
