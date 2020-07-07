@@ -100,7 +100,7 @@ public class ShowWordsFromNaver extends AppCompatActivity  implements Serializab
                         String nums = "";
                         String title = "";
 //                        doc = Jsoup.connect("https://endic.naver.com/search_example.nhn?sLn=kr&query="+ text +"&preQuery=&searchOption=example&examType=&forceRedirect=N").get();
-                        doc = Jsoup.connect("https://endic.naver.com/search_example.nhn?sLn=kr&examType=example&query=" + text + "&pageNo="+ThreadLocalRandom.current().nextInt(1, 21)).get();   // 예문 0 ~ 20 페이지중 랜덤
+                        doc = Jsoup.connect("https://endic.naver.com/search_example.nhn?sLn=kr&examType=example&query=" + text + "&pageNo="+ThreadLocalRandom.current().nextInt(1, 11)).get();   // 예문 0 ~ 20 페이지중 랜덤
                         Elements contents = doc.select("span.fnt_e09._ttsText");          //영어 예문
                         Elements contents2 = doc.select("div.fnt_k10");                   //해석
 

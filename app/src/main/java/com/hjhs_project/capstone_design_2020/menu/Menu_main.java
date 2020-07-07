@@ -2,16 +2,22 @@ package com.hjhs_project.capstone_design_2020.menu;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.hjhs_project.capstone_design_2020.Detector.DetectorActivity;
 import com.hjhs_project.capstone_design_2020.R;
+import com.hjhs_project.capstone_design_2020.login.Login;
 import com.hjhs_project.capstone_design_2020.myProfile.MyProfile;
 import com.hjhs_project.capstone_design_2020.notepad.NotePad;
 
@@ -89,6 +95,10 @@ public class Menu_main extends AppCompatActivity {
         bottom_navigator_toCamera;
         bottom_navigator_toProfile;*/
 
+
+
+
+
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigationView_main_menu);
         bottomNavigationView.setOnNavigationItemSelectedListener(
                 new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -114,8 +124,43 @@ public class Menu_main extends AppCompatActivity {
                     }
                 }
         );
+
+        Toolbar toolbar = findViewById(R.id.toolbar);                                               // 액션바 생성을 위한
+        setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayShowCustomEnabled(true);
+        actionBar.setDisplayShowTitleEnabled(false);//기본 제목을 없애줍니다.
+
+
     }
 
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.action_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.logout:
+                //select logout item
+                Intent intent = new Intent(this, Login.class);                       // 첫번째 액티비티로 인탠트를 설정
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);                                    // 스택에 남아있는 중간 액티비티 삭제
+                startActivity(intent);                                                              // 액티비티를 실행한다
+                finish();                                                                           // 현재 액티비티를 종료한다.
+                return true;
+
+            case android.R.id.home:
+                //select back button
+                finish();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
 
 
