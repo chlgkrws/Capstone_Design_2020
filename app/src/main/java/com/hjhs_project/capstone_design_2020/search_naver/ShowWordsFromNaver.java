@@ -323,6 +323,36 @@ public class ShowWordsFromNaver extends AppCompatActivity  implements Serializab
             }
         });
 
+
+        /*------------------------------바텀 네비게이션 액션--------------------------*/
+        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigationView_show_naver_word);
+        bottomNavigationView.setOnNavigationItemSelectedListener(
+                new BottomNavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                        switch (item.getItemId()){
+                            case R.id.bottom_bar_note:
+                                Intent intent = new Intent(ShowWordsFromNaver.this, NotePad.class);
+                                startActivity(intent);
+                                finish();
+                                return true;
+                            case R.id.bottom_bar_camera:
+                                Intent intent2 = new Intent(ShowWordsFromNaver.this, DetectorActivity.class);
+                                startActivity(intent2);
+                                finish();
+                                return true;
+                            case R.id.bottom_bar_profile:
+                                Intent intent3 = new Intent(ShowWordsFromNaver.this, MyProfile.class);
+                                startActivity(intent3);
+                                finish();
+                                return true;
+                        }
+
+
+                        return false;
+                    }
+                }
+        );
     }
 
     public void addNote(String user_id, String en_word, String kr_word, String en_sentence, String kr_sentence){
@@ -351,37 +381,8 @@ public class ShowWordsFromNaver extends AppCompatActivity  implements Serializab
         RequestQueue queue = Volley.newRequestQueue(ShowWordsFromNaver.this);                //하나만 설정
         queue.add(Addnote_request);
 
-
-
-
-
-        /*------------------------------바텀 네비게이션 액션--------------------------*/
-        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigationView_main_menu);
-        bottomNavigationView.setOnNavigationItemSelectedListener(
-                new BottomNavigationView.OnNavigationItemSelectedListener() {
-                    @Override
-                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                        switch (item.getItemId()){
-                            case R.id.bottom_bar_note:
-                                Intent intent = new Intent(ShowWordsFromNaver.this, NotePad.class);
-                                startActivity(intent);
-                                return true;
-                            case R.id.bottom_bar_camera:
-                                Intent intent2 = new Intent(ShowWordsFromNaver.this, DetectorActivity.class);
-                                startActivity(intent2);
-                                return true;
-                            case R.id.bottom_bar_profile:
-                                Intent intent3 = new Intent(ShowWordsFromNaver.this, MyProfile.class);
-                                startActivity(intent3);
-                                return true;
-                        }
-
-
-                        return false;
-                    }
-                }
-        );
     }
+
 
 
     /*핸들러 부분*/

@@ -278,7 +278,7 @@
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigationView_main_menu"
+        android:id="@+id/bottomNavigationView_show_naver_word"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:itemBackground="?attr/colorPrimary"
