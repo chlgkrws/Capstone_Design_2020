@@ -32,9 +32,9 @@ android:background="@drawable/back05"
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#fff"
-        android:textColorHint="#fff"
-        app:hintTextColor="#fff"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff"
+        app:hintTextColor="#ffffff"
         >
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="320dp"
@@ -54,9 +54,9 @@ android:background="@drawable/back05"
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#fff"
-        android:textColorHint="#fff"
-        app:hintTextColor="#fff"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff"
+        app:hintTextColor="#ffffff"
         android:layout_marginBottom="17dp">
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="320dp"
