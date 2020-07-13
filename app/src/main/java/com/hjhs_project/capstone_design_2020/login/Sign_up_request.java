@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Sign_up_request extends StringRequest {
-    final static private String URL = "http://stapl.iptime.org:10/runtoapp/register.php";
+    final static private String URL = "http://wolwoljin.iptime.org:10/runtoapp/register.php";
     private Map<String, String> map;
     public Sign_up_request( String sign_user_id, String sign_user_pass, String sign_user_name, int sign_user_age, Response.Listener<String> listener) {
         super(Method.POST, URL, listener,null);

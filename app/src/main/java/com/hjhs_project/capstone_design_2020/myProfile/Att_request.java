@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Att_request extends StringRequest {
-    final static private String URL ="http://stapl.iptime.org:10/runtoapp/checktheday.php";
+    final static private String URL ="http://wolwoljin.iptime.org:10/runtoapp/checktheday.php";
     private Map<String,String> map;
 
     public Att_request(String user_id, Response.Listener<String> listener) {
