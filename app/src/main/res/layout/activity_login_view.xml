@@ -22,7 +22,7 @@ android:paddingBottom="16dp"
         android:gravity="center"
         android:layout_gravity="center"
         android:text="LOGIN"
-        android:textSize="24sp"
+        android:textSize="23sp"
         android:layout_width="match_parent"
         android:textColor="@android:color/holo_blue_dark"
         />
