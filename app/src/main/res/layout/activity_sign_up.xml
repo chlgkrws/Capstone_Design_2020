@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:background="@drawable/back05"
     android:paddingTop="16dp"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="Sign_Up"
-            android:textColor="@android:color/holo_blue_dark"
+            android:textColor="#ffffff"
             android:textSize="24sp"
             android:layout_marginBottom="16dp"
             >
@@ -32,11 +32,15 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp">
+            android:layout_marginBottom="16dp"
+            android:textColorHint="#ffffff">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:hint="이메일"
+                android:textColor="#ffffff"
+
+                android:inputType="textShortMessage"
                 android:id="@+id/sign_up_user_id"
                 >
             </com.google.android.material.textfield.TextInputEditText>
@@ -45,11 +49,14 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp">
+            android:layout_marginBottom="16dp"
+            android:textColorHint="#ffffff">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:hint="비밀번호"
+                android:textColor="#ffffff"
+                android:inputType="textShortMessage"
                 android:id="@+id/sign_up_user_pass"
                 >
             </com.google.android.material.textfield.TextInputEditText>
@@ -58,11 +65,14 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp">
+            android:layout_marginBottom="16dp"
+            android:textColorHint="#ffffff">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:hint="이름"
+                android:textColor="#ffffff"
+                android:inputType="textShortMessage"
                 android:id="@+id/sign_up_user_name"
                 >
             </com.google.android.material.textfield.TextInputEditText>
@@ -71,11 +81,14 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp">
+            android:layout_marginBottom="16dp"
+            android:textColorHint="#ffffff">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:hint="나이"
+                android:textColor="#ffffff"
+                android:inputType="number"
                 android:id="@+id/sign_up_user_age"
                 >
             </com.google.android.material.textfield.TextInputEditText>
@@ -90,26 +103,26 @@
             >
 
             <Button
-                android:id="@+id/Button_sign_up"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="5"
-                android:background="@color/colorPrimary"
-                android:gravity="center"
-                android:text="가입"
-                android:textSize="24sp"></Button>
-
-            <Button
                 android:id="@+id/Button_back_to_main"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="5"
+                android:background="#75eeeeee"
                 android:gravity="center"
-                android:background="#ffffff"
-
                 android:text="취소"
+                android:textSize="15dp"></Button>
+
+            <Button
+                android:id="@+id/Button_sign_up"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:gravity="center"
+                android:background="#fff"
+
+                android:text="가입"
                 android:textColor="@android:color/holo_blue_dark"
-                android:textSize="24sp">
+                android:textSize="15dp">
 
             </Button>
         </LinearLayout>
