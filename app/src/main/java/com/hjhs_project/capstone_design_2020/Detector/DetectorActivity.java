@@ -222,15 +222,15 @@ public class DetectorActivity extends com.hjhs_project.capstone_design_2020.Dete
 
             computingDetection = false;
 
-            runOnUiThread(
+            /*runOnUiThread(
                 new Runnable() {
                   @Override
                   public void run() {
-                    showFrameInfo(previewWidth + "x" + previewHeight);
-                    showCropInfo(cropCopyBitmap.getWidth() + "x" + cropCopyBitmap.getHeight());
+                    //showFrameInfo(previewWidth + "x" + previewHeight);
+                    //showCropInfo(cropCopyBitmap.getWidth() + "x" + cropCopyBitmap.getHeight());
                     showInference(lastProcessingTimeMs + "ms");
                   }
-                });
+                });*/
           }
         });
   }

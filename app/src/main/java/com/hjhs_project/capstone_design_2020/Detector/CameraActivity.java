@@ -38,21 +38,16 @@ import android.os.Trace;
 import android.util.Size;
 import android.view.Surface;
 import android.view.View;
-import android.view.ViewTreeObserver;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CompoundButton;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.appcompat.widget.Toolbar;
 
-import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.hjhs_project.capstone_design_2020.R;
 
 import java.nio.ByteBuffer;
@@ -80,13 +75,13 @@ public abstract class CameraActivity extends AppCompatActivity
   private Runnable postInferenceCallback;
   private Runnable imageConverter;
 
-  private LinearLayout bottomSheetLayout;
-  private LinearLayout gestureLayout;
-  private BottomSheetBehavior<LinearLayout> sheetBehavior;
+  //private LinearLayout bottomSheetLayout;
+  //private LinearLayout gestureLayout;
+  //private BottomSheetBehavior<LinearLayout> sheetBehavior;
 
   protected TextView frameValueTextView, cropValueTextView, inferenceTimeTextView;
-  protected ImageView bottomSheetArrowImageView;
-  private ImageView plusImageView, minusImageView;
+  //protected ImageView bottomSheetArrowImageView;
+  //private ImageView plusImageView, minusImageView;
   private SwitchCompat apiSwitchCompat;
   private TextView threadsTextView;
 
@@ -137,15 +132,15 @@ public abstract class CameraActivity extends AppCompatActivity
 
 
     threadsTextView = findViewById(R.id.threads);
-    plusImageView = findViewById(R.id.plus);
-    minusImageView = findViewById(R.id.minus);
+    //plusImageView = findViewById(R.id.plus);
+    //minusImageView = findViewById(R.id.minus);
     apiSwitchCompat = findViewById(R.id.api_info_switch);
-    bottomSheetLayout = findViewById(R.id.bottom_sheet_layout);
-    gestureLayout = findViewById(R.id.gesture_layout);
-    sheetBehavior = BottomSheetBehavior.from(bottomSheetLayout);
-    bottomSheetArrowImageView = findViewById(R.id.bottom_sheet_arrow);
+    //bottomSheetLayout = findViewById(R.id.bottom_sheet_layout);
+    //gestureLayout = findViewById(R.id.gesture_layout);
+    //sheetBehavior = BottomSheetBehavior.from(bottomSheetLayout);
+    //bottomSheetArrowImageView = findViewById(R.id.bottom_sheet_arrow);
 
-    ViewTreeObserver vto = gestureLayout.getViewTreeObserver();
+    /*ViewTreeObserver vto = gestureLayout.getViewTreeObserver();
     vto.addOnGlobalLayoutListener(
         new ViewTreeObserver.OnGlobalLayoutListener() {
           @Override
@@ -158,12 +153,12 @@ public abstract class CameraActivity extends AppCompatActivity
             //                int width = bottomSheetLayout.getMeasuredWidth();
             int height = gestureLayout.getMeasuredHeight();
 
-            sheetBehavior.setPeekHeight(height);
+            //sheetBehavior.setPeekHeight(height);
           }
-        });
-    sheetBehavior.setHideable(false);
+        });*/
+    //sheetBehavior.setHideable(false);
 
-    sheetBehavior.setBottomSheetCallback(
+   /* sheetBehavior.setBottomSheetCallback(
         new BottomSheetBehavior.BottomSheetCallback() {
           @Override
           public void onStateChanged(@NonNull View bottomSheet, int newState) {
@@ -190,16 +185,16 @@ public abstract class CameraActivity extends AppCompatActivity
 
           @Override
           public void onSlide(@NonNull View bottomSheet, float slideOffset) {}
-        });
+        });*/
 
     frameValueTextView = findViewById(R.id.frame_info);
     cropValueTextView = findViewById(R.id.crop_info);
     inferenceTimeTextView = findViewById(R.id.inference_info);
 
-    apiSwitchCompat.setOnCheckedChangeListener(this);
+    //apiSwitchCompat.setOnCheckedChangeListener(this);
 
-    plusImageView.setOnClickListener(this);
-    minusImageView.setOnClickListener(this);
+    //plusImageView.setOnClickListener(this);
+    //minusImageView.setOnClickListener(this);
   }
 
   protected int[] getRgbBytes() {
@@ -560,13 +555,13 @@ public abstract class CameraActivity extends AppCompatActivity
     }
   }
 
-  protected void showFrameInfo(String frameInfo) {
+  /*protected void showFrameInfo(String frameInfo) {
     frameValueTextView.setText(frameInfo);
-  }
+  }*/
 
-  protected void showCropInfo(String cropInfo) {
+  /*protected void showCropInfo(String cropInfo) {
     cropValueTextView.setText(cropInfo);
-  }
+  }*/
 
   protected void showInference(String inferenceTime) {
     inferenceTimeTextView.setText(inferenceTime);

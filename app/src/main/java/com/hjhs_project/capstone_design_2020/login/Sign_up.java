@@ -42,16 +42,16 @@ public class Sign_up extends AppCompatActivity {
                 int sign_age = Integer.parseInt(sign_up_user_age.getText().toString());
 
 
-                String idPolicy = "^[_a-zA-Z0-9-\\.]+@[\\.a-zA-Z0-9-]+\\.[a-zA-Z]+$";               // 아이디 정규형 영문@영문.영문 형태
+                String idPolicy = "^[_a-zA-Z0-9-\\.]+@[\\.a-zA-Z0-9-]+\\.[a-zA-Z]+$";               // 아이디 정규식 영문@영문.영문 형태
                 Boolean id_pattern = Pattern.matches(idPolicy, sign_id);
 
-                String passwordPolicy = "((?=.*[a-z])(?=.*[0-9])(?=.*[^a-zA-Z0-9]).{6,})";          // 비밀번호 정규형 영문, 숫자, 특수문자 6글자 이상의 형태
+                String passwordPolicy = "((?=.*[a-z])(?=.*[0-9])(?=.*[^a-zA-Z0-9]).{6,})";          // 비밀번호 정규식 영문, 숫자, 특수문자 6글자 이상의 형태
                 Boolean password_pattern = Pattern.matches(passwordPolicy, sign_pass);
 
-                String namePolicy = "^[가-힣]*$";                                                   // 이름 정규형 한글형태
+                String namePolicy = "^[가-힣]*$";                                                   // 이름 정규식 한글형태
                 Boolean name_pattern = Pattern.matches(namePolicy, sign_name);
 
-                String agePolicy = "^[0-9]+$";                                                      // 나이 정규형 숫자형태
+                String agePolicy = "^[0-9]+$";                                                      // 나이 정규식 숫자형태
                 Boolean age_pattern = Pattern.matches(agePolicy, String.valueOf(sign_age));
 
 
@@ -105,9 +105,13 @@ public class Sign_up extends AppCompatActivity {
         Button_back_to_main.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Sign_up.this, Login.class);
-                startActivity(intent);
+                finish();
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
     }
 }

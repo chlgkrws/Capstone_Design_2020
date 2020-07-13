@@ -48,9 +48,7 @@
 
     </RelativeLayout>
 
-    <include
-        android:id="@+id/bottom_sheet_layout"
-        layout="@layout/tfe_od_layout_bottom_sheet" />
+
     <Button
         android:layout_width="150dp"
         android:layout_height="70dp"

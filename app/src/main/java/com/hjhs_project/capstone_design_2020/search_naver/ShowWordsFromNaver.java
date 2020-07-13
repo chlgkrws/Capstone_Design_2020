@@ -1,5 +1,6 @@
 package com.hjhs_project.capstone_design_2020.search_naver;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -46,6 +47,7 @@ public class ShowWordsFromNaver extends AppCompatActivity  implements Serializab
     TextView kr_sentence1, kr_sentence2, kr_sentence3, kr_sentence4, kr_sentence5;
     Button button_sentence1, button_sentence2, button_sentence3, button_sentence4, button_sentence5;
     Button button_push;
+    Button button_refresh;
     String user_id;
 
     @Override
@@ -81,12 +83,23 @@ public class ShowWordsFromNaver extends AppCompatActivity  implements Serializab
         kr_sentence5 = findViewById(R.id.kr_sentence5);
 
         button_push = findViewById(R.id.changeView);
+        button_refresh = findViewById(R.id.button_refresh);
 
         button_sentence1 = findViewById(R.id.Button_sentence1);
         button_sentence2 = findViewById(R.id.Button_sentence2);
         button_sentence3 = findViewById(R.id.Button_sentence3);
         button_sentence4 = findViewById(R.id.Button_sentence4);
         button_sentence5 = findViewById(R.id.Button_sentence5);
+
+        /*---------------------------------------새로고침-------------------------------------------*/
+        button_refresh.setClickable(true);
+        button_refresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                recreate();         //화면이 깜빡거리므로 intent
+
+            }
+        });
 
         /*-----------------------------------------단어 별 스레드-----------------------------------*/
         for(int i = 0; i < N; i++){
@@ -112,7 +125,11 @@ public class ShowWordsFromNaver extends AppCompatActivity  implements Serializab
                         }
 
                         for (int j = 0; j < 5; j++){
-                            nums += contents.get(rand_int[j]).text() +"&&"+ contents2.get(rand_int[j]).text() +"\n";        //&&을 구분자로 둬서 (,은 문장에 있을 수 있음) split에 활용
+                            if(contents2.get(rand_int[j]).text().substring(0,6).equals("이용자 참여")){
+                                nums += contents.get(rand_int[j]).text() +"&&"+ contents2.get(rand_int[j]).text().split("\\.")[2] +".\n";
+                            }else {
+                                nums += contents.get(rand_int[j]).text() + "&&" + contents2.get(rand_int[j]).text() + "\n";        //영어+&&+해석을 구분자로 둬서 (,은 문장에 있을 수 있음) split에 활용
+                            }
                         }
 
 //                        for (int j = 0; j < 5; j++){
@@ -386,6 +403,7 @@ public class ShowWordsFromNaver extends AppCompatActivity  implements Serializab
 
 
     /*핸들러 부분*/
+    @SuppressLint("HandlerLeak")
     Handler handler = new Handler(){
         @Override
         public void handleMessage(Message msg) {
