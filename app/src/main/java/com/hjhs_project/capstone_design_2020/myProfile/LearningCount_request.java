@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class LearningCount_request extends StringRequest {
 
-    final static private String URL ="http://wolwoljin.iptime.org:10/runtoapp/LearningCount.php";
+    final static private String URL ="http://stapl.iptime.org:10/runtoapp/LearningCount.php";
     private Map<String,String> map;
 
     public LearningCount_request(String user_id, Response.Listener<String> listener) {

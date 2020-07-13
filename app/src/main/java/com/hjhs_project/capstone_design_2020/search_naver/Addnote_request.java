@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Addnote_request extends StringRequest {
-    final static private String URL ="http://wolwoljin.iptime.org:10/runtoapp/addnote.php";
+    final static private String URL ="http://stapl.iptime.org:10/runtoapp/addnote.php";
     private Map<String,String> map;
 
     public Addnote_request(String user_id, String en_word, String kr_word, String en_sentence, String kr_sentence, Response.Listener<String> listener) {
