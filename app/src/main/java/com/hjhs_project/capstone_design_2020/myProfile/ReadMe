@@ -1,0 +1,5 @@
+Att_request - 출석횟수를 request하는 request 클래스
+LearningCount_request - 학습단어, 예문의 개수를 가져오는 클래스
+Rank_request - 전체 사용자 중 자신의 랭킹을 가져옴
+Tier_request - 전체 비율을 통해 자신의 티어를 넣기 위한 클래스
+MyProfile - 전체 Volley 요청을 처리하는 main. acitivy_myprofile을 담당.

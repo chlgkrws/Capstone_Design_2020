@@ -18,4 +18,12 @@
         android:textSize="24sp"
         android:gravity="center"
         />
+
+    <Button
+        android:id="@+id/to_learn"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:text="Button to learn"
+        android:clickable="true"
+        ></Button>
 </LinearLayout>

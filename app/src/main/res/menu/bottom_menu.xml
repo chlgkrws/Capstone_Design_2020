@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/bottom_bar_note"
+        android:icon="@drawable/notepad_icon_menu"
+        android:title="Note"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/bottom_bar_camera"
+        android:icon="@drawable/camera_icon_menu"
+        android:title="Camera"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/bottom_bar_profile"
+        android:icon="@drawable/profile_icon_menu"
+        android:title="Profile"
+        app:showAsAction="ifRoom"/>
+</menu>

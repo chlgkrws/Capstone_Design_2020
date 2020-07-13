@@ -32,8 +32,6 @@ import android.util.TypedValue;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.hjhs_project.capstone_design_2020.R;
-
 import com.hjhs_project.capstone_design_2020.Detector.customview.OverlayView;
 import com.hjhs_project.capstone_design_2020.Detector.customview.OverlayView.DrawCallback;
 import com.hjhs_project.capstone_design_2020.Detector.env.BorderedText;
@@ -42,6 +40,7 @@ import com.hjhs_project.capstone_design_2020.Detector.env.Logger;
 import com.hjhs_project.capstone_design_2020.Detector.tflite.Classifier;
 import com.hjhs_project.capstone_design_2020.Detector.tflite.TFLiteObjectDetectionAPIModel;
 import com.hjhs_project.capstone_design_2020.Detector.tracking.MultiBoxTracker;
+import com.hjhs_project.capstone_design_2020.R;
 
 import java.io.IOException;
 import java.util.LinkedList;
@@ -51,7 +50,7 @@ import java.util.List;
  * An activity that uses a TensorFlowMultiBoxDetector and ObjectTracker to detect and then track
  * objects.
  */
-public class DetectorActivity extends com.hjhs_project.capstone_design_2020.Detector.CameraActivity implements OnImageAvailableListener {
+public class DetectorActivity extends com.hjhs_project.capstone_design_2020.Detector.CameraActivity  implements OnImageAvailableListener {
   private static final Logger LOGGER = new Logger();
 
   // Configuration values for the prepackaged SSD model.

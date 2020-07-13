@@ -19,43 +19,45 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#00000000">
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:id="@+id/Button_click"
-        android:clickable="true"
-        ></Button>
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@android:color/black"
         android:orientation="vertical">
 
 
-        <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools"
+        <FrameLayout
             android:id="@+id/container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context="org.tensorflow.demo.CameraActivity" />
+            tools:context="org.tensorflow.demo.CameraActivity" >
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:layout_alignParentTop="true"
-            android:background="@color/tfe_semi_transparent">
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/tfe_semi_transparent">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/tfl2_logo" />
-        </androidx.appcompat.widget.Toolbar>
+                <!--<ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/tfl2_logo" />-->
+            </androidx.appcompat.widget.Toolbar>
+        </FrameLayout>
 
     </RelativeLayout>
 
     <include
         android:id="@+id/bottom_sheet_layout"
         layout="@layout/tfe_od_layout_bottom_sheet" />
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="70dp"
+        android:id="@+id/Button_click"
+        android:clickable="true"
+        android:text="Take a picture"
+        android:layout_gravity="center|bottom"
+
+        ></Button>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
