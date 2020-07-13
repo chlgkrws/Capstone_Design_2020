@@ -39,7 +39,6 @@
                 android:layout_height="50dp"
                 android:hint="이메일"
                 android:textColor="#ffffff"
-
                 android:inputType="textShortMessage"
                 android:id="@+id/sign_up_user_id"
                 >

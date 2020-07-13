@@ -77,7 +77,7 @@ public class NotePad extends AppCompatActivity {
                         recyclerview.setAdapter(new ExpandableListAdapter(data));
 
                     }else{
-                        Toast.makeText(getApplicationContext(),"10099 오류",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),"단어를 공부해보세요!",Toast.LENGTH_SHORT).show();
                     }
                 } catch (JSONException e) {
                     Toast.makeText(getApplicationContext(),"10100 오류 (통신)",Toast.LENGTH_SHORT).show();
