@@ -16,6 +16,7 @@
             android:paddingTop="60dp"
             android:paddingRight="20dp"
             android:paddingLeft="20dp"
+            android:elevation="10dp"
             >
 
             <TextView

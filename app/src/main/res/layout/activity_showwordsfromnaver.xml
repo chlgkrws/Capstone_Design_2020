@@ -16,7 +16,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="675dp"
-            android:layout_gravity="top"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -24,7 +23,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginBottom="20dp">
                 <!--단어-->
                 <TextView
                     android:id="@+id/word"
@@ -33,6 +33,7 @@
                     android:gravity="center"
                     android:paddingLeft="10dp"
                     android:text="단어"
+                    android:fontFamily="@font/dohyeon"
                     android:textSize="25sp" />
 
                 <TextView
@@ -42,22 +43,22 @@
                     android:layout_marginLeft="10dp"
                     android:gravity="center_vertical"
                     android:text=": 뜻"
+                    android:fontFamily="@font/nanumsquareroundr"
                     android:textSize="20sp" />
 
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_margin="15dp"
-                android:background="@drawable/line" />
 
+
+            <!--예문 박스-->
             <ScrollView
-                android:layout_width="match_parent"
+                android:layout_width="400dp"
                 android:layout_height="451dp"
                 android:layout_marginTop="10dp"
-                android:background="#F8F6F6">
+                android:elevation="10dp"
+                android:background="@drawable/radiusrec"
+                android:padding="10dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -72,7 +73,7 @@
                         >
 
                         <LinearLayout
-                            android:layout_width="350dp"
+                            android:layout_width="320dp"
                             android:layout_height="match_parent"
                             android:orientation="vertical">
 
@@ -83,6 +84,7 @@
                                 android:layout_marginLeft="4dp"
                                 android:gravity="center_vertical"
                                 android:text="예문1"
+                                android:fontFamily="@font/nanumsquareroundr"
                                 android:textSize="20sp"></TextView>
 
                             <TextView
@@ -92,6 +94,7 @@
                                 android:layout_marginLeft="4dp"
                                 android:gravity="top"
                                 android:text="해석1"
+                                android:fontFamily="@font/nanumsquareroundr"
                                 android:textSize="@dimen/kr_sentence"></TextView>
                         </LinearLayout>
 
@@ -114,7 +117,7 @@
                         >
 
                         <LinearLayout
-                            android:layout_width="350dp"
+                            android:layout_width="320dp"
                             android:layout_height="match_parent"
                             android:orientation="vertical">
 
@@ -125,6 +128,7 @@
                                 android:layout_marginLeft="4dp"
                                 android:gravity="center_vertical"
                                 android:text="예문2"
+                                android:fontFamily="@font/nanumsquareroundr"
                                 android:textSize="20sp"></TextView>
 
                             <TextView
@@ -134,6 +138,7 @@
                                 android:layout_marginLeft="4dp"
                                 android:gravity="top"
                                 android:text="해석"
+                                android:fontFamily="@font/nanumsquareroundr"
                                 android:textSize="@dimen/kr_sentence"></TextView>
                         </LinearLayout>
 
@@ -155,7 +160,7 @@
                         >
 
                         <LinearLayout
-                            android:layout_width="350dp"
+                            android:layout_width="320dp"
                             android:layout_height="match_parent"
                             android:orientation="vertical">
 
@@ -166,6 +171,7 @@
                                 android:layout_marginLeft="4dp"
                                 android:gravity="center_vertical"
                                 android:text="예문3"
+                                android:fontFamily="@font/nanumsquareroundr"
                                 android:textSize="20sp"></TextView>
 
                             <TextView
@@ -175,6 +181,7 @@
                                 android:layout_marginLeft="4dp"
                                 android:gravity="top"
                                 android:text="해석"
+                                android:fontFamily="@font/nanumsquareroundr"
                                 android:textSize="@dimen/kr_sentence"></TextView>
                         </LinearLayout>
 
@@ -196,7 +203,7 @@
                         >
 
                         <LinearLayout
-                            android:layout_width="350dp"
+                            android:layout_width="320dp"
                             android:layout_height="match_parent"
                             android:orientation="vertical">
 
@@ -207,6 +214,7 @@
                                 android:layout_marginLeft="4dp"
                                 android:gravity="center_vertical"
                                 android:text="예문4"
+                                android:fontFamily="@font/nanumsquareroundr"
                                 android:textSize="20sp"></TextView>
 
                             <TextView
@@ -216,6 +224,7 @@
                                 android:layout_marginLeft="4dp"
                                 android:gravity="top"
                                 android:text="해석"
+                                android:fontFamily="@font/nanumsquareroundr"
                                 android:textSize="@dimen/kr_sentence"></TextView>
                         </LinearLayout>
 
@@ -237,7 +246,7 @@
                         >
 
                         <LinearLayout
-                            android:layout_width="350dp"
+                            android:layout_width="320dp"
                             android:layout_height="match_parent"
                             android:orientation="vertical">
 
@@ -248,6 +257,7 @@
                                 android:layout_marginLeft="4dp"
                                 android:gravity="center_vertical"
                                 android:text="예문5"
+                                android:fontFamily="@font/nanumsquareroundr"
                                 android:textSize="20sp"></TextView>
 
                             <TextView
@@ -257,12 +267,13 @@
                                 android:layout_marginLeft="4dp"
                                 android:gravity="top"
                                 android:text="해석"
+                                android:fontFamily="@font/nanumsquareroundr"
                                 android:textSize="@dimen/kr_sentence"></TextView>
                         </LinearLayout>
 
                         <Button
                             android:id="@+id/Button_sentence5"
-                            android:layout_width="23dp"
+                            android:layout_width="25dp"
                             android:layout_height="25dp"
                             android:layout_gravity="center_vertical"
                             android:layout_marginLeft="15dp"
@@ -274,7 +285,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="30dp"
                 android:orientation="horizontal">
                 <!--새로고침 버튼-->
                 <Button
@@ -295,6 +306,8 @@
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_marginLeft="60dp"
+                    android:background="@drawable/radiusrec"
+                    android:elevation="5dp"
                     android:layout_marginBottom="2dp"
                     android:clickable="true"
                     android:text="NEXT word"
