@@ -3,18 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-<<<<<<< Updated upstream
-=======
-    android:background="@color/lightyellow"
-    android:orientation="vertical"
->>>>>>> Stashed changes
 
     android:paddingTop="16dp"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingBottom="16dp"
     >
-<<<<<<< Updated upstream
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -32,16 +26,6 @@
             android:textColor="@android:color/holo_blue_dark"
             android:textSize="24sp"
             android:layout_marginBottom="16dp"
-=======
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="700dp"
-            android:orientation="vertical"
-            android:background="@drawable/radiusrec"
-            android:layout_margin="15dp"
-            android:paddingTop="50dp"
-            android:padding="30dp"
->>>>>>> Stashed changes
             >
         </TextView>
 
@@ -51,19 +35,9 @@
             android:layout_marginBottom="16dp">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-<<<<<<< Updated upstream
                 android:layout_height="50dp"
                 android:hint="이메일"
                 android:id="@+id/sign_up_user_id"
-=======
-                android:layout_height="40dp"
-                android:text="회원가입"
-                android:fontFamily="@font/nanumsquareroundr"
-                android:textColor="#000"
-                android:textSize="23sp"
-                android:layout_marginBottom="70dp"
-                android:gravity="center"
->>>>>>> Stashed changes
                 >
             </com.google.android.material.textfield.TextInputEditText>
         </com.google.android.material.textfield.TextInputLayout>
@@ -129,7 +103,6 @@
                 android:id="@+id/Button_back_to_main"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-<<<<<<< Updated upstream
                 android:layout_weight="5"
                 android:gravity="center"
                 android:background="#ffffff"
@@ -140,43 +113,8 @@
 
             </Button>
         </LinearLayout>
-=======
-                android:orientation="horizontal"
-                android:weightSum="10"
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="20dp"
-                android:paddingTop="30dp"
-                >
-
-                <Button
-                    android:id="@+id/Button_back_to_main"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="5"
-                    android:background="#75eeeeee"
-                    android:gravity="center"
-                    android:text="취소"
-                    android:fontFamily="@font/nanumsquareroundr"
-                    android:textSize="15dp"></Button>
-
-                <Button
-                    android:id="@+id/Button_sign_up"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="5"
-                    android:gravity="center"
-                    android:background="@color/lightyellow"
-                    android:fontFamily="@font/nanumsquareroundr"
-                    android:text="가입"
-                    android:textColor="#000000"
-                    android:textSize="15dp">
->>>>>>> Stashed changes
 
     </LinearLayout>
 
-<<<<<<< Updated upstream
 
-=======
-        </LinearLayout>
->>>>>>> Stashed changes
 </LinearLayout>

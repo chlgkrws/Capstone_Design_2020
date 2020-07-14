@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-<<<<<<< Updated upstream
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -14,60 +13,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-=======
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:menu="@menu/action_menu">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="STAPL"
-            android:textSize="20dp"></TextView>
-    </androidx.appcompat.widget.Toolbar>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="70dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="70dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_margin="20dp">
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="오늘의 예문같은거 넣기">
->>>>>>> Stashed changes
-
-            </TextView>
-        </LinearLayout>
+    </TextView>
 
 
-<<<<<<< Updated upstream
-=======
-    </LinearLayout>
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigationView_main_menu"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:itemBackground="@color/lightblue"
-        app:itemIconTint="@android:color/white"
-        app:itemTextColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/bottom_menu"
-        tools:ignore="MissingConstraints" />
->>>>>>> Stashed changes
 
 
 
