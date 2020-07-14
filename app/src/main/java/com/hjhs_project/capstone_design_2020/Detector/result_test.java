@@ -37,8 +37,10 @@ public class result_test extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(result_test.this, ShowWordsFromNaver.class);
+
                 intent.putExtra("words", s);
                 startActivity(intent);
+                finish();
             }
         });
 

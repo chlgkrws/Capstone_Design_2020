@@ -50,6 +50,7 @@ public class ShowWordsFromNaver extends AppCompatActivity  implements Serializab
     Button button_refresh;
     String user_id;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -351,7 +352,7 @@ public class ShowWordsFromNaver extends AppCompatActivity  implements Serializab
                             case R.id.bottom_bar_note:
                                 Intent intent = new Intent(ShowWordsFromNaver.this, NotePad.class);
                                 startActivity(intent);
-                                finish();
+
                                 return true;
                             case R.id.bottom_bar_camera:
                                 Intent intent2 = new Intent(ShowWordsFromNaver.this, DetectorActivity.class);
@@ -361,7 +362,7 @@ public class ShowWordsFromNaver extends AppCompatActivity  implements Serializab
                             case R.id.bottom_bar_profile:
                                 Intent intent3 = new Intent(ShowWordsFromNaver.this, MyProfile.class);
                                 startActivity(intent3);
-                                finish();
+
                                 return true;
                         }
 
@@ -370,6 +371,8 @@ public class ShowWordsFromNaver extends AppCompatActivity  implements Serializab
                     }
                 }
         );
+
+
     }
 
     public void addNote(String user_id, String en_word, String kr_word, String en_sentence, String kr_sentence){
@@ -445,6 +448,13 @@ public class ShowWordsFromNaver extends AppCompatActivity  implements Serializab
             index++;                                                // 한 화면 데이터
         }
     };
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(ShowWordsFromNaver.this, DetectorActivity.class);
+        startActivity(intent);
+        finish();
+    }
 }
 
 

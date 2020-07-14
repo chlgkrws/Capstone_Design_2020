@@ -33,13 +33,22 @@ public class Sign_up extends AppCompatActivity {
 
         Button_sign_up = findViewById(R.id.Button_sign_up);
         Button_back_to_main = findViewById(R.id.Button_back_to_main);
+
         Button_sign_up.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 String sign_id = sign_up_user_id.getText().toString();
                 String sign_pass = sign_up_user_pass.getText().toString();
                 String sign_name = sign_up_user_name.getText().toString();
+                if(sign_up_user_age.getText().toString().equals("")){
+                    Toast.makeText(getApplicationContext(), "양식에 맞춰 기입해주세요.",Toast.LENGTH_SHORT).show();
+                   return;
+                }
                 int sign_age = Integer.parseInt(sign_up_user_age.getText().toString());
+
+
+
 
 
                 String idPolicy = "^[_a-zA-Z0-9-\\.]+@[\\.a-zA-Z0-9-]+\\.[a-zA-Z]+$";               // 아이디 정규식 영문@영문.영문 형태

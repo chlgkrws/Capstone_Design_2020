@@ -114,15 +114,19 @@ public abstract class CameraActivity extends AppCompatActivity
     button_click.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
-        Toast.makeText(getApplicationContext(), com.hjhs_project.capstone_design_2020.Detector.tracking.MultiBoxTracker.getGetWords().toString()
-                ,Toast.LENGTH_SHORT).show();
+        /*Toast.makeText(getApplicationContext(), com.hjhs_project.capstone_design_2020.Detector.tracking.MultiBoxTracker.getGetWords().toString()
+                ,Toast.LENGTH_SHORT).show();*/
 
+        if(com.hjhs_project.capstone_design_2020.Detector.tracking.MultiBoxTracker.getGetWords().toString().equals("[]")){
+          Toast.makeText(getApplicationContext(),"단어를 인식 시켜주세요.",Toast.LENGTH_SHORT).show();
+          return;
+        }
         Intent intent = new Intent(CameraActivity.this, result_test.class);
         //getFragmentManager().beginTransaction().replace(R.id.resultImage, getFragment_intent()).commit();
         Bundle bundle = new Bundle();
         intent.putExtra("value", com.hjhs_project.capstone_design_2020.Detector.tracking.MultiBoxTracker.getGetWords().toString());
         startActivity(intent);
-
+        finish();
       }
 
 
