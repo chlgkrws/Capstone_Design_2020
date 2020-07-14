@@ -12,16 +12,18 @@
     android:layout_height="wrap_content">
     <TextView
         android:id="@+id/header_title"
-        android:textColor="#045CB1"
+        android:textColor="#000000"
         android:textSize="24sp"
+        android:fontFamily="@font/nanumsquareroundr"
         android:gravity="center_vertical"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"/>
     <ImageView
         android:id="@+id/btn_expand_toggle"
-        android:src="@drawable/circle_plus"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_weight="0"/>
+        android:src="@drawable/plus"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_weight="0"
+        android:layout_marginRight="30dp"/>
 </LinearLayout>

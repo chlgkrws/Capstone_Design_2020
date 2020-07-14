@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:gravity="bottom">
 
     <ImageView
         android:layout_width="match_parent"
@@ -12,18 +13,26 @@
 
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:id="@+id/resultText"
-        android:textSize="24sp"
+        android:layout_gravity="center"
+        android:textSize="20sp"
+        android:fontFamily="@font/nanumsquareroundr"
         android:gravity="center"
+        android:background="@drawable/radiusrec"
+        android:elevation="10dp"
+        android:padding="20dp"
+        android:layout_margin="20dp"
+
         />
 
     <Button
         android:id="@+id/to_learn"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:text="Button to learn"
+        android:layout_height="80dp"
+        android:text="to learn"
+        android:background="@drawable/whiteback"
         android:clickable="true"
         ></Button>
 </LinearLayout>

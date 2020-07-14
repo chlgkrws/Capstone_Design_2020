@@ -4,14 +4,16 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:padding="16dp"
-    tools:context=".notepad.NotePad">
+
+    tools:context=".notepad.NotePad"
+    android:background="@color/lightblue">
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:text="Notepad"
         android:textSize="30sp"
+        android:fontFamily="@font/dohyeon"
         android:layout_margin="30dp"
         />
 
@@ -19,6 +21,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/recyclerview"
+        android:background="@drawable/radiusrec"
+        android:layout_margin="20dp"
+        android:padding="10dp"
+        android:elevation="10dp"
         >
     </androidx.recyclerview.widget.RecyclerView>
 
