@@ -3,22 +3,19 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFAFDA0"
+    android:background="@color/lightyellow"
     android:orientation="vertical"
 
     >
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="700dp"
             android:orientation="vertical"
             android:background="@drawable/radiusrec"
             android:layout_margin="15dp"
-            android:paddingTop="100dp"
-            android:paddingLeft="30dp"
-            android:paddingRight="15dp"
+            android:paddingTop="60dp"
+            android:paddingRight="20dp"
+            android:paddingLeft="20dp"
             >
 
             <TextView
@@ -131,8 +128,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:weightSum="10"
-                android:paddingTop="30dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="35dp"
                 android:layout_marginBottom="20dp"
                 >
 
@@ -144,6 +140,7 @@
                     android:background="#75eeeeee"
                     android:gravity="center"
                     android:text="취소"
+                    android:fontFamily="@font/nanumsquareroundr"
                     android:textSize="15dp"></Button>
 
                 <Button
@@ -152,9 +149,9 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="5"
                     android:gravity="center"
-                    android:background="#FFFAFDA0"
-
+                    android:background="@color/lightyellow"
                     android:text="가입"
+                    android:fontFamily="@font/nanumsquareroundr"
                     android:textColor="#000000"
                     android:textSize="15dp">
 
@@ -163,5 +160,4 @@
 
         </LinearLayout>
 
-    </ScrollView>
 </LinearLayout>
