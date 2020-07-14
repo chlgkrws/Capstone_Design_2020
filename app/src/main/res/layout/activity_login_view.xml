@@ -118,7 +118,8 @@
             android:clickable="true"
             android:text="Sign_Up"
             android:textColor="@color/lightblue"
-            android:textSize="13dp">
+            android:textSize="13dp"
+            style="@style/Widget.AppCompat.Button.Borderless">
 
 
         </Button>
