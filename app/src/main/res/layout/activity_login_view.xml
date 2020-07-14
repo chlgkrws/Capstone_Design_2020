@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FAFDA0"
+    android:background="#EBF138"
     android:gravity="bottom"
     android:orientation="vertical"
     android:paddingLeft="16dp"
@@ -25,11 +25,10 @@
             android:layout_width="110dp"
             android:layout_height="110dp"
             android:layout_gravity="center"
-            android:layout_marginBottom="25dp"
             android:layout_marginTop="10dp"
+            android:layout_marginBottom="25dp"
             android:background="@drawable/logo"
-            android:backgroundTint="#fcf2ef"
-            ></ImageView>
+            android:backgroundTint="#fcf2ef"></ImageView>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -47,8 +46,7 @@
                 android:gravity="left|center"
                 android:hint="Email"
                 android:inputType="textEmailAddress"
-                android:textColor="#ffffff"
-
+                android:textColor="#000000"
                 android:textSize="13sp"
 
                 ></com.google.android.material.textfield.TextInputEditText>
@@ -71,7 +69,7 @@
                 android:gravity="left|center"
                 android:hint="Password"
                 android:inputType="textPassword"
-                android:textColor="#ffffff"
+                android:textColor="#000000"
                 android:textSize="13dp"></com.google.android.material.textfield.TextInputEditText>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -84,8 +82,8 @@
             android:background="@drawable/rectangle"
             android:clickable="true"
             android:text="Log_in"
-            android:textSize="14dp"
-            android:textColor="#000" />
+            android:textColor="#000"
+            android:textSize="14dp" />
 
 
     </LinearLayout>
@@ -95,21 +93,23 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="150dp"
         android:gravity="center"
-        android:paddingBottom="50dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingBottom="50dp">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="사용할 계정이 없으신가요?"
+            android:layout_marginBottom="4dp"
             android:gravity="center"
-            android:textSize="12sp"
-            android:layout_marginBottom="4dp"/>
+            android:text="사용할 계정이 없으신가요?"
+            android:textSize="12sp" />
+
         <Button
             android:id="@+id/Button_Sign_up"
             android:layout_width="100dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
-            android:background="#FFFAFDA0"
+            android:background="#EBF138"
             android:clickable="true"
             android:text="Sign_Up"
             android:textColor="#FF90D3ED"
