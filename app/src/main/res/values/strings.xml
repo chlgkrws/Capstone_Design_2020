@@ -2,4 +2,9 @@
     <string name="app_name" >Capstone_Design_2020</string>
     <string name="tfe_od_app_name" translation_description="Object Detection demo app [CHAR_LIMIT=40]">TFL Detect</string>
     <string name="tfe_od_camera_error" translation_description="Error regarding camera support[CHAR_LIMIT=40]">This device doesn\'t support Camera2 API.</string>
+
+    <string-array name="ProfileImg">
+        <item>"앨범에서 가져오기"</item>
+        <item>"카메라로 촬영하기"</item>
+    </string-array>
 </resources>

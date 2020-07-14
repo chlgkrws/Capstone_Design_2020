@@ -1,6 +1,11 @@
 package com.hjhs_project.capstone_design_2020.myProfile;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -17,8 +22,14 @@ import com.hjhs_project.capstone_design_2020.menu.Menu_main;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+
 
 public class MyProfile extends AppCompatActivity {
+    private static final int REQUEST_CODE = 0;          //갤러리 사진 request
+
     TextView profile_id, profile_name, profile_att;
     TextView profile_tier, profile_rank, profile_study;
     ImageView profile_user_img, profile_tier_img;
@@ -193,8 +204,60 @@ public class MyProfile extends AppCompatActivity {
         change_profile_img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                
+                Intent intent = new Intent(Intent.ACTION_PICK);
+                intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
+                startActivityForResult(intent,REQUEST_CODE);
             }
         });
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode,  Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_CODE) {
+            if (resultCode == RESULT_OK) {
+                try {
+                    InputStream inputStream = getContentResolver().openInputStream(data.getData());
+
+                    Bitmap img = BitmapFactory.decodeStream(inputStream);
+                    img = rotateImage(img,90);                                                        //이미지 정상 각도로 회전시키기
+                    inputStream.close();
+                    profile_user_img.setImageBitmap(img);
+
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                Toast.makeText(this, "사진 선택 취소", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    public Bitmap rotateImage(Bitmap source, float angle){
+        Matrix matrix = new Matrix();
+        matrix.postRotate(angle);
+        return Bitmap.createBitmap(source,0,0,source.getWidth(),source.getHeight(),matrix,true);
+    }
+
+//다이얼로그
+    /*private void showMessage(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("프로필 사진 설정");
+        builder.setItems(R.array.ProfileImg, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                String[] items = getResources().getStringArray(R.array.ProfileImg);
+                if(i == 0){
+                    //앨범에서 가져오기
+                }else{
+                    //카메라로 촬영하기
+                }
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+
+    }*/
 }
