@@ -2,9 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.hjhs_project.capstone_design_2020" >
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.INTERNET"/> <!--Internet 사용을 위한 권한 추가(volley)-->
+    <uses-permission android:name="android.permission.INTERNET" android:required="true"/> <!--Internet 사용을 위한 권한 추가(volley)-->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>    <!--6,7,8 : 카메라 기능을 위한 퍼미션-->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:required="true"/>
     <uses-permission android:name="android.permission.CAMERA"/>
 
     <uses-feature

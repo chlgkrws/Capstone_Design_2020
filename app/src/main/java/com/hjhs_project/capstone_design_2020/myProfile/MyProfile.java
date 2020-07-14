@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.ImageView;
@@ -22,9 +23,14 @@ import com.hjhs_project.capstone_design_2020.menu.Menu_main;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 public class MyProfile extends AppCompatActivity {
@@ -224,6 +230,11 @@ public class MyProfile extends AppCompatActivity {
                     inputStream.close();
                     profile_user_img.setImageBitmap(img);
 
+                    String date = new SimpleDateFormat("yyyy_MM_dd_hh_mm_ss").format(new Date());
+                    File tempSelectFile = new File(Environment.getExternalStorageDirectory()+"/Pictures/Facebook/", "temp_" + date + ".jpeg");
+                    OutputStream outputStream = new FileOutputStream(tempSelectFile);
+                    img.compress(Bitmap.CompressFormat.JPEG,100,outputStream);
+                    ImageUpload_request.send2Server(tempSelectFile);
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 } catch (IOException e) {
