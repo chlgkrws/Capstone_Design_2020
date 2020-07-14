@@ -12,7 +12,13 @@ android:paddingBottom="16dp"
 >
 <LinearLayout
     android:layout_width="match_parent"
+<<<<<<< Updated upstream
     android:layout_height="wrap_content"
+=======
+    android:layout_height="match_parent"
+    android:background="#FFF9C4"
+    android:gravity="bottom"
+>>>>>>> Stashed changes
     android:orientation="vertical"
     android:layout_gravity="center"
 
@@ -21,6 +27,7 @@ android:paddingBottom="16dp"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_gravity="center"
+<<<<<<< Updated upstream
         android:text="LOGIN"
         android:textSize="24sp"
         android:layout_width="match_parent"
@@ -32,6 +39,41 @@ android:paddingBottom="16dp"
         android:layout_height="80dp"
         android:layout_gravity="center"
         android:background="@drawable/ic_launcher_background"
+=======
+        android:background="@drawable/radiusrec"
+        android:elevation="20dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="25dp"
+            android:background="@drawable/logo"
+            android:backgroundTint="#fcf2ef"></ImageView>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="#000000"
+            app:hintTextColor="#ffffff"
+            android:fontFamily="@font/nanumsquareroundr">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/User_id"
+                android:layout_width="290dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:drawableLeft="@drawable/email"
+                android:drawablePadding="10dp"
+                android:gravity="left|center"
+                android:hint="Email"
+                android:fontFamily="@font/nanumsquareroundr"
+                android:inputType="textEmailAddress"
+                android:textColor="#000000"
+                android:textSize="13sp"
+>>>>>>> Stashed changes
 
         >
     </ImageView>
@@ -42,6 +84,7 @@ android:paddingBottom="16dp"
         android:layout_marginBottom="16dp">
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
+<<<<<<< Updated upstream
             android:layout_height="50dp"
             android:hint="Email"
             android:id="@+id/User_id"
@@ -50,11 +93,51 @@ android:paddingBottom="16dp"
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+=======
+            android:layout_height="wrap_content"
+            android:textColorHint="#000000"
+            app:hintTextColor="#ffffff"
+            android:fontFamily="@font/nanumsquareroundr">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/User_pass"
+                android:layout_width="290dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:fontFamily="@font/nanumsquareroundr"
+                android:drawableStart="@drawable/pwd"
+                android:drawablePadding="10dp"
+                android:gravity="left|center"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:textColor="#000000"
+                android:textSize="13dp"></com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/Button_login"
+            android:layout_width="280dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:layout_margin="30dp"
+            android:background="@drawable/rectangle"
+            android:clickable="true"
+            android:text="Log_in"
+            android:fontFamily="@font/nanumsquareroundr"
+            android:textColor="#000"
+            android:textSize="14dp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+>>>>>>> Stashed changes
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp">
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
+<<<<<<< Updated upstream
             android:layout_height="50dp"
             android:hint="Password"
             android:id="@+id/User_pass"
@@ -83,6 +166,25 @@ android:paddingBottom="16dp"
         android:clickable="true"
         android:text="Sign_Up">
     </Button>
+=======
+            android:layout_height="match_parent"
+            android:layout_marginBottom="4dp"
+            android:gravity="center"
+            android:text="사용할 계정이 없으신가요?"
+            android:fontFamily="@font/nanumsquareroundr"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/Button_Sign_up"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:background="#FFF9C4"
+            android:clickable="true"
+            android:text="Sign_Up"
+            android:textColor="#FFBBDEFB"
+            android:textSize="11dp">
+>>>>>>> Stashed changes
 
 
 </LinearLayout>
