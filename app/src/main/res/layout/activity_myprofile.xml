@@ -23,6 +23,17 @@
         ></ImageView>
 
     <TextView
+        android:id="@+id/change_profile_img"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:gravity="center"
+        android:textColor="@color/colorPrimary"
+        android:clickable="true"
+        android:text="프로필 변경"
+        android:textSize="10sp"
+        />
+    
+    <TextView
         android:id="@+id/profile_name"
         android:layout_width="match_parent"
         android:layout_height="30dp"

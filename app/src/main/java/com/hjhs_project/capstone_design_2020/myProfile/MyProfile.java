@@ -1,6 +1,7 @@
 package com.hjhs_project.capstone_design_2020.myProfile;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,6 +22,7 @@ public class MyProfile extends AppCompatActivity {
     TextView profile_id, profile_name, profile_att;
     TextView profile_tier, profile_rank, profile_study;
     ImageView profile_user_img, profile_tier_img;
+    TextView change_profile_img;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +45,7 @@ public class MyProfile extends AppCompatActivity {
         profile_user_img = findViewById(R.id.profile_user_img);
         profile_tier_img = findViewById(R.id.profile_tier_img);
 
+        change_profile_img = findViewById(R.id.change_profile_img);
         /*--------------------------Volley php database-------------------*/
 
         //Att request에 대한 리스너 객체
@@ -184,6 +187,14 @@ public class MyProfile extends AppCompatActivity {
         /*---------------------고정 데이터 처리------------------------*/
         profile_id.setText("아이디 - "+user_id);
         profile_name.setText("이름 - " +user_name);
+        /*--------------------------------------------------------------*/
 
+        change_profile_img.setClickable(true);
+        change_profile_img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                
+            }
+        });
     }
 }

@@ -18,8 +18,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Title"
-            android:textSize="20dp"></TextView>
+            android:text="STAPL"
+            android:textSize="20dp">
+
+        </TextView>
     </androidx.appcompat.widget.Toolbar>
 
     <TextView
@@ -39,7 +41,7 @@
         android:id="@+id/bottomNavigationView_main_menu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:itemBackground="#42632C"
+        app:itemBackground="@color/design_default_color_primary"
         app:itemIconTint="@android:color/white"
         app:itemTextColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
