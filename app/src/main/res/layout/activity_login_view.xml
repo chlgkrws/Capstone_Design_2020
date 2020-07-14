@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#A6DFC0"
+    android:background="#FAFDA0"
     android:gravity="bottom"
     android:orientation="vertical"
     android:paddingLeft="16dp"
@@ -16,29 +16,32 @@
     >
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:orientation="vertical"
-
-        >
+        android:background="@drawable/radiusrec"
+        android:elevation="20dp"
+        android:orientation="vertical">
 
         <ImageView
             android:layout_width="110dp"
             android:layout_height="110dp"
             android:layout_gravity="center"
-            android:layout_marginBottom="5dp"
-            android:background="@drawable/logo"></ImageView>
+            android:layout_marginBottom="25dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/logo"
+            android:backgroundTint="#fcf2ef"
+            ></ImageView>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColorHint="#ffffff"
+            android:textColorHint="#000000"
             app:hintTextColor="#ffffff">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/User_id"
-                android:layout_width="320dp"
+                android:layout_width="290dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:drawableLeft="@drawable/email"
@@ -48,7 +51,7 @@
                 android:inputType="textEmailAddress"
                 android:textColor="#ffffff"
 
-                android:textSize="13dp"
+                android:textSize="13sp"
 
                 ></com.google.android.material.textfield.TextInputEditText>
         </com.google.android.material.textfield.TextInputLayout>
@@ -56,12 +59,12 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColorHint="#ffffff"
+            android:textColorHint="#000000"
             app:hintTextColor="#ffffff">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/User_pass"
-                android:layout_width="320dp"
+                android:layout_width="290dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
 
@@ -76,13 +79,14 @@
 
         <Button
             android:id="@+id/Button_login"
-            android:layout_width="300dp"
+            android:layout_width="280dp"
             android:layout_height="45dp"
             android:layout_gravity="center"
             android:layout_margin="30dp"
-            android:background="@drawable/radiusrec"
+            android:background="@drawable/rectangle"
             android:clickable="true"
             android:text="Log_in"
+            android:textSize="14dp"
             android:textColor="#000" />
 
 
@@ -93,18 +97,26 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="150dp"
         android:gravity="center"
-        android:paddingBottom="50dp">
-
+        android:paddingBottom="50dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="사용할 계정이 없으신가요?"
+            android:gravity="center"
+            android:textSize="12sp"
+            android:layout_marginBottom="4dp"/>
         <Button
             android:id="@+id/Button_Sign_up"
             android:layout_width="100dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
-            android:background="@drawable/rectangle"
+            android:background="#FFFAFDA0"
             android:clickable="true"
             android:text="Sign_Up"
-            android:textColor="#eee"
+            android:textColor="#FF90D3ED"
             android:textSize="11dp">
+
 
         </Button>
     </LinearLayout>
