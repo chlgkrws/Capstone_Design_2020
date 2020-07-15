@@ -15,7 +15,11 @@ public class Menu_today_word {
 
         String[][] todayWords = new String[2][5];
         for(int i = 0; i < 5; i++){
-            todayWords[0][i] = contents_en.get(i).text().split(" ")[0];
+            if(i != 2) {
+                todayWords[0][i] = contents_en.get(i).text().split(" ")[0];
+            }else{
+                todayWords[0][i] = contents_en.get(i).text().split("발음듣기")[0];
+            }
         }
 
         for(int i = 0; i < 5; i++){

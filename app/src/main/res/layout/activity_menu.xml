@@ -151,57 +151,69 @@
                     android:layout_height="wrap_content"
                     android:text="시험 정보"
                     android:textSize="25sp"
-                    android:layout_marginLeft="10dp"/>
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="5dp"/>
+            </LinearLayout>
 
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="10">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="회차"
-                        android:gravity="center"
-                        android:layout_weight="1"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="접수일"
-                        android:gravity="center"
-                        android:layout_weight="4"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="시험일"
-                        android:gravity="center"
-                        android:layout_weight="2.5"
-                        />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="성적발표"
-                        android:layout_weight="2.5"
-                        android:gravity="center"/>
-                </LinearLayout>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="18dp"
-                    android:text="토익 시험 정보" />
+                    android:text="토익 시험 정보"
+                    android:paddingLeft="11dp"/>
+
                 <LinearLayout
                     android:id="@+id/toeicInfo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_weight="10">
 
-                    <TextView
+                        <TextView
+                            android:id="@+id/toeic_th"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="회차"
+                            android:gravity="center"
+                            android:layout_weight="1"/>
+
+                        <TextView
+                            android:id="@+id/toeic_reception"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="접수일"
+                            android:gravity="center"
+                            android:layout_weight="4"/>
+
+                        <TextView
+                            android:id="@+id/toeic_test_day"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="시험일"
+                            android:gravity="center"
+                            android:layout_weight="2.5"
+                            />
+
+                        <TextView
+                            android:id="@+id/toeic_score"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="성적발표"
+                            android:layout_weight="2.5"
+                            android:gravity="center"/>
+
+                    </LinearLayout>
+
+
+                   <!-- <TextView
                         android:id="@+id/toeic1"
                         android:layout_width="match_parent"
                         android:layout_height="30dp"
@@ -214,7 +226,7 @@
                         android:layout_height="30dp"
                         android:gravity="center|left"
                         android:text="2020202020 000차 " />
-
+-->
                 </LinearLayout>
 
 
@@ -241,7 +253,7 @@
                     android:text="2020202020 000차 " />
 
 
-            </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 

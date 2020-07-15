@@ -6,6 +6,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -37,10 +38,10 @@ public class Menu_main extends AppCompatActivity {
     private static String user_id, user_name;
 
     int language = 0;                       // 0 : 한국어 -> 영어, 1 : 영어 -> 한국어
-    TextView target_translation_word, result_translation, toeic1, toeic2;
+    TextView target_translation_word, result_translation, toeic_th,toeic_reception, toeic_test_day, toeic_score;
     Button button_to_translation, change_to_language;
     LinearLayout today_word_layout;
-    LinearLayout toeic_schedule;
+    LinearLayout toeicInfo;
     @Override
     protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,20 +49,69 @@ public class Menu_main extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         user_id = bundle.getString("user_id");
         user_name = bundle.getString("user_name");
+        String[] toeic = MainActivity.getToeicInfo().split("&&");
 
         target_translation_word = findViewById(R.id.target_translation_word);
         result_translation = findViewById(R.id.result_translation);
-        toeic1 = findViewById(R.id.toeic1);
-        toeic2 = findViewById(R.id.toeic2);
+
+        toeic_th = findViewById(R.id.toeic_th);
+        toeic_reception = findViewById(R.id.toeic_reception);
+        toeic_test_day = findViewById(R.id.toeic_test_day);
+        toeic_score = findViewById(R.id.toeic_score);
 
         button_to_translation = findViewById(R.id.button_to_translation);
         change_to_language = findViewById(R.id.change_to_language);
 
         today_word_layout = findViewById(R.id.today_word_layout);
+        toeicInfo = findViewById(R.id.toeicInfo);
 
+        /*토익 날짜*/
+        LinearLayout.LayoutParams param = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT);
+        param.setMargins(0,5,0,5);
 
-        toeic1.setText(MainActivity.getToeicInfo().split("&&")[0]);
-        toeic2.setText(MainActivity.getToeicInfo().split("&&")[1]);
+        LinearLayout.LayoutParams paramTh = (LinearLayout.LayoutParams) toeic_th.getLayoutParams();
+        LinearLayout.LayoutParams paramRecept = (LinearLayout.LayoutParams) toeic_reception.getLayoutParams();
+        LinearLayout.LayoutParams paramDay = (LinearLayout.LayoutParams) toeic_test_day.getLayoutParams();
+        LinearLayout.LayoutParams paramScore = (LinearLayout.LayoutParams) toeic_score.getLayoutParams();
+        for(int i = 0; i < 2; i++){
+            String[] temp = toeic[i].split(" ");
+            LinearLayout toeicLayout = new LinearLayout(this);
+            toeicLayout.setLayoutParams(param);
+            toeicLayout.setOrientation(LinearLayout.HORIZONTAL);
+            toeicLayout.setWeightSum(10);
+            toeicLayout.setGravity(Gravity.CENTER);
+
+            TextView th = new TextView(this);
+            TextView reception = new TextView(this);
+            TextView testDay = new TextView(this);
+            TextView score = new TextView(this);
+
+            th.setLayoutParams(paramTh);
+            th.setGravity(Gravity.CENTER);
+
+            th.setText(temp[0].charAt(0)+" "+temp[0].substring(1));
+
+            reception.setLayoutParams(paramRecept);
+            reception.setGravity(Gravity.CENTER);
+            reception.setText(temp[2]+"\n     "+temp[3]+temp[4]);
+
+            testDay.setLayoutParams(paramDay);
+            testDay.setGravity(Gravity.CENTER);
+            testDay.setText(temp[6]);
+
+            score.setLayoutParams(paramScore);
+            score.setGravity(Gravity.CENTER);
+            score.setText(temp[8]);
+
+            toeicLayout.addView(th);
+            toeicLayout.addView(reception);
+            toeicLayout.addView(testDay);
+            toeicLayout.addView(score);
+
+            toeicInfo.addView(toeicLayout);
+        }
+
 
         //한국어 -> 영어 버튼
         change_to_language.setClickable(true);
