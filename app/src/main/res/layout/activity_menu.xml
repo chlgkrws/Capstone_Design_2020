@@ -24,18 +24,160 @@
         </TextView>
     </androidx.appcompat.widget.Toolbar>
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        android:padding="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView_main_menu"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
-    </TextView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <!--빠른 번역-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/rapid_translation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center"
+                    android:text="빠른 번역"
+                    android:textSize="15sp"
+                    ></TextView>
+                <Button
+                    android:id="@+id/change_to_language"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:text="한국어 -> 영어"
+                    android:gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:background="#ffffff"/>
+            </LinearLayout>
 
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/target_translation_word"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="번역할 단어, 문장을 입력해주세요."
+                        android:textSize="15sp">
+
+                    </com.google.android.material.textfield.TextInputEditText>
+                </com.google.android.material.textfield.TextInputLayout>
+                    <Button
+                        android:id="@+id/button_to_translation"
+                        android:layout_width="50dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="5dp"
+                        android:background="@color/colorPrimary"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/result_translation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="hellohello"
+                    android:textSize="15sp"
+                    android:gravity="center|left"
+                    android:padding="5dp"
+                    />
+            </LinearLayout>
+
+        <!--오늘의 단어@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@2-->
+        <LinearLayout
+            android:id="@+id/today_word_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/today_word"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="오늘의 단어"
+                android:textSize="15sp"
+                ></TextView>
+            <!--추가될 레이아웃 정보-->
+            <!--<LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="hi">
+                </TextView>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="해석">
+
+                </TextView>
+            </LinearLayout>-->
+        </LinearLayout>
+
+        <!--시험정보-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="18dp"
+                    android:text="토익 시험 정보"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:text="2020202020 000차 "
+                    android:gravity="center|left"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="18dp"
+                    android:text="토스 시험 정보"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:text="2020202020 000차 "
+                    android:gravity="center|left"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="18dp"
+                    android:text="토플 시험 정보"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:text="2020202020 000차 "
+                    android:gravity="center|left"/>
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView_main_menu"

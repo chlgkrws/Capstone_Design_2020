@@ -7,18 +7,23 @@ import android.graphics.Matrix;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.hjhs_project.capstone_design_2020.Detector.DetectorActivity;
 import com.hjhs_project.capstone_design_2020.R;
 import com.hjhs_project.capstone_design_2020.menu.Menu_main;
+import com.hjhs_project.capstone_design_2020.notepad.NotePad;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -215,6 +220,33 @@ public class MyProfile extends AppCompatActivity {
                 startActivityForResult(intent,REQUEST_CODE);
             }
         });
+
+        //바텀 네비게이션 바
+        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigationView_profile);
+        bottomNavigationView.setOnNavigationItemSelectedListener(
+                new BottomNavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                        switch (item.getItemId()){
+                            case R.id.bottom_bar_note:
+                                Intent intent = new Intent(MyProfile.this, NotePad.class);
+                                startActivity(intent);
+                                finish();
+                                return true;
+                            case R.id.bottom_bar_camera:
+                                Intent intent2 = new Intent(MyProfile.this, DetectorActivity.class);
+                                startActivity(intent2);
+                                finish();
+                                return true;
+                            case R.id.bottom_bar_profile:
+                                return true;
+                        }
+
+
+                        return false;
+                    }
+                }
+        );
     }
 
     @Override

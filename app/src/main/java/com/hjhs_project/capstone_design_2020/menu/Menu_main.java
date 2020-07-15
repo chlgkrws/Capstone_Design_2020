@@ -1,18 +1,25 @@
 package com.hjhs_project.capstone_design_2020.menu;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.ActivityCompat;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.hjhs_project.capstone_design_2020.Detector.DetectorActivity;
@@ -21,18 +28,17 @@ import com.hjhs_project.capstone_design_2020.login.Login;
 import com.hjhs_project.capstone_design_2020.myProfile.MyProfile;
 import com.hjhs_project.capstone_design_2020.notepad.NotePad;
 
-import de.hdodenhof.circleimageview.CircleImageView;
+import java.io.IOException;
 
 public class Menu_main extends AppCompatActivity {
     private final long FINISH_INTERVAL_TIME = 2000;         //2초내로 두번누르면 화면 종료
     private long backPressedTime = 0;                       //시간 관련
     private static String user_id, user_name;
 
-    CircleImageView go_to_camera;
-    Button go_to_note, go_to_info;
-   /* Button bottom_navigator_toNote,  bottom_navigator_toProfile;
-    ImageView bottom_navigator_toCamera;*/
-
+    int language = 0;                       // 0 : 한국어 -> 영어, 1 : 영어 -> 한국어
+    TextView target_translation_word, result_translation;
+    Button button_to_translation, change_to_language;
+    LinearLayout today_word_layout;
     @Override
     protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,64 +47,90 @@ public class Menu_main extends AppCompatActivity {
         user_id = bundle.getString("user_id");
         user_name = bundle.getString("user_name");
 
+        target_translation_word = findViewById(R.id.target_translation_word);
+        result_translation = findViewById(R.id.result_translation);
 
-        /*------------------(구) 버튼들)
-        /*go_to_camera = findViewById(R.id.go_to_camera);
-        go_to_note = findViewById(R.id.go_to_note);
-        go_to_info = findViewById(R.id.go_to_info);*/
+        button_to_translation = findViewById(R.id.button_to_translation);
+        change_to_language = findViewById(R.id.change_to_language);
 
-        /*----------------바텀 네비게이터 버튼들--------------------------*/
-        /*bottom_navigator_toNote = findViewById(R.id.bottom_navigator_toNote);
-        bottom_navigator_toCamera = findViewById(R.id.bottom_navigator_toCamera);
-        bottom_navigator_toProfile = findViewById(R.id.bottom_navigator_toProfile);*/
+        today_word_layout = findViewById(R.id.today_word_layout);
 
 
-        /*-------------------(구) 버튼 리스너들--------------------*/
-        /*go_to_camera.setClickable(true);
-        go_to_camera.setOnClickListener(new View.OnClickListener() {
+
+        //한국어 -> 영어 버튼
+        change_to_language.setClickable(true);
+        change_to_language.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Menu_main.this, DetectorActivity.class);
-                startActivity(intent);
+                if(language == 0){
+                    language = 1;
+                    change_to_language.setText("영어 -> 한국어");
+                    target_translation_word.setText(null);
+                    result_translation.setText(null);
+
+                }else{
+                    language = 0;
+                    change_to_language.setText("한국어 -> 영어");
+                    target_translation_word.setText(null);
+                    result_translation.setText(null);
+                }
+            }
+        });
+        //번역 버튼
+        button_to_translation.setClickable(true);
+        button_to_translation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new Thread(){
+                    @Override
+                    public void run() {
+                        String word = target_translation_word.getText().toString();
+                        Menu_papago papago = new Menu_papago();
+                        String resultWord;
+                        if(language == 0){
+                            resultWord= papago.getTranslation(word,"ko","en");
+                        }else{
+                            resultWord= papago.getTranslation(word,"en","ko");
+                        }
+
+                        Bundle papagoBundle = new Bundle();
+                        papagoBundle.putString("resultWord",resultWord);
+
+                        Message msg = papago_handler.obtainMessage();
+                        msg.setData(papagoBundle);
+                        papago_handler.sendMessage(msg);
+                    }
+                }.start();
             }
         });
 
-
-        //내 정보 가는 버튼
-        go_to_info.setClickable(true);
-        go_to_info.setOnClickListener(new View.OnClickListener() {
+        new Thread(){
             @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Menu_main.this, MyProfile.class);
-                startActivity(intent);
-            }
-        });
+            public void run() {
+                Menu_today_word mtw = new Menu_today_word();
+                try {
+                    String[][] todayWords = mtw.getTodayWord();
 
-        go_to_note.setClickable(true);
-        go_to_note.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Menu_main.this, NotePad.class);
-                startActivity(intent);
-            }
-        });*/
+                    Bundle todayBundle = new Bundle();
+                    todayBundle.putStringArray("todayWordEn",todayWords[0]);
+                    todayBundle.putStringArray("todayWordKr",todayWords[1]);
+                    Message msg = today_handler.obtainMessage();
+                    msg.setData(todayBundle);
+                    today_handler.sendMessage(msg);
 
-        /*bottom_navigator_toNote.setClickable(true);
-        bottom_navigator_toNote.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Menu_main.this, NotePad.class);
-                startActivity(intent);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
 
             }
-        });
-        bottom_navigator_toCamera;
-        bottom_navigator_toProfile;*/
+        }.start();
 
 
 
 
 
+        //바텀 네비게이션 바
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigationView_main_menu);
         bottomNavigationView.setOnNavigationItemSelectedListener(
                 new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -125,11 +157,11 @@ public class Menu_main extends AppCompatActivity {
                 }
         );
 
-        Toolbar toolbar = findViewById(R.id.toolbar);                                               // 액션바 생성을 위한
+        Toolbar toolbar = findViewById(R.id.toolbar);        // 액션바 생성을 위한
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowCustomEnabled(true);
-        actionBar.setDisplayShowTitleEnabled(false);//기본 제목을 없애줍니다.
+        actionBar.setDisplayShowTitleEnabled(false);        //기본 제목을 없애줍니다.
 
 
     }
@@ -188,8 +220,49 @@ public class Menu_main extends AppCompatActivity {
         }else{
             backPressedTime = tempTime;
             Toast.makeText(getApplicationContext(), "한번 더 누를 시 종료됩니다.",Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @SuppressLint("HandlerLeak")
+    Handler papago_handler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            Bundle bundle = msg.getData();
+            String resultWord = bundle.getString("resultWord");
+            result_translation.setText(resultWord);
+            //Toast.makeText(getApplicationContext(),resultWord,Toast.LENGTH_SHORT).show();
+        }
+    };
+
+    @SuppressLint("HandlerLeak")
+    Handler today_handler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            //레이아웃 생성
+            Bundle bundle = msg.getData();
+            String[] todayWordEn = bundle.getStringArray("todayWordEn");
+            String[] todayWordKr = bundle.getStringArray("todayWordKr");
+            LinearLayout.LayoutParams param = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT);
+            param.setMargins(0,20,0,0);
+            for(int i = 0; i < 5; i++){
+                TextView enTextView = new TextView(Menu_main.this);
+                TextView krTextView = new TextView(Menu_main.this);
+                enTextView.setText(todayWordEn[i]);
+                krTextView.setText(todayWordKr[i]);
+                enTextView.setTextSize(20);
+                enTextView.setTypeface(null, Typeface.BOLD);
+                krTextView.setTextSize(15);
+
+                LinearLayout wordSet = new LinearLayout(Menu_main.this);
+                wordSet.setLayoutParams(param);
+                wordSet.setOrientation(LinearLayout.VERTICAL);
+                wordSet.addView(enTextView);
+                wordSet.addView(krTextView);
+                today_word_layout.addView(wordSet);
+            }
 
         }
+    };
 
-    }
 }
