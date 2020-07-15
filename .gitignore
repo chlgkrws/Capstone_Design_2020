@@ -13,3 +13,5 @@
 .externalNativeBuild
 .cxx
 .idea/jarRepositories.xml
+app/src/main/res/drawable-xxhdpi/shadow.xml
+app/src/main/res/layout/activity_login_view.xml
