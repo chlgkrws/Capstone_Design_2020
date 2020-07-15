@@ -23,6 +23,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.hjhs_project.capstone_design_2020.Detector.DetectorActivity;
+import com.hjhs_project.capstone_design_2020.MainActivity;
 import com.hjhs_project.capstone_design_2020.R;
 import com.hjhs_project.capstone_design_2020.login.Login;
 import com.hjhs_project.capstone_design_2020.myProfile.MyProfile;
@@ -36,9 +37,10 @@ public class Menu_main extends AppCompatActivity {
     private static String user_id, user_name;
 
     int language = 0;                       // 0 : 한국어 -> 영어, 1 : 영어 -> 한국어
-    TextView target_translation_word, result_translation;
+    TextView target_translation_word, result_translation, toeic1, toeic2;
     Button button_to_translation, change_to_language;
     LinearLayout today_word_layout;
+    LinearLayout toeic_schedule;
     @Override
     protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +51,8 @@ public class Menu_main extends AppCompatActivity {
 
         target_translation_word = findViewById(R.id.target_translation_word);
         result_translation = findViewById(R.id.result_translation);
+        toeic1 = findViewById(R.id.toeic1);
+        toeic2 = findViewById(R.id.toeic2);
 
         button_to_translation = findViewById(R.id.button_to_translation);
         change_to_language = findViewById(R.id.change_to_language);
@@ -56,6 +60,8 @@ public class Menu_main extends AppCompatActivity {
         today_word_layout = findViewById(R.id.today_word_layout);
 
 
+        toeic1.setText(MainActivity.getToeicInfo().split("&&")[0]);
+        toeic2.setText(MainActivity.getToeicInfo().split("&&")[1]);
 
         //한국어 -> 영어 버튼
         change_to_language.setClickable(true);
@@ -244,7 +250,7 @@ public class Menu_main extends AppCompatActivity {
             String[] todayWordKr = bundle.getStringArray("todayWordKr");
             LinearLayout.LayoutParams param = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                     ViewGroup.LayoutParams.WRAP_CONTENT);
-            param.setMargins(0,20,0,0);
+            param.setMargins(20,20,0,0);
             for(int i = 0; i < 5; i++){
                 TextView enTextView = new TextView(Menu_main.this);
                 TextView krTextView = new TextView(Menu_main.this);
