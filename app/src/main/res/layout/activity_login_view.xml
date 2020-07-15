@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFF9C4"
+    android:background="@color/lightblue"
     android:gravity="bottom"
     android:orientation="vertical"
     android:paddingLeft="16dp"
@@ -26,8 +26,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="25dp"
-            android:background="@drawable/logo"
-            android:backgroundTint="#fcf2ef"></ImageView>
+            android:src="@drawable/logo"></ImageView>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -87,7 +86,7 @@
             android:text="Log_in"
             android:fontFamily="@font/nanumsquareroundr"
             android:textColor="#000"
-            android:textSize="14dp" />
+            android:textSize="15dp" />
 
 
     </LinearLayout>
@@ -114,11 +113,11 @@
             android:layout_width="100dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
-            android:background="@color/lightyellow"
+            android:background="@color/lightblue"
             android:clickable="true"
             android:text="Sign_Up"
-            android:textColor="@color/lightblue"
-            android:textSize="13dp"
+            android:textColor="#ffffff"
+            android:textSize="14sp"
             style="@style/Widget.AppCompat.Button.Borderless">
 
 
