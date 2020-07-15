@@ -6,7 +6,7 @@
     android:orientation="vertical"
 
     tools:context=".notepad.NotePad"
-    android:background="@color/lightblue">
+    android:background="@color/main">
 
     <TextView
         android:layout_width="match_parent"

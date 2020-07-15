@@ -124,8 +124,8 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="530dp"
-            android:background="@drawable/prolay"
+            android:layout_height="500dp"
+            android:background="@drawable/whiteback"
             android:elevation="10dp">
 
             <LinearLayout
@@ -350,6 +350,10 @@
                 </LinearLayout>
             </LinearLayout>
         </ScrollView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="#ffffff"/>
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottomNavigationView_profile"

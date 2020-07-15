@@ -22,8 +22,8 @@
     <ImageView
         android:id="@+id/btn_expand_toggle"
         android:src="@drawable/plus"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
+        android:layout_width="31dp"
+        android:layout_height="31dp"
         android:layout_weight="0"
         android:layout_marginRight="5dp"/>
 </LinearLayout>

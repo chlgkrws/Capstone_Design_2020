@@ -7,6 +7,7 @@
     <color name="tfe_color_primary_dark">#ff6f00</color>
     <color name="tfe_color_accent">#425066</color>
     <color name="lightblue">#FFBBDEFB</color>
-    <color name="lightyellow">#FFFFF9C4</color>
+    <color name="main">#E3F2FD</color>
+    <color name="lightyellow">#FFFFFDE7</color>
     <color name="tfe_semi_transparent">#66000000</color>
 </resources>
