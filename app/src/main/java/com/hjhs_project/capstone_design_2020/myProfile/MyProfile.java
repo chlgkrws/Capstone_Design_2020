@@ -234,7 +234,7 @@ public class MyProfile extends AppCompatActivity {
                     File tempSelectFile = new File(Environment.getExternalStorageDirectory()+"/Pictures/Facebook/", "temp_" + date + ".jpeg");
                     OutputStream outputStream = new FileOutputStream(tempSelectFile);
                     img.compress(Bitmap.CompressFormat.JPEG,100,outputStream);
-                    ImageUpload_request.send2Server(tempSelectFile);
+                   // ImageUpload_request.send2Server(tempSelectFile);
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 } catch (IOException e) {
