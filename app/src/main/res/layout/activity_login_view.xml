@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/lightblue"
+    android:background="@color/main"
     android:gravity="bottom"
     android:orientation="vertical"
     android:paddingLeft="16dp"
@@ -114,10 +114,10 @@
             android:layout_width="100dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
-            android:background="@color/lightblue"
+            android:background="@color/main"
             android:clickable="true"
-            android:text="Sign_Up"
             android:fontFamily="@font/nanumsquareroundr"
+            android:text="Sign_Up"
             android:textColor="#000000"
             android:textSize="14sp">
 
