@@ -7,344 +7,360 @@
     android:orientation="vertical"
     android:gravity="center">
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="bottom"
-    android:background="@drawable/whiteback"
-    >
-
-    <!-- 상단 고정 -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="130dp"
-        android:layout_gravity="top"
-        android:orientation="horizontal">
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginLeft="30dp">
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/profile_user_img"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/pro"
-                app:civ_border_color="#777777"
-                android:layout_weight="2"
+        android:layout_height="match_parent"
+        android:background="#FAFAFA"
+        android:gravity="bottom"
+        android:orientation="vertical">
 
-                app:civ_border_width="0.5dp"
-                android:layout_gravity="center_vertical"/>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:layout_marginLeft="20dp">
-                <ImageView
-                    android:layout_width="10dp"
-                    android:layout_height="10dp"
-                    android:background="@drawable/pen"
-                    android:layout_gravity="center"
-                    android:layout_marginRight="5dp"></ImageView>
-                <TextView
-                    android:id="@+id/change_profile_img"
-                    android:layout_width="wrap_content"
-                    android:layout_height="30dp"
-                    android:gravity="center"
-                    android:textColor="@color/colorPrimary"
-                    android:clickable="true"
-                    android:text="Edit Image"
-                    android:fontFamily="@font/nanumsquareroundr"
-                    android:textSize="10sp"
-                    />
+        <!-- 상단 고정 -->
 
-            </LinearLayout>
-
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_marginLeft="30dp">
-            <TextView
-                android:id="@+id/profile_name"
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:gravity="left"
-                android:fontFamily="@font/nanumsquareroundr"
-                android:textSize="15sp"
-                android:text="이름"
-                android:layout_marginTop="10dp"
-                ></TextView>
+            android:layout_height="130dp"
+            android:layout_gravity="top"
+            android:orientation="horizontal"
+            android:layout_marginBottom="30dp">
 
-            <TextView
-                android:id="@+id/profile_id"
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:textSize="15sp"
-                android:text="아이디"
-                android:fontFamily="@font/nanumsquareroundr"
-                android:gravity="left"
-                android:layout_marginTop="5dp"
-                ></TextView>
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:orientation="vertical">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profile_user_img"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="2"
+                    android:src="@drawable/pro"
+
+                    app:civ_border_color="#777777"
+                    app:civ_border_width="0.5dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="5dp"
+                        android:background="@drawable/pen"></ImageView>
+
+                    <TextView
+                        android:id="@+id/change_profile_img"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:clickable="true"
+                        android:fontFamily="@font/nanumsquareroundr"
+                        android:gravity="center"
+                        android:text="Edit Image"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="10sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="50dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/profile_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/nanumsquareroundr"
+                    android:gravity="left"
+                    android:text="이름"
+                    android:textSize="15sp"></TextView>
+
+                <TextView
+                    android:id="@+id/profile_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/nanumsquareroundr"
+                    android:gravity="left"
+                    android:text="아이디"
+                    android:textSize="15sp"></TextView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/fire"></ImageView>
+
+                    <TextView
+                        android:id="@+id/profile_att"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="5dp"
+                        android:fontFamily="@font/nanumsquareroundr"
+                        android:gravity="left|center_vertical"
+                        android:text="X 출석횟수"
+                        android:textSize="15dp"></TextView>
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="530dp"
+            android:background="@drawable/prolay"
+            android:elevation="10dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="8dp">
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/fire"></ImageView>
-                <TextView
-                    android:id="@+id/profile_att"
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="5dp"
-                    android:text="X 출석횟수"
-                    android:textSize="15dp"
-                    android:fontFamily="@font/nanumsquareroundr"
-                    android:gravity="left|center_vertical"
-                    ></TextView>
-
-            </LinearLayout>
-
-        </LinearLayout>
-    </LinearLayout>
-
-
-
-
-
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="470dp"
-        android:background="#feffff">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:orientation="vertical">
-
-            <!--학습단어,예문 box -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:layout_marginTop="20dp"
+                android:orientation="vertical"
                 >
-                <LinearLayout
-                    android:layout_width="380dp"
-                    android:layout_height="130dp"
-                    android:orientation="horizontal"
-                    >
-                    <LinearLayout
-                        android:layout_width="190dp"
-                        android:layout_height="130dp"
-                        android:gravity="center"
-                        >
-                        <LinearLayout
-                            android:layout_width="170dp"
-                            android:layout_height="100dp"
-                            android:background="@drawable/radiusrec"
-                            android:elevation="10dp"
-                            android:gravity="center"
-                            android:orientation="vertical">
-                            <TextView
-                                android:id="@+id/profile_study"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="학습한 단어"
-                                android:fontFamily="@font/nanumsquareroundr"
-                                android:textSize="15sp"
-                                >
-
-                            </TextView>
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="15dp"
-                                android:text="69"
-                                android:fontFamily="@font/dohyeon"
-                                android:textSize="25sp"></TextView>
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="190dp"
-                        android:layout_height="130dp"
-                        android:gravity="center"
-
-                        >
-                        <LinearLayout
-                            android:layout_width="170dp"
-                            android:layout_height="100dp"
-                            android:background="@drawable/radiusrec"
-                            android:elevation="10dp"
-                            android:gravity="center"
-                            android:orientation="vertical">
-                            <TextView
-                                android:id="@+id/profile_study2"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="학습한 예문"
-                                android:fontFamily="@font/nanumsquareroundr"
-                                android:textSize="15sp"
-                                >
-
-                            </TextView>
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="15dp"
-                                android:text="74"
-                                android:fontFamily="@font/dohyeon"
-                                android:textSize="25sp"></TextView>
-                        </LinearLayout>
-                    </LinearLayout>
-                </LinearLayout>
-            </LinearLayout>
 
 
-
-            <!--티어 아이콘 box-->
-            <LinearLayout
-                android:layout_width="100dp"
-                android:layout_height="70dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/profileside"
-                android:elevation="10dp">
-                <ImageView
-                    android:id="@+id/profile_tier_img"
-                    android:layout_width="40dp"
-                    android:layout_height="70dp"
-                    android:layout_marginLeft="28dp"
-                    android:src="@drawable/platinum"
-                    >
-                </ImageView>
-
-            </LinearLayout>
-
-
-
-            <!--상세 정보 박스-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_marginLeft="20dp"
-                android:gravity="center"
-                android:orientation="horizontal">
-                <ImageView
-                    android:layout_width="1.5dp"
-                    android:layout_height="200dp"
-                    android:background="@drawable/line"
-                    android:layout_gravity="left"/>
+                <!--학습단어,예문 box -->
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
+                    android:layout_height="match_parent"
                     android:layout_marginTop="20dp"
-                    android:layout_marginLeft="20dp">
-                    <TextView
-                        android:id="@+id/profile_tier"
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp"
-                        android:text="Platinum"
-                        android:fontFamily="@font/nanumsquareroundr"
-                        android:textSize="15sp"></TextView>
-
-                    <TextView
-                        android:id="@+id/profile_rank"
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp"
-                        android:text="Rank : 3"
-                        android:fontFamily="@font/nanumsquareroundr"
-                        android:textSize="15sp"></TextView>
+                    android:gravity="center"
+                    android:orientation="vertical">
 
                     <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal"
-                        android:layout_marginTop="50dp">
+                        android:layout_width="380dp"
+                        android:layout_height="130dp"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="190dp"
+                            android:layout_height="130dp"
+                            android:gravity="center">
+
+                            <LinearLayout
+                                android:layout_width="170dp"
+                                android:layout_height="100dp"
+                                android:background="@drawable/radiusrec"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/profile_study"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/nanumsquareroundr"
+                                    android:text="학습한 단어"
+                                    android:textSize="15sp">
+
+                                </TextView>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="25dp"
+                                    android:fontFamily="@font/dohyeon"
+                                    android:text="11"
+                                    android:textSize="28sp"></TextView>
+                            </LinearLayout>
+                        </LinearLayout>
                         <ImageView
-                            android:layout_width="10dp"
-                            android:layout_height="10dp"
-                            android:src="@drawable/circle"
+                            android:layout_width="1dp"
+                            android:layout_height="150dp"
+                            android:background="@drawable/line"/>
+                        <LinearLayout
+                            android:layout_width="190dp"
+                            android:layout_height="130dp"
+                            android:gravity="center"
+
+                            >
+
+                            <LinearLayout
+                                android:layout_width="170dp"
+                                android:layout_height="100dp"
+                                android:background="@drawable/radiusrec"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/profile_study2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/nanumsquareroundr"
+                                    android:text="학습한 예문"
+                                    android:textSize="15sp">
+
+                                </TextView>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="25dp"
+                                    android:fontFamily="@font/dohyeon"
+                                    android:text="14"
+                                    android:textSize="28sp"></TextView>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@drawable/line"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"/>
+                </LinearLayout>
+
+
+
+
+
+                <!--상세 정보 박스-->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:gravity="center"
+                    android:layout_marginTop="30dp"
+                    android:orientation="vertical">
+                    <!--티어 아이콘 box-->
+                    <LinearLayout
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:background="@drawable/circle"
+                        android:elevation="10dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp">
+
+                        <ImageView
+                            android:id="@+id/profile_tier_img"
+                            android:layout_width="40dp"
+                            android:layout_height="70dp"
+                            android:layout_marginLeft="28dp"
                             android:layout_gravity="center"
-                            android:layout_marginRight="20dp"/>
+                            android:src="@drawable/platinum"></ImageView>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
                         <TextView
+                            android:id="@+id/profile_tier"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
-                            android:gravity="center_vertical"
-                            android:text="Recent Graph"
                             android:fontFamily="@font/dohyeon"
-                            android:textSize="25sp"></TextView>
+                            android:text="Platinum"
+                            android:gravity="center"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:id="@+id/profile_rank"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:fontFamily="@font/nanumsquareroundr"
+                            android:text="Rank : 3"
+                            android:gravity="center"
+                            android:textSize="15sp"></TextView>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="70dp"
+                            android:layout_marginLeft="40dp"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="10dp"
+                                android:layout_height="10dp"
+                                android:layout_gravity="center"
+                                android:layout_marginRight="20dp"
+                                android:src="@drawable/circleblue" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="30dp"
+                                android:fontFamily="@font/dohyeon"
+                                android:gravity="center_vertical"
+                                android:text="Recent Graph"
+                                android:textSize="25sp"></TextView>
+                        </LinearLayout>
+
                     </LinearLayout>
+                </LinearLayout>
+
+
+                <!--학습 그래프 박스 -->
+                <LinearLayout
+                    android:layout_width="350dp"
+                    android:layout_height="250dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="50dp"
+                    android:background="@drawable/radiusrec"
+                    android:elevation="20dp"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <ImageView
+                        android:layout_width="310dp"
+                        android:layout_height="165dp"
+                        android:src="@drawable/tempgraph" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentLeft="true"
+                            android:layout_marginLeft="13dp"
+                            android:fontFamily="@font/dohyeon"
+                            android:gravity="center"
+                            android:text="Temp"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentRight="true"
+                            android:fontFamily="@font/nanumsquareroundr"
+                            android:text="2020.07.05" />
+                    </RelativeLayout>
+
 
                 </LinearLayout>
             </LinearLayout>
+        </ScrollView>
 
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNavigationView_show_naver_word"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            app:itemBackground="@color/lightblue"
+            app:itemIconTint="@android:color/white"
+            app:itemTextColor="@android:color/white"
+            app:menu="@menu/bottom_menu" />
 
-            <!--학습 그래프 박스 -->
-            <LinearLayout
-                android:layout_width="350dp"
-                android:layout_height="250dp"
-                android:background="@drawable/radiusrec"
-                android:elevation="20dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="50dp"
-                android:padding="20dp"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="310dp"
-                    android:layout_height="165dp"
-                    android:src="@drawable/tempgraph"/>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="13dp"
-                        android:text="섹스가 하고 싶네요."
-                        android:textSize="20sp"
-                        android:fontFamily="@font/dohyeon"
-                        android:layout_alignParentLeft="true"
-                        android:gravity="center"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:text="2020.07.05"
-                        android:fontFamily="@font/nanumsquareroundr"
-                        android:layout_alignParentRight="true"
-                        android:layout_alignParentTop="true"
-                        />
-                </RelativeLayout>
-
-
-
-            </LinearLayout>
-        </LinearLayout>
-    </ScrollView>
-
-
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigationView_show_naver_word"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        app:itemBackground="@color/lightblue"
-        app:itemIconTint="@android:color/white"
-        app:itemTextColor="@android:color/white"
-        app:menu="@menu/bottom_menu" />
-</LinearLayout>
+    </LinearLayout>
 
 </LinearLayout>
