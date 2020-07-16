@@ -63,7 +63,7 @@ public class Menu_main extends AppCompatActivity {
         change_to_language = findViewById(R.id.change_to_language);
 
         today_word_layout = findViewById(R.id.today_word_layout);
-        toeicInfo = findViewById(R.id.toeicInfo);
+        toeicInfo = findViewById(R.id.toeic_info);
 
         /*토익 날짜*/
         LinearLayout.LayoutParams param = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
