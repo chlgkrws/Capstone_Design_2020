@@ -2,6 +2,7 @@ package com.hjhs_project.capstone_design_2020.login;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -12,6 +13,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.textfield.TextInputEditText;
+import com.hjhs_project.capstone_design_2020.CToast;
 import com.hjhs_project.capstone_design_2020.R;
 import com.hjhs_project.capstone_design_2020.menu.Menu_main;
 
@@ -53,7 +55,10 @@ public class Login extends AppCompatActivity {
                             if(success){
                                 String user_name = jsonObject.getString("user_name");
                                 String user_id = jsonObject.getString("user_id");
-                                Toast.makeText(getApplicationContext(), "로그인성공", Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(getApplicationContext(), "로그인성공", Toast.LENGTH_SHORT).show();
+                                CToast ct = new CToast();
+                                LayoutInflater inflater = getLayoutInflater();
+                                ct.showCToast("로그인 성공!",inflater,Login.this);
                                 Intent intent = new Intent(Login.this, Menu_main.class);
                                 intent.putExtra("user_id",user_id);
                                 intent.putExtra("user_name",user_name);
