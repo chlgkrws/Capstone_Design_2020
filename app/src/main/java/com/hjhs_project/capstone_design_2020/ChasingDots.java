@@ -1,4 +1,5 @@
-package com.github.ybq.android.spinkit.style;
+package com.hjhs_project.capstone_design_2020;
+
 
 import android.animation.ValueAnimator;
 import android.graphics.Rect;

@@ -43,6 +43,7 @@ public class MyProfile extends AppCompatActivity {
 
     TextView profile_id, profile_name, profile_att;
     TextView profile_tier, profile_rank, profile_study;
+    TextView learned_word, learned_sentence;
     ImageView profile_user_img, profile_tier_img;
     TextView change_profile_img;
 
@@ -64,6 +65,9 @@ public class MyProfile extends AppCompatActivity {
         profile_rank = findViewById(R.id.profile_rank);
         profile_study = findViewById(R.id.profile_study);
 
+        learned_word = findViewById(R.id.learned_word);
+        learned_sentence = findViewById(R.id.learned_sentence);
+
         profile_user_img = findViewById(R.id.profile_user_img);
         profile_tier_img = findViewById(R.id.profile_tier_img);
 
@@ -80,7 +84,7 @@ public class MyProfile extends AppCompatActivity {
 
                     if(success){
                         String days = jsonObject.getString("days");
-                        profile_att.setText("출석 횟수 - "+days+"일");
+                        profile_att.setText(" X "+days);
                     }else{
                         Toast.makeText(getApplicationContext(),"10099 오류",Toast.LENGTH_SHORT).show();
                     }
@@ -128,12 +132,12 @@ public class MyProfile extends AppCompatActivity {
                             tierToText ="Bronze";
                             profile_tier_img.setImageResource(R.drawable.bronze);
                         }
-                        profile_tier.setText("티어 - "+tierToText);
+                        profile_tier.setText(tierToText);
 
                         //이미지 뷰도 같이 띄워주기
                     }else{
                         profile_tier_img.setImageResource(R.drawable.bronze);
-                        profile_tier.setText("티어 - Unranked");
+                        profile_tier.setText("Unranked");
                         //Toast.makeText(getApplicationContext(),"10099 오류",Toast.LENGTH_SHORT).show();
                     }
                 } catch (JSONException e) {
@@ -158,7 +162,7 @@ public class MyProfile extends AppCompatActivity {
 
                     if(success){
                         String rank = jsonObject.getString("rank");
-                        profile_rank.setText("랭킹 - "+rank+"위");
+                        profile_rank.setText("Ranking  "+rank+"위");
 
                     }else{
                         profile_rank.setText("랭킹 -  --위 (단어를 공부해보세요!)");
@@ -187,11 +191,15 @@ public class MyProfile extends AppCompatActivity {
                         String wordCount = jsonObject.getString("user_word");
                         String sentenceCount = jsonObject.getString("user_sentence");
 
-                        profile_study.setText("단어 - "+wordCount+"개   예문 - "+sentenceCount+"개");
+                        learned_word.setText(wordCount);
+                        learned_sentence.setText(sentenceCount);
+                        //profile_study.setText("단어 - "+wordCount+"개   예문 - "+sentenceCount+"개");
 
 
                     }else{
-                        profile_study.setText("단어 - "+"0개   예문 - "+"0개");
+                        learned_word.setText("0");
+                        learned_sentence.setText("0");
+                        //profile_study.setText("단어 - "+"0개   예문 - "+"0개");
                         //Toast.makeText(getApplicationContext(),"10099 오류",Toast.LENGTH_SHORT).show();
                     }
                 } catch (JSONException e) {
@@ -207,8 +215,8 @@ public class MyProfile extends AppCompatActivity {
 
 
         /*---------------------고정 데이터 처리------------------------*/
-        profile_id.setText("아이디 - "+user_id);
-        profile_name.setText("이름 - " +user_name);
+        profile_id.setText(""+user_id);
+        profile_name.setText("" +user_name);
         /*--------------------------------------------------------------*/
 
         change_profile_img.setClickable(true);
