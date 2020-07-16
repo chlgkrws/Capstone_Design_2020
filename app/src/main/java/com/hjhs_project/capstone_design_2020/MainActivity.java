@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        test = findViewById(R.id.test);
+       // test = findViewById(R.id.test);
         new Thread() {
             @Override
             public void run() {
