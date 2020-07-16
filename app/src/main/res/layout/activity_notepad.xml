@@ -23,7 +23,7 @@
         android:id="@+id/recyclerview"
         android:background="@drawable/radiusrec"
         android:layout_margin="20dp"
-        android:padding="10dp"
+        android:padding="13dp"
         android:elevation="10dp"
         >
     </androidx.recyclerview.widget.RecyclerView>

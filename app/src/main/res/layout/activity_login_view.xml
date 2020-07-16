@@ -11,22 +11,23 @@
     android:paddingTop="16dp"
     android:paddingRight="16dp"
     android:paddingBottom="16dp">
-
+    <ImageView
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="25dp"
+        android:src="@drawable/logo"></ImageView>
     <LinearLayout
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:background="@drawable/radiusrec"
         android:elevation="20dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingTop="40dp">
 
-        <ImageView
-            android:layout_width="110dp"
-            android:layout_height="110dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="25dp"
-            android:src="@drawable/logo"></ImageView>
+
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -41,9 +42,9 @@
                 android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:drawableLeft="@drawable/email"
-                android:drawablePadding="10dp"
+                android:drawablePadding="-25dp"
                 android:fontFamily="@font/nanumsquareroundr"
-                android:gravity="left|center"
+                android:gravity="center"
                 android:hint="Email"
                 android:inputType="textEmailAddress"
                 android:textColor="#000000"
@@ -66,9 +67,9 @@
                 android:layout_gravity="center"
 
                 android:drawableStart="@drawable/pwd"
-                android:drawablePadding="10dp"
+                android:drawablePadding="-25dp"
                 android:fontFamily="@font/nanumsquareroundr"
-                android:gravity="left|center"
+                android:gravity="center"
                 android:hint="Password"
                 android:inputType="textPassword"
                 android:textColor="#000000"
@@ -80,13 +81,14 @@
             android:layout_width="280dp"
             android:layout_height="45dp"
             android:layout_gravity="center"
-            android:layout_margin="30dp"
+            android:layout_marginTop="50dp"
             android:background="@drawable/rectangle"
             android:clickable="true"
             android:fontFamily="@font/dohyeon"
             android:text="Log_in"
             android:textColor="#000"
-            android:textSize="15dp" />
+            android:textSize="15dp"
+            android:layout_marginBottom="20dp"/>
 
 
     </LinearLayout>

@@ -22,6 +22,7 @@
         android:gravity="center"
         android:background="@drawable/radiusrec"
         android:padding="50dp"
+        android:elevation="10dp"
         android:layout_margin="20dp"
 
         />
@@ -35,8 +36,7 @@
         android:textSize="15sp"
         android:fontFamily="@font/nanumsquareroundr"
         android:gravity="center"
-        android:background="@drawable/recblue"
-        android:elevation="10dp"
+        android:background="@drawable/strokebox"
         android:layout_margin="20dp"
         android:clickable="true"
         ></Button>
