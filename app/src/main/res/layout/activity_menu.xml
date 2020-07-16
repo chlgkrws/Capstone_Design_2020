@@ -164,7 +164,7 @@
                     android:paddingLeft="11dp"/>
 
                 <LinearLayout
-                    android:id="@+id/toeicInfo"
+                    android:id="@+id/toeic_info"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
@@ -211,46 +211,59 @@
                             android:gravity="center"/>
 
                     </LinearLayout>
+                </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="18dp"
+                android:text="토스 시험 정보"
+                android:paddingLeft="11dp"/>
 
 
-                   <!-- <TextView
-                        android:id="@+id/toeic1"
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp"
-                        android:gravity="center|left"
-                        android:text="2020202020 000차 " />
+            <LinearLayout
+                android:id="@+id/tos_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="10">
+
 
                     <TextView
-                        android:id="@+id/toeic2"
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp"
-                        android:gravity="center|left"
-                        android:text="2020202020 000차 " />
--->
+                        android:id="@+id/tos_reception"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="접수 기간"
+                        android:gravity="center"
+                        android:layout_weight="4"/>
+
+                    <TextView
+                        android:id="@+id/tos_test_day"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="시험일"
+                        android:gravity="center"
+                        android:layout_weight="3"
+                        />
+
+                    <TextView
+                        android:id="@+id/tos_score"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="성적발표"
+                        android:layout_weight="3"
+                        android:gravity="center"/>
+
                 </LinearLayout>
 
+            </LinearLayout>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="18dp"
-                    android:text="토스 시험 정보" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:gravity="center|left"
-                    android:text="2020202020 000차 " />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="18dp"
-                    android:text="토플 시험 정보" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:gravity="center|left"
-                    android:text="2020202020 000차 " />
 
 
 

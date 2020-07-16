@@ -109,7 +109,6 @@
                             android:orientation="horizontal"
                             android:background="@drawable/radiusrec"
                             android:padding="10dp"
-                            android:mar="13dp"
                             android:elevation="10dp">
 
                             <ImageView

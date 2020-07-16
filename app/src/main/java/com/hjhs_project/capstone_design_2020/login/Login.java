@@ -25,6 +25,8 @@ public class Login extends AppCompatActivity {
 
     public static String a = "";
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,5 +87,12 @@ public class Login extends AppCompatActivity {
             }
         });
 
+
+    }
+    @Override
+    public void onBackPressed() {
+        finishAffinity();         //해당 앱의 루트 액티비티를 종료시킨다.
+        System.runFinalization(); //간단히 말해 현재 작업중인 쓰레드가 다 종료되면 종료시키라는 명령어
+        System.exit(0);    //현재 액티비티를 종료시킨다.
     }
 }

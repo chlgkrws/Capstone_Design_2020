@@ -28,14 +28,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-       // test = findViewById(R.id.test);
+
+
+
+        // test = findViewById(R.id.test);
         new Thread() {
             @Override
             public void run() {
                 Document doc = null;
                 String toeic1 = "";
                 String toeic2 = "";
-                String tos = "";
                 try {
                     doc = Jsoup.connect("https://search.naver.com/search.naver?sm=top_hty&fbm=0&ie=utf8&query=%ED%86%A0%EC%9D%B5+%EC%8B%9C%ED%97%98%EC%9D%BC%EC%A0%95").get();
                     //doc = Jsoup.connect("https://search.naver.com/search.naver?sm=top_hty&fbm=0&ie=utf8&query=%EC%98%A4%EB%8A%98%EC%9D%98+%EB%8B%A8%EC%96%B4").get();
@@ -62,22 +64,44 @@ public class MainActivity extends AppCompatActivity {
                     bundle.putString("toeic1",toeic1);
                     bundle.putString("toeic2",toeic2);
 
-
-                    Thread.sleep(5000);
-
                     Message msg = handler.obtainMessage();
                     msg.setData(bundle);
                     handler.sendMessage(msg);
-
-
-                } catch (IOException | InterruptedException e) {
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
 
             }
         }.start();
 
+        new Thread(){
+            @Override
+            public void run() {
+                Document doc = null;
+                String tos1 = "";
+                String tos2 = "";
+                String tos = "";
 
+                try {
+                    doc = Jsoup.connect("https://appexam.ybmnet.co.kr/toeicswt/receipt/schedule.asp").get();
+                    Elements info = doc.select("div.exam_ing_table tbody tr");
+                    tos1 = info.get(1).text();
+                    tos2 = info.get(2).text();
+
+                    Bundle bundle = new Bundle();
+                    bundle.putString("tos1",tos1);
+                    bundle.putString("tos2",tos2);
+                    Thread.sleep(3000);                                                 //스플래쉬 표시시간
+                    Message msg = tosHandler.obtainMessage();
+                    msg.setData(bundle);
+                    tosHandler.sendMessage(msg);
+
+
+                } catch (IOException | InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
 
     }
 
@@ -90,15 +114,27 @@ public class MainActivity extends AppCompatActivity {
             String toeic2 = bundle.getString("toeic2");
             toeicInfo = toeic1 +"&&"+toeic2;
             //test.setText(toeic1+toeic2);
+           // Toast.makeText(getApplicationContext(),toeicInfo,Toast.LENGTH_LONG);
 
+        }
+    };
+
+    @SuppressLint("HandlerLeak")
+    Handler tosHandler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            Bundle bundle = msg.getData();
+            String tos1 = bundle.getString("tos1");
+            String tos2 = bundle.getString("tos2");
+            tosInfo = tos1 +"&&"+tos2;
             Intent intent = new Intent(MainActivity.this, Login.class);
             startActivity(intent);
-            finish();
         }
     };
 
     public static String getToeicInfo() {
         return toeicInfo;
     }
+    public static String getTosInfo(){return tosInfo;}
 
 }
