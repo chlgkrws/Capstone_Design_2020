@@ -22,10 +22,9 @@
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:background="@drawable/radiusrec"
-        android:elevation="20dp"
         android:orientation="vertical"
-        android:paddingTop="40dp">
+        android:paddingTop="40dp"
+        android:paddingBottom="20dp">
 
 
 
@@ -76,23 +75,23 @@
                 android:textSize="13dp"></com.google.android.material.textfield.TextInputEditText>
         </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
-            android:id="@+id/Button_login"
-            android:layout_width="280dp"
-            android:layout_height="45dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="50dp"
-            android:background="@drawable/rectangle"
-            android:clickable="true"
-            android:fontFamily="@font/dohyeon"
-            android:text="Log_in"
-            android:textColor="#000"
-            android:textSize="15dp"
-            android:layout_marginBottom="20dp"/>
+
 
 
     </LinearLayout>
-
+    <Button
+        android:id="@+id/Button_login"
+        android:layout_width="280dp"
+        android:layout_height="45dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/radiusrec"
+        android:clickable="true"
+        android:fontFamily="@font/nanumsquareroundr"
+        android:text="Log_in"
+        android:textColor="#000"
+        android:textSize="15dp"
+        android:layout_marginBottom="20dp"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
