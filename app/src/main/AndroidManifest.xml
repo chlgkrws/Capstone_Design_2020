@@ -36,7 +36,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".login.Login"/>
+        <activity android:name=".login.Login" android:windowSoftInputMode="adjustResize"/>
         <activity android:name=".login.Sign_up"/>
         <activity android:name=".menu.Menu_main" android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".menu.Menu_camera"/>
