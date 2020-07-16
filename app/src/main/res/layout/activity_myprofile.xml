@@ -3,145 +3,148 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#DCDCDC"
+    android:background="#000000"
     android:orientation="vertical"
-    android:gravity="center">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#FAFAFA"
-        android:gravity="bottom"
-        android:orientation="vertical">
-
-        <!-- 상단 고정 -->
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="130dp"
-            android:layout_gravity="top"
-            android:orientation="horizontal"
-            android:layout_marginBottom="30dp">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:orientation="vertical">
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/profile_user_img"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="2"
-                    android:src="@drawable/pro"
-
-                    app:civ_border_color="#777777"
-                    app:civ_border_width="0.5dp" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="20dp"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="10dp"
-                        android:layout_height="10dp"
-                        android:layout_gravity="center"
-                        android:layout_marginRight="5dp"
-                        android:background="@drawable/pen"></ImageView>
-
-                    <TextView
-                        android:id="@+id/change_profile_img"
-                        android:layout_width="wrap_content"
-                        android:layout_height="30dp"
-                        android:clickable="true"
-                        android:fontFamily="@font/nanumsquareroundr"
-                        android:gravity="center"
-                        android:text="Edit Image"
-                        android:textColor="@color/colorPrimary"
-                        android:textSize="10sp" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="50dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/profile_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="30dp"
-                    android:layout_marginTop="10dp"
-                    android:fontFamily="@font/nanumsquareroundr"
-                    android:gravity="left"
-                    android:text="이름"
-                    android:textSize="15sp"></TextView>
-
-                <TextView
-                    android:id="@+id/profile_id"
-                    android:layout_width="wrap_content"
-                    android:layout_height="30dp"
-                    android:layout_marginTop="5dp"
-                    android:fontFamily="@font/nanumsquareroundr"
-                    android:gravity="left"
-                    android:text="아이디"
-                    android:textSize="15sp"></TextView>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/fire"></ImageView>
-
-                    <TextView
-                        android:id="@+id/profile_att"
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp"
-                        android:layout_marginLeft="5dp"
-                        android:fontFamily="@font/nanumsquareroundr"
-                        android:gravity="left|center_vertical"
-                        android:text="X 출석횟수"
-                        android:textSize="15dp"></TextView>
-
-                </LinearLayout>
-
-            </LinearLayout>
-        </LinearLayout>
-
+    android:gravity="bottom">
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="500dp"
+            android:layout_height="728dp"
             android:background="@drawable/whiteback"
-            android:elevation="10dp">
+            >
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:layout_marginTop="30dp"
                 >
+                <!-- 상단 고정 -->
 
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:layout_gravity="top"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="30dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="50dp"
+                        android:orientation="vertical">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/profile_user_img"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="2"
+                            android:src="@drawable/pro"
+
+                            app:civ_border_color="#777777"
+                            app:civ_border_width="0.5dp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="20dp"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="10dp"
+                                android:layout_height="10dp"
+                                android:layout_gravity="center"
+                                android:layout_marginRight="5dp"
+                                android:background="@drawable/pen"></ImageView>
+
+                            <TextView
+                                android:id="@+id/change_profile_img"
+                                android:layout_width="wrap_content"
+                                android:layout_height="30dp"
+                                android:clickable="true"
+                                android:fontFamily="@font/nanumsquareroundr"
+                                android:gravity="center"
+                                android:text="Edit Image"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="10sp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="50dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/profile_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="18dp"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/nanumsquareroundr"
+                            android:gravity="left"
+                            android:text="이름"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:id="@+id/profile_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="15dp"
+                            android:layout_marginTop="5dp"
+                            android:fontFamily="@font/nanumsquareroundr"
+                            android:gravity="center"
+                            android:text="아이디"
+                            android:textSize="13sp"></TextView>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginLeft="5dp"
+                            android:orientation="horizontal"
+                            android:background="@drawable/radiusrec"
+                            android:padding="10dp"
+                            android:mar="13dp"
+                            android:elevation="10dp">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/fire"></ImageView>
+
+                            <TextView
+                                android:id="@+id/profile_att"
+                                android:layout_width="match_parent"
+                                android:layout_height="30dp"
+                                android:layout_marginLeft="5dp"
+                                android:fontFamily="@font/dohyeon"
+                                android:gravity="left|center_vertical"
+                                android:text="X 7"
+                                android:textSize="18dp"></TextView>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
 
                 <!--학습단어,예문 box -->
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:gravity="center"
                     android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@drawable/line"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"/>
 
                     <LinearLayout
                         android:layout_width="380dp"
@@ -176,12 +179,13 @@
                                     android:layout_marginTop="25dp"
                                     android:fontFamily="@font/dohyeon"
                                     android:text="11"
-                                    android:textSize="28sp"></TextView>
+                                    android:textSize="33sp"></TextView>
                             </LinearLayout>
                         </LinearLayout>
                         <ImageView
                             android:layout_width="1dp"
-                            android:layout_height="150dp"
+                            android:layout_height="110dp"
+                            android:layout_gravity="center"
                             android:background="@drawable/line"/>
                         <LinearLayout
                             android:layout_width="190dp"
@@ -213,7 +217,7 @@
                                     android:layout_marginTop="25dp"
                                     android:fontFamily="@font/dohyeon"
                                     android:text="14"
-                                    android:textSize="28sp"></TextView>
+                                    android:textSize="33sp"></TextView>
                             </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
@@ -275,7 +279,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
                             android:fontFamily="@font/nanumsquareroundr"
-                            android:text="Rank : 3"
+                            android:text="Ranking 11"
                             android:gravity="center"
                             android:textSize="15sp"></TextView>
 
@@ -350,21 +354,15 @@
                 </LinearLayout>
             </LinearLayout>
         </ScrollView>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="10dp"
-            android:background="#ffffff"/>
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottomNavigationView_profile"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
-            app:itemBackground="@color/lightblue"
-            app:itemIconTint="@android:color/white"
-            app:itemTextColor="@android:color/white"
-            app:menu="@menu/bottom_menu" />
 
-    </LinearLayout>
-
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        app:itemBackground="@color/lightblue"
+        app:itemIconTint="@android:color/white"
+        app:itemTextColor="@android:color/white"
+        app:menu="@menu/bottom_menu" />
 </LinearLayout>

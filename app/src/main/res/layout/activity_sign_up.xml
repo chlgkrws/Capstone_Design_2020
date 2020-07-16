@@ -9,7 +9,7 @@
     >
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="700dp"
+            android:layout_height="match_parent"
             android:orientation="vertical"
             android:background="@drawable/radiusrec"
             android:layout_margin="15dp"
@@ -17,6 +17,7 @@
             android:paddingRight="20dp"
             android:paddingLeft="20dp"
             android:elevation="10dp"
+            android:gravity="center"
             >
 
             <TextView
@@ -26,7 +27,7 @@
                 android:fontFamily="@font/nanumsquareroundr"
                 android:textColor="#000"
                 android:textSize="23sp"
-                android:layout_marginBottom="50dp"
+                android:layout_marginBottom="70dp"
                 android:gravity="center"
                 >
 
