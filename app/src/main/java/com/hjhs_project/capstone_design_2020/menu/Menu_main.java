@@ -2,7 +2,6 @@ package com.hjhs_project.capstone_design_2020.menu;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
