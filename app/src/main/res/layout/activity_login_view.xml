@@ -4,77 +4,137 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/main"
+    android:background="#ffffff"
     android:gravity="bottom"
     android:orientation="vertical"
     android:paddingLeft="16dp"
     android:paddingTop="16dp"
     android:paddingRight="16dp"
     android:paddingBottom="16dp">
+
+
+    <!-- 로고 -->
     <ImageView
         android:layout_width="110dp"
         android:layout_height="110dp"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="25dp"
+        android:layout_marginBottom="100dp"
+        android:background="@drawable/logoring"
         android:src="@drawable/logo"></ImageView>
+
+
+
+    <!--아이디 비번 입력 -->
     <LinearLayout
-        android:layout_width="350dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:orientation="vertical"
-        android:paddingTop="40dp"
-        android:paddingBottom="20dp">
+        >
 
 
-
-        <com.google.android.material.textfield.TextInputLayout
+        <!-- 아이디 입력 -->
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/nanumsquareroundr"
-            android:textColorHint="#000000"
-            app:hintTextColor="#000000">
+            android:layout_height="55dp"
+            android:orientation="horizontal"
+            android:paddingLeft="20dp"
+            android:background="@drawable/loginbox">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/User_id"
-                android:layout_width="290dp"
-                android:layout_height="50dp"
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/email"
+                android:layout_gravity="center"/>
+
+            <ImageView
+                android:layout_width="1dp"
+                android:layout_height="25dp"
                 android:layout_gravity="center"
-                android:drawableLeft="@drawable/email"
-                android:drawablePadding="-25dp"
+                android:background="@drawable/line"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"/>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:fontFamily="@font/nanumsquareroundr"
-                android:gravity="center"
-                android:hint="Email"
-                android:inputType="textEmailAddress"
-                android:textColor="#000000"
-                android:textSize="13sp"
+                android:textColorHint="#666666"
+                app:hintTextColor="#000000"
+                app:endIconMode="clear_text"
+                app:endIconTint="#000000"
+                >
 
-                ></com.google.android.material.textfield.TextInputEditText>
-        </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/User_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/nanumsquareroundr"
+                    android:hint="Email"
+                    android:background="@android:color/transparent"
+                    android:inputType="textEmailAddress"
+                    android:textColor="#000000"
+                    android:textSize="13sp"
+                    android:layout_marginBottom="10dp"
+                    ></com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
 
+
+
+
+        <!-- 비밀번호 입력 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:orientation="horizontal"
+            android:paddingLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/loginbox">
+
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/pwd"
+                android:layout_gravity="center"/>
+
+            <ImageView
+                android:layout_width="1dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center"
+                android:background="@drawable/line"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"/>
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/nanumsquareroundr"
-            android:textColorHint="#000000"
-            app:hintTextColor="#000000">
+            android:textColorHint="#666666"
+            app:hintTextColor="#000000"
+            app:endIconMode="clear_text"
+            app:endIconTint="#000000">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/User_pass"
-                android:layout_width="290dp"
-                android:layout_height="50dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-
-                android:drawableStart="@drawable/pwd"
-                android:drawablePadding="-25dp"
+                android:background="@android:color/transparent"
                 android:fontFamily="@font/nanumsquareroundr"
-                android:gravity="center"
                 android:hint="Password"
                 android:inputType="textPassword"
                 android:textColor="#000000"
-                android:textSize="13dp"></com.google.android.material.textfield.TextInputEditText>
-        </com.google.android.material.textfield.TextInputLayout>
+                android:textSize="13dp"
+                android:layout_marginBottom="10dp">
 
+            </com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
 
 
 
@@ -82,27 +142,28 @@
     <Button
         android:id="@+id/Button_login"
         android:layout_width="280dp"
-        android:layout_height="45dp"
+        android:layout_height="55dp"
         android:layout_gravity="center"
         android:layout_marginTop="50dp"
+        android:layout_marginBottom="50dp"
         android:background="@drawable/loginbtn"
         android:clickable="true"
-        android:fontFamily="@font/nanumsquareroundr"
-        android:text="Log_in"
-        android:textColor="#000"
-        android:textSize="15dp" />
+        android:fontFamily="@font/dohyeon"
+        android:text="Sign in"
+        android:textColor="#ffffff"
+        android:textSize="17dp"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="40dp"
         android:gravity="center"
         android:orientation="vertical"
-        android:paddingBottom="50dp">
+        android:layout_marginBottom="20dp">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="6sp"
+            android:layout_marginBottom="6dp"
             android:fontFamily="@font/nanumsquareroundr"
             android:gravity="center"
             android:text="사용할 계정이 없으신가요?"
@@ -114,11 +175,11 @@
             android:layout_width="100dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
-            android:background="@color/main"
+            android:background="#ffffff"
             android:clickable="true"
             android:fontFamily="@font/nanumsquareroundr"
             android:text="Sign_Up"
-            android:textColor="#000000"
+            android:textColor="@color/lightblue"
             android:textSize="14sp">
 
 
