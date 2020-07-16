@@ -199,6 +199,7 @@ public class Menu_main extends AppCompatActivity {
                                 return true;
                             case R.id.bottom_bar_camera:
                                 Intent intent2 = new Intent(Menu_main.this, DetectorActivity.class);
+                                intent2.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                 startActivity(intent2);
                                 return true;
                             case R.id.bottom_bar_profile:

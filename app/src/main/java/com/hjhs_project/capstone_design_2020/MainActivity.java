@@ -63,14 +63,14 @@ public class MainActivity extends AppCompatActivity {
                     bundle.putString("toeic2",toeic2);
 
 
-
+                    Thread.sleep(5000);
 
                     Message msg = handler.obtainMessage();
                     msg.setData(bundle);
                     handler.sendMessage(msg);
 
 
-                } catch (IOException e) {
+                } catch (IOException | InterruptedException e) {
                     e.printStackTrace();
                 }
 
@@ -90,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
             String toeic2 = bundle.getString("toeic2");
             toeicInfo = toeic1 +"&&"+toeic2;
             //test.setText(toeic1+toeic2);
+
             Intent intent = new Intent(MainActivity.this, Login.class);
             startActivity(intent);
             finish();

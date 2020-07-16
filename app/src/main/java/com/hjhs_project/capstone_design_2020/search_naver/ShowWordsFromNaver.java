@@ -358,6 +358,7 @@ public class ShowWordsFromNaver extends AppCompatActivity  implements Serializab
                                 Intent intent2 = new Intent(ShowWordsFromNaver.this, DetectorActivity.class);
                                 startActivity(intent2);
                                 finish();
+
                                 return true;
                             case R.id.bottom_bar_profile:
                                 Intent intent3 = new Intent(ShowWordsFromNaver.this, MyProfile.class);
