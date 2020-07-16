@@ -52,13 +52,13 @@
 
 
     <Button
-        android:layout_width="150dp"
+        android:layout_width="170dp"
         android:layout_height="100dp"
         android:id="@+id/Button_click"
         android:clickable="true"
         android:layout_gravity="center|bottom"
         android:background="@drawable/ring"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="50dp"
 
         ></Button>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
