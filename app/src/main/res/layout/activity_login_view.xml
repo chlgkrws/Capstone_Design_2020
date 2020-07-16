@@ -85,17 +85,16 @@
         android:layout_height="45dp"
         android:layout_gravity="center"
         android:layout_marginTop="50dp"
-        android:background="@drawable/radiusrec"
+        android:background="@drawable/loginbtn"
         android:clickable="true"
         android:fontFamily="@font/nanumsquareroundr"
         android:text="Log_in"
         android:textColor="#000"
-        android:textSize="15dp"
-        android:layout_marginBottom="20dp"/>
+        android:textSize="15dp" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="100dp"
         android:gravity="center"
         android:orientation="vertical"
         android:paddingBottom="50dp">
