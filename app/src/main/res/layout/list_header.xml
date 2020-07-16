@@ -2,7 +2,7 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     android:background="@drawable/whiteback">
 
@@ -17,6 +17,7 @@
         android:paddingBottom="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <TextView
             android:id="@+id/header_title"
             android:textColor="#000000"
@@ -32,20 +33,14 @@
             android:id="@+id/btn_expand_toggle"
             android:src="@drawable/circle_down"
             android:backgroundTint="#ffffff"
-            android:padding="5dp"
+            android:padding="7dp"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_weight="0"
-            android:layout_marginRight="5dp"/>
+            android:layout_marginRight="5dp"
+            />
 
 
     </LinearLayout>
-
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@drawable/line"
-        android:layout_margin="10dp"/>
 
 </LinearLayout>

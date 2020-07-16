@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,7 +18,7 @@ import java.util.List;
 public class ExpandableListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public static final int HEADER = 0;
     public static final int CHILD = 1;
-    public static final int CHILD2 = 2;
+    public static final int IMAGE = 2;
     public static int index = 1;
     private List<Item> data;
 
@@ -56,6 +57,18 @@ public class ExpandableListAdapter extends RecyclerView.Adapter<RecyclerView.Vie
                                 ViewGroup.LayoutParams.WRAP_CONTENT));
                 return new RecyclerView.ViewHolder(itemTextView) {
                 };
+            case IMAGE:
+                TextView imageTextView = new TextView(context);
+
+
+                LinearLayout.LayoutParams pa = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,1);
+                pa.setMargins(0,100,0,10);
+                imageTextView.setLayoutParams(pa);
+
+                imageTextView.setBackgroundResource(R.drawable.line);
+                return new RecyclerView.ViewHolder(imageTextView){};
+
+
         }
         return null;
     }
@@ -70,7 +83,7 @@ public class ExpandableListAdapter extends RecyclerView.Adapter<RecyclerView.Vie
                 if (item.invisibleChildren == null) {
                     itemController.btn_expand_toggle.setImageResource(R.drawable.circle_minus);
                 } else {
-                    itemController.btn_expand_toggle.setImageResource(R.drawable.circle_plus);
+                    itemController.btn_expand_toggle.setImageResource(R.drawable.circle_down);
                 }
                 itemController.btn_expand_toggle.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -83,8 +96,10 @@ public class ExpandableListAdapter extends RecyclerView.Adapter<RecyclerView.Vie
                                 item.invisibleChildren.add(data.remove(pos + 1));
                                 count++;
                              }
+                            item.invisibleChildren.add(data.remove(pos+1));
+                            count++;
                             notifyItemRangeRemoved(pos + 1, count);
-                            itemController.btn_expand_toggle.setImageResource(R.drawable.circle_plus);
+                            itemController.btn_expand_toggle.setImageResource(R.drawable.circle_down);
                         } else {
                             int pos = data.indexOf(itemController.refferalItem);
                             int index = pos + 1;
@@ -103,6 +118,8 @@ public class ExpandableListAdapter extends RecyclerView.Adapter<RecyclerView.Vie
                 TextView itemTextView = (TextView) holder.itemView;
                 itemTextView.setText(data.get(position).text);
                 break;
+            case IMAGE:
+
         }
     }
 
