@@ -2,6 +2,7 @@ package com.hjhs_project.capstone_design_2020.menu;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
@@ -39,9 +40,10 @@ public class Menu_main extends AppCompatActivity {
 
     int language = 0;                       // 0 : 한국어 -> 영어, 1 : 영어 -> 한국어
     TextView target_translation_word, result_translation, toeic_th,toeic_reception, toeic_test_day, toeic_score;
+    TextView tos_reception, tos_test_day, tos_score;
     Button button_to_translation, change_to_language;
     LinearLayout today_word_layout;
-    LinearLayout toeicInfo;
+    LinearLayout toeicInfo, tosInfo;
     @Override
     protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +52,7 @@ public class Menu_main extends AppCompatActivity {
         user_id = bundle.getString("user_id");
         user_name = bundle.getString("user_name");
         String[] toeic = MainActivity.getToeicInfo().split("&&");
+        String[] tos = MainActivity.getTosInfo().split("&&");
 
         target_translation_word = findViewById(R.id.target_translation_word);
         result_translation = findViewById(R.id.result_translation);
@@ -59,11 +62,16 @@ public class Menu_main extends AppCompatActivity {
         toeic_test_day = findViewById(R.id.toeic_test_day);
         toeic_score = findViewById(R.id.toeic_score);
 
+        tos_reception = findViewById(R.id.tos_reception);
+        tos_test_day = findViewById(R.id.tos_test_day);
+        tos_score = findViewById(R.id.tos_score);
+
         button_to_translation = findViewById(R.id.button_to_translation);
         change_to_language = findViewById(R.id.change_to_language);
 
         today_word_layout = findViewById(R.id.today_word_layout);
         toeicInfo = findViewById(R.id.toeic_info);
+        tosInfo = findViewById(R.id.tos_info);
 
         /*토익 날짜*/
         LinearLayout.LayoutParams param = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
@@ -89,7 +97,6 @@ public class Menu_main extends AppCompatActivity {
 
             th.setLayoutParams(paramTh);
             th.setGravity(Gravity.CENTER);
-
             th.setText(temp[0].charAt(0)+" "+temp[0].substring(1));
 
             reception.setLayoutParams(paramRecept);
@@ -111,6 +118,84 @@ public class Menu_main extends AppCompatActivity {
 
             toeicInfo.addView(toeicLayout);
         }
+
+        /*토스 날짜*/
+
+        LinearLayout.LayoutParams param_tos = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT);
+        param_tos.setMargins(0,5,0,5);
+
+        LinearLayout.LayoutParams paramTosRecept = (LinearLayout.LayoutParams) tos_reception.getLayoutParams();
+        LinearLayout.LayoutParams paramTosDay = (LinearLayout.LayoutParams) tos_test_day.getLayoutParams();
+        LinearLayout.LayoutParams paramTosScore = (LinearLayout.LayoutParams) tos_score.getLayoutParams();
+        for(int i = 0; i < 2; i++){
+            String[] temp = tos[i].split(",");
+            LinearLayout tosLayout = new LinearLayout(this);
+            tosLayout.setLayoutParams(param_tos);
+            tosLayout.setOrientation(LinearLayout.HORIZONTAL);
+            tosLayout.setWeightSum(10);
+            tosLayout.setGravity(Gravity.CENTER);
+
+            TextView tos_reception = new TextView(this);
+            TextView tos_testDay = new TextView(this);
+            TextView tos_score = new TextView(this);
+
+            tos_reception.setLayoutParams(paramTosRecept);                      ///토스 접수 기간
+            tos_reception.setGravity(Gravity.CENTER);
+            tos_reception.setText(temp[1]);
+
+            tos_testDay.setLayoutParams(paramTosDay);                           //토스 시험일
+            tos_testDay.setGravity(Gravity.CENTER);
+            tos_testDay.setText(temp[0]);
+
+            tos_score.setLayoutParams(paramTosScore);                           //토스 결과발표
+            tos_score.setGravity(Gravity.CENTER);
+            tos_score.setText(temp[2]);
+
+            tosLayout.addView(tos_reception);
+            tosLayout.addView(tos_testDay);
+            tosLayout.addView(tos_score);
+
+            tosInfo.addView(tosLayout);
+
+        }
+
+        /*<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_weight="10">
+
+
+                    <TextView
+        android:id="@+id/tos_reception"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="접수 기간"
+        android:gravity="center"
+        android:layout_weight="4"/>
+
+                    <TextView
+        android:id="@+id/tos_test_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="시험일"
+        android:gravity="center"
+        android:layout_weight="3"
+                />
+
+                    <TextView
+        android:id="@+id/tos_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="성적발표"
+        android:layout_weight="3"
+        android:gravity="center"/>
+
+                </LinearLayout>*/
+
 
 
         //한국어 -> 영어 버튼

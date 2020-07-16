@@ -80,13 +80,37 @@ public class MainActivity extends AppCompatActivity {
                 Document doc = null;
                 String tos1 = "";
                 String tos2 = "";
-                String tos = "";
 
                 try {
                     doc = Jsoup.connect("https://appexam.ybmnet.co.kr/toeicswt/receipt/schedule.asp").get();
-                    Elements info = doc.select("div.exam_ing_table tbody tr");
-                    tos1 = info.get(1).text();
-                    tos2 = info.get(2).text();
+                    Elements info = doc.select("div.exam_ing_table tbody tr td");
+
+                    for(int i = 0; i < 3; i++){
+                        if(i == 0){
+                            tos1 += info.get(i).text().replaceAll(" ",".").replace("년","").replaceFirst("월","").replaceFirst("일","")+",";
+                            tos2 += info.get(i+3).text().replaceAll(" ",".").replace("년","").replaceFirst("월","").replaceFirst("일","")+",";
+                        }else if(i == 1){
+                            String temp[] = info.get(i).text().split("~");
+                            String temp2[] =info.get(i+3).text().split("~");
+
+                            temp[0] = temp[0].replaceAll(" ",".").replace("년","").replaceFirst("월","").replaceFirst("일","").substring(0,13);
+                            temp[1] = temp[1].replaceAll(" ",".").replace("년","").replaceFirst("월","").replaceFirst("일","").substring(1,14);
+
+                            temp2[0] = temp2[0].replaceAll(" ",".").replace("년","").replaceFirst("월","").replaceFirst("일","").substring(0,13);
+                            temp2[1] = temp2[1].replaceAll(" ",".").replace("년","").replaceFirst("월","").replaceFirst("일","").substring(1,14);
+
+                            tos1 += temp[0] +"\n   ~"+temp[1]+",";
+                            tos2 += temp2[0] +"\n   ~"+temp2[1]+",";
+
+
+                        }else{
+                            tos1 += info.get(i).text().replaceAll(" ",".").replace("년","").replaceFirst("월","").replaceFirst("일","").substring(0,13)+",";
+                            tos2 += info.get(i+3).text().replaceAll(" ",".").replace("년","").replaceFirst("월","").replaceFirst("일","").substring(0,13)+",";
+                        }
+
+
+
+                    }
 
                     Bundle bundle = new Bundle();
                     bundle.putString("tos1",tos1);
@@ -127,6 +151,7 @@ public class MainActivity extends AppCompatActivity {
             String tos1 = bundle.getString("tos1");
             String tos2 = bundle.getString("tos2");
             tosInfo = tos1 +"&&"+tos2;
+            //Toast.makeText(getApplicationContext(),tosInfo,Toast.LENGTH_LONG).show();
             Intent intent = new Intent(MainActivity.this, Login.class);
             startActivity(intent);
         }
