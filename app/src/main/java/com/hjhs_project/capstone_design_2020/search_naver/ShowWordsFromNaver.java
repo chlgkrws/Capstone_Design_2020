@@ -42,6 +42,7 @@ public class ShowWordsFromNaver extends AppCompatActivity  implements Serializab
     String[][] sentences;
     int index;
     int pageIndex;
+    int N;
     TextView word, meaning;
     TextView en_sentence1, en_sentence2, en_sentence3, en_sentence4, en_sentence5;
     TextView kr_sentence1, kr_sentence2, kr_sentence3, kr_sentence4, kr_sentence5;
@@ -49,6 +50,7 @@ public class ShowWordsFromNaver extends AppCompatActivity  implements Serializab
     Button button_push;
     Button button_refresh;
     String user_id;
+    Boolean availableTouch;
 
 
     @Override
@@ -61,11 +63,12 @@ public class ShowWordsFromNaver extends AppCompatActivity  implements Serializab
         searched_words = searched_words.substring(1, searched_words.length()-1);            //앞 뒤 [] 짜르기
         split_words = searched_words.split(", ");                                      //단어 별로 짜르기
 
-        int N = split_words.length;     //스레드 횟수 and 단어 개수
+        N = split_words.length;     //스레드 횟수 and 단어 개수
         index = 0;                      //메인 스레드에서 서브스레드 실행 횟수를 파악하기 위한 번호
         pageIndex =0;                   //현재 페이지 인덱스
         sentences = new String[N][5];   //단어별 "예문 + 해석"이 들어가있는 2차원 배열
         titleWordMean = new String[N];
+        availableTouch = false;         //로딩이 다 안됐을 때 Reload를 막는 플래그
 
         user_id = Menu_main.getUser_id();
         /*-------------------------------------------변수 초기화------------------------------------*/
@@ -97,107 +100,64 @@ public class ShowWordsFromNaver extends AppCompatActivity  implements Serializab
         button_refresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                recreate();         //화면이 깜빡거리므로 intent
+                if(availableTouch){
+                    index = 0;               //값을 다시 받아와야하므로
+                    showResultCrawl();       //화면이 깜빡거리므로 intent
+                }else{
+                    Toast.makeText(getApplicationContext(),"학습 중입니다. 잠시만 기다려주세요.",Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
             }
         });
 
         /*-----------------------------------------단어 별 스레드-----------------------------------*/
-        for(int i = 0; i < N; i++){
-            String text = split_words[i];
+        showResultCrawl();
 
-            new Thread(){
-                @Override
-                public void run() {
-                    Document doc = null;
-                    try {
-                        String nums = "";
-                        String title = "";
-//                        doc = Jsoup.connect("https://endic.naver.com/search_example.nhn?sLn=kr&query="+ text +"&preQuery=&searchOption=example&examType=&forceRedirect=N").get();
-                        doc = Jsoup.connect("https://endic.naver.com/search_example.nhn?sLn=kr&examType=example&query=" + text + "&pageNo="+ThreadLocalRandom.current().nextInt(1, 11)).get();   // 예문 0 ~ 20 페이지중 랜덤
-                        Elements contents = doc.select("span.fnt_e09._ttsText");          //영어 예문
-                        Elements contents2 = doc.select("div.fnt_k10");                   //해석
-
-                        int [] rand_int = new int[5];
-                        Random rnd = new Random();
-                        rnd.setSeed(System.currentTimeMillis()); // 시드값을 설정하여 생성
-                        for (int i = 0; i < 5; i++) {
-                            rand_int[i] = rnd.nextInt(20);
-                        }
-
-                        for (int j = 0; j < 5; j++){
-                            if(contents2.get(rand_int[j]).text().substring(0,6).equals("이용자 참여")){
-                                nums += contents.get(rand_int[j]).text() +"&&"+ contents2.get(rand_int[j]).text().split("\\.")[2] +".\n";
-                            }else {
-                                nums += contents.get(rand_int[j]).text() + "&&" + contents2.get(rand_int[j]).text() + "\n";        //영어+&&+해석을 구분자로 둬서 (,은 문장에 있을 수 있음) split에 활용
-                            }
-                        }
-
-//                        for (int j = 0; j < 5; j++){
-//                            nums += contents.get(j).text() +"&&"+ contents2.get(j).text() +"\n";        //&&을 구분자로 둬서 (,은 문장에 있을 수 있음) split에 활용
-//                        }
-
-
-                                                      //핸들러를 이용해서 Thread()에서 가져온 데이터를 메인 쓰레드에 보내준다.
-
-                        /*----------------------단어와 뜻을 가져오는 크롤러---------------------*/
-                        doc = Jsoup.connect("https://endic.naver.com/search.nhn?sLn=kr&query="+text+"&searchOption=entry_idiom&preQuery=&forceRedirect=N").get();
-                        Elements contents3 = doc.select("span.fnt_k05");                 // 뜻,
-                        title = text +"&&"+contents3.get(0).text();           //단어 뜻 합치기 구분자 &&
-
-                        bundle.putString("title",title);
-                        bundle.putString("sentences", nums);
-
-                        Message msg = handler.obtainMessage();
-                        msg.setData(bundle);
-                        handler.sendMessage(msg);
-
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }.start();
-        }
 
         button_push.setClickable(true);                                 //단어별 예문 페이지 넘기기
         button_push.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                try {
-                    if(pageIndex == N-1){
-                        pageIndex = 0;
-                    }else{
-                        pageIndex++;
+                if(availableTouch) {
+                    try {
+                        if (pageIndex == N - 1) {
+                            pageIndex = 0;
+                        } else {
+                            pageIndex++;
+                        }
+
+                        String[] enSentence = new String[5];
+                        String[] krSentence = new String[5];
+
+                        for (int j = 0; j < 5; j++) {
+                            enSentence[j] = sentences[pageIndex][j].split("&&")[0];
+                            krSentence[j] = sentences[pageIndex][j].split("&&")[1];
+                        }
+                        word.setText(titleWordMean[pageIndex].split("&&")[0]);
+                        meaning.setText(" - " + titleWordMean[pageIndex].split("&&")[1]);
+
+                        en_sentence1.setText(enSentence[0]);
+                        en_sentence2.setText(enSentence[1]);
+                        en_sentence3.setText(enSentence[2]);
+                        en_sentence4.setText(enSentence[3]);
+                        en_sentence5.setText(enSentence[4]);
+
+                        kr_sentence1.setText(krSentence[0]);
+                        kr_sentence2.setText(krSentence[1]);
+                        kr_sentence3.setText(krSentence[2]);
+                        kr_sentence4.setText(krSentence[3]);
+                        kr_sentence5.setText(krSentence[4]);
+
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
 
-                    String[] enSentence = new String[5];
-                    String[] krSentence = new String[5];
-
-                    for(int j = 0; j <5; j++){
-                        enSentence[j] = sentences[pageIndex][j].split("&&")[0];
-                        krSentence[j] = sentences[pageIndex][j].split("&&")[1];
-                    }
-                    word.setText(titleWordMean[pageIndex].split("&&")[0]);
-                    meaning.setText(" - "+titleWordMean[pageIndex].split("&&")[1]);
-
-                    en_sentence1.setText(enSentence[0]);
-                    en_sentence2.setText(enSentence[1]);
-                    en_sentence3.setText(enSentence[2]);
-                    en_sentence4.setText(enSentence[3]);
-                    en_sentence5.setText(enSentence[4]);
-
-                    kr_sentence1.setText(krSentence[0]);
-                    kr_sentence2.setText(krSentence[1]);
-                    kr_sentence3.setText(krSentence[2]);
-                    kr_sentence4.setText(krSentence[3]);
-                    kr_sentence5.setText(krSentence[4]);
-
-
-                }catch (Exception e){
-                    e.printStackTrace();
+                }else{
+                    Toast.makeText(getApplicationContext(),"학습 중입니다. 잠시만 기다려주세요.",Toast.LENGTH_SHORT).show();
+                    return;
                 }
-
-
             }
         });
 
@@ -356,6 +316,7 @@ public class ShowWordsFromNaver extends AppCompatActivity  implements Serializab
                                 return true;
                             case R.id.bottom_bar_camera:
                                 Intent intent2 = new Intent(ShowWordsFromNaver.this, DetectorActivity.class);
+                                intent2.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                 startActivity(intent2);
                                 finish();
 
@@ -447,15 +408,77 @@ public class ShowWordsFromNaver extends AppCompatActivity  implements Serializab
 
             }
             index++;                                                // 한 화면 데이터
+            availableTouch = true;
         }
+
     };
 
-    @Override
+    public void showResultCrawl(){
+        availableTouch = false;
+        for(int i = 0; i < N; i++){
+            String text = split_words[i];
+
+            new Thread(){
+                @Override
+                public void run() {
+                    Document doc = null;
+                    try {
+                        String nums = "";
+                        String title = "";
+//                        doc = Jsoup.connect("https://endic.naver.com/search_example.nhn?sLn=kr&query="+ text +"&preQuery=&searchOption=example&examType=&forceRedirect=N").get();
+                        doc = Jsoup.connect("https://endic.naver.com/search_example.nhn?sLn=kr&examType=example&query=" + text + "&pageNo="+ThreadLocalRandom.current().nextInt(1, 11)).get();   // 예문 0 ~ 20 페이지중 랜덤
+                        Elements contents = doc.select("span.fnt_e09._ttsText");          //영어 예문
+                        Elements contents2 = doc.select("div.fnt_k10");                   //해석
+
+                        int [] rand_int = new int[5];
+                        Random rnd = new Random();
+                        rnd.setSeed(System.currentTimeMillis()); // 시드값을 설정하여 생성
+                        for (int i = 0; i < 5; i++) {
+                            rand_int[i] = rnd.nextInt(20);
+                        }
+
+                        for (int j = 0; j < 5; j++){
+                            if(contents2.get(rand_int[j]).text().substring(0,6).equals("이용자 참여")){
+                                nums += contents.get(rand_int[j]).text() +"&&"+ contents2.get(rand_int[j]).text().split("\\.")[2] +".\n";
+                            }else {
+                                nums += contents.get(rand_int[j]).text() + "&&" + contents2.get(rand_int[j]).text() + "\n";        //영어+&&+해석을 구분자로 둬서 (,은 문장에 있을 수 있음) split에 활용
+                            }
+                        }
+
+//                        for (int j = 0; j < 5; j++){
+//                            nums += contents.get(j).text() +"&&"+ contents2.get(j).text() +"\n";        //&&을 구분자로 둬서 (,은 문장에 있을 수 있음) split에 활용
+//                        }
+
+
+                        //핸들러를 이용해서 Thread()에서 가져온 데이터를 메인 쓰레드에 보내준다.
+
+                        /*----------------------단어와 뜻을 가져오는 크롤러---------------------*/
+                        doc = Jsoup.connect("https://endic.naver.com/search.nhn?sLn=kr&query="+text+"&searchOption=entry_idiom&preQuery=&forceRedirect=N").get();
+                        Elements contents3 = doc.select("span.fnt_k05");                 // 뜻,
+                        title = text +"&&"+contents3.get(0).text();           //단어 뜻 합치기 구분자 &&
+
+                        Bundle bundle = new Bundle();
+                        bundle.putString("title",title);
+                        bundle.putString("sentences", nums);
+
+                        Message msg = handler.obtainMessage();
+                        msg.setData(bundle);
+                        handler.sendMessage(msg);
+
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }.start();
+        }
+    }
+
+   /* @Override
     public void onBackPressed() {
         Intent intent = new Intent(ShowWordsFromNaver.this, DetectorActivity.class);
         startActivity(intent);
         finish();
-    }
+    }*/
 }
 
 

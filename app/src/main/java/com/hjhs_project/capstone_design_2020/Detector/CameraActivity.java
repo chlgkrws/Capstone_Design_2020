@@ -126,7 +126,6 @@ public abstract class CameraActivity extends AppCompatActivity
         Bundle bundle = new Bundle();
         intent.putExtra("value", com.hjhs_project.capstone_design_2020.Detector.tracking.MultiBoxTracker.getGetWords().toString());
         startActivity(intent);
-        finish();
       }
 
 

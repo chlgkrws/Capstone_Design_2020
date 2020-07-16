@@ -189,7 +189,7 @@
                             android:id="@+id/toeic_reception"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="접수일"
+                            android:text="접수 기간"
                             android:gravity="center"
                             android:layout_weight="4"/>
 

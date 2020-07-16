@@ -243,7 +243,9 @@ public class MyProfile extends AppCompatActivity {
                                 return true;
                             case R.id.bottom_bar_camera:
                                 Intent intent2 = new Intent(MyProfile.this, DetectorActivity.class);
+                                intent2.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                 startActivity(intent2);
+
                                 finish();
                                 return true;
                             case R.id.bottom_bar_profile:
