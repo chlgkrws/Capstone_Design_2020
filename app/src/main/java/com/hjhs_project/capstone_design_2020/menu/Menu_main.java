@@ -2,6 +2,7 @@ package com.hjhs_project.capstone_design_2020.menu;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
@@ -41,6 +42,7 @@ public class Menu_main extends AppCompatActivity {
     TextView target_translation_word, result_translation, toeic_th,toeic_reception, toeic_test_day, toeic_score;
     TextView tos_reception, tos_test_day, tos_score;
     Button button_to_translation, change_to_language;
+    Button toeic_btn, tos_btn;
     LinearLayout today_word_layout;
     LinearLayout toeicInfo, tosInfo;
     @Override
@@ -67,6 +69,9 @@ public class Menu_main extends AppCompatActivity {
 
         button_to_translation = findViewById(R.id.button_to_translation);
         change_to_language = findViewById(R.id.change_to_language);
+
+        toeic_btn = findViewById(R.id.toeic_btn);
+        tos_btn = findViewById(R.id.tos_btn);
 
         today_word_layout = findViewById(R.id.today_word_layout);
         toeicInfo = findViewById(R.id.toeic_info);
@@ -159,43 +164,6 @@ public class Menu_main extends AppCompatActivity {
 
         }
 
-        /*<LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        android:layout_weight="10">
-
-
-                    <TextView
-        android:id="@+id/tos_reception"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="접수 기간"
-        android:gravity="center"
-        android:layout_weight="4"/>
-
-                    <TextView
-        android:id="@+id/tos_test_day"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="시험일"
-        android:gravity="center"
-        android:layout_weight="3"
-                />
-
-                    <TextView
-        android:id="@+id/tos_score"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="성적발표"
-        android:layout_weight="3"
-        android:gravity="center"/>
-
-                </LinearLayout>*/
-
-
 
         //한국어 -> 영어 버튼
         change_to_language.setClickable(true);
@@ -216,6 +184,7 @@ public class Menu_main extends AppCompatActivity {
                 }
             }
         });
+
         //번역 버튼
         button_to_translation.setClickable(true);
         button_to_translation.setOnClickListener(new View.OnClickListener() {
@@ -432,4 +401,30 @@ public class Menu_main extends AppCompatActivity {
         }
     };
 
+
+    public void toeic_btn_clicked(View view) {                  //시험 정보 토익 눌렀을 때 이벤트
+        tosInfo.setVisibility(View.INVISIBLE);
+        toeicInfo.setVisibility(View.VISIBLE);
+        toeic_btn.setBackgroundResource(R.drawable.testinfobox);
+        tos_btn.setBackgroundResource(R.drawable.testinfobox2);
+        toeic_btn.setTextColor(Color.parseColor("#000000"));
+        toeic_btn.setText("TOEIC");
+        tos_btn.setTextColor(Color.parseColor("#777777"));
+        tos_btn.setText("TOEIC SPEAKING");
+
+
+    }
+
+    public void tos_btn_clicked(View view) {                     //시험 정보 토스 눌렀을 때 이벤트
+        tosInfo.setVisibility(View.VISIBLE);
+        toeicInfo.setVisibility(View.INVISIBLE);
+        tos_btn.setBackgroundResource(R.drawable.testinfobox);
+        toeic_btn.setBackgroundResource(R.drawable.testinfobox2);
+        tos_btn.setTextColor(Color.parseColor("#000000"));
+        tos_btn.setText("TOEIC SPEAKING");
+        toeic_btn.setTextColor(Color.parseColor("#777777"));
+        toeic_btn.setText("TOEIC");
+
+
+    }
 }
