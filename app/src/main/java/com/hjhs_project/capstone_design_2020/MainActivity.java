@@ -2,6 +2,7 @@ package com.hjhs_project.capstone_design_2020;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -20,7 +21,7 @@ import java.io.IOException;
 public class MainActivity extends AppCompatActivity {
     public static String toeicInfo;
     public static String tosInfo;
-
+    private static Bitmap user_profile = null;
 
     TextView test;
     @Override
@@ -161,5 +162,12 @@ public class MainActivity extends AppCompatActivity {
         return toeicInfo;
     }
     public static String getTosInfo(){return tosInfo;}
+    public static Bitmap getUser_profile() {
+        return user_profile;
+    }
+
+    public static void setUser_profile(Bitmap user_profile) {
+        MainActivity.user_profile = user_profile;
+    }
 
 }
