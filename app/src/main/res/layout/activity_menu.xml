@@ -32,7 +32,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="600dp"
+        android:layout_height="615dp"
         android:padding="15dp"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView_main_menu"
         app:layout_constraintTop_toBottomOf="@+id/toolbar">
@@ -71,103 +71,6 @@
 
                     >
 
-                        <!--<TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Underground"
-                            android:layout_gravity="center"
-                            android:gravity="center"
-                            android:textSize="20sp"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="지하의"
-                            android:layout_gravity="center"
-                            android:gravity="center"
-                            android:textSize="15sp"/>-->
-
-
-
-                    <!--<LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:background="@drawable/radiusrec"
-                        android:elevation="5dp"
-                        android:padding="20dp"
-                        android:layout_margin="10dp"
-                        >
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Conferderation"
-                            android:layout_gravity="center"
-                            android:gravity="center"
-                            android:textSize="20sp"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="(국가, 사업체 등의)연합"
-                            android:layout_gravity="center"
-                            android:gravity="center"
-                            android:textSize="15sp"/>
-
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:background="@drawable/radiusrec"
-                        android:elevation="5dp"
-                        android:padding="20dp"
-                        android:layout_margin="10dp"
-                        >
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="migrate"
-                            android:layout_gravity="center"
-                            android:gravity="center"
-                            android:textSize="20sp"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="이동하다"
-                            android:layout_gravity="center"
-                            android:gravity="center"
-                            android:textSize="15sp"/>
-
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:background="@drawable/radiusrec"
-                        android:elevation="5dp"
-                        android:padding="20dp"
-                        android:layout_margin="10dp"
-                        >
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="flow out"
-                            android:layout_gravity="center"
-                            android:gravity="center"
-                            android:textSize="20sp"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="유출하다, 흘러나오다"
-                            android:layout_gravity="center"
-                            android:gravity="center"
-                            android:textSize="15sp"/>
-
-
-                    </LinearLayout>-->
                 </LinearLayout>
             </HorizontalScrollView>
 
@@ -310,17 +213,14 @@
                     android:textSize="25sp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginBottom="5dp"/>
-            </LinearLayout>
-
-
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="18dp"
-                    android:text="토익 시험 정보"
+                    android:text="Toeic"
                     android:layout_margin="11dp"
                     />
-
+            </LinearLayout>
                 <LinearLayout
                     android:id="@+id/toeic_info"
                     android:layout_width="match_parent"
@@ -373,7 +273,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="18dp"
-                android:text="토스 시험 정보"
+                android:text="Toeic Speaking"
                 android:layout_margin="11dp"
                 />
 
