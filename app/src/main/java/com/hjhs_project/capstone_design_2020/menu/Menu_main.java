@@ -98,22 +98,28 @@ public class Menu_main extends AppCompatActivity {
             TextView reception = new TextView(this);
             TextView testDay = new TextView(this);
             TextView score = new TextView(this);
+            TextView line = new TextView(this);
 
-            th.setLayoutParams(paramTh);
+            th.setLayoutParams(paramTh);                        //토익 회차
             th.setGravity(Gravity.CENTER);
             th.setText(temp[0].charAt(0)+" "+temp[0].substring(1));
 
-            reception.setLayoutParams(paramRecept);
+            reception.setLayoutParams(paramRecept);              //접수일자
             reception.setGravity(Gravity.CENTER);
             reception.setText(temp[2]+"\n     "+temp[3]+temp[4]);
 
-            testDay.setLayoutParams(paramDay);
+            testDay.setLayoutParams(paramDay);                   //토익 시험일
             testDay.setGravity(Gravity.CENTER);
             testDay.setText(temp[6]);
 
-            score.setLayoutParams(paramScore);
+            score.setLayoutParams(paramScore);                  //토익 점수발표
             score.setGravity(Gravity.CENTER);
             score.setText(temp[8]);
+
+            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 1);
+            lp.setMargins(0,8,0,8);
+            line.setLayoutParams(lp);
+            line.setBackgroundResource(R.drawable.line);
 
             toeicLayout.addView(th);
             toeicLayout.addView(reception);
@@ -121,6 +127,7 @@ public class Menu_main extends AppCompatActivity {
             toeicLayout.addView(score);
 
             toeicInfo.addView(toeicLayout);
+            toeicInfo.addView(line);
         }
 
         /*토스 날짜*/
@@ -143,6 +150,8 @@ public class Menu_main extends AppCompatActivity {
             TextView tos_reception = new TextView(this);
             TextView tos_testDay = new TextView(this);
             TextView tos_score = new TextView(this);
+            TextView line = new TextView(this);
+
 
             tos_reception.setLayoutParams(paramTosRecept);                      ///토스 접수 기간
             tos_reception.setGravity(Gravity.CENTER);
@@ -156,11 +165,18 @@ public class Menu_main extends AppCompatActivity {
             tos_score.setGravity(Gravity.CENTER);
             tos_score.setText(temp[2]);
 
+            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 1);
+            lp.setMargins(0,8,0,8);
+            line.setLayoutParams(lp);
+            line.setBackgroundResource(R.drawable.line);
+
+
             tosLayout.addView(tos_reception);
             tosLayout.addView(tos_testDay);
             tosLayout.addView(tos_score);
 
             tosInfo.addView(tosLayout);
+            tosInfo.addView(line);
 
         }
 
@@ -174,13 +190,13 @@ public class Menu_main extends AppCompatActivity {
                     language = 1;
                     change_to_language.setText("영어 -> 한국어");
                     target_translation_word.setText(null);
-                    result_translation.setText(null);
+                    result_translation.setText("번역된 문장");
 
                 }else{
                     language = 0;
                     change_to_language.setText("한국어 -> 영어");
                     target_translation_word.setText(null);
-                    result_translation.setText(null);
+                    result_translation.setText("번역된 문장");
                 }
             }
         });
@@ -370,7 +386,7 @@ public class Menu_main extends AppCompatActivity {
                 line.setGravity(Gravity.CENTER);
 
                 enTextView.setTextSize(20);
-                enTextView.setTypeface(null, Typeface.BOLD);
+                enTextView.setTypeface(Typeface.createFromAsset("font/nanumsquareroundr.ttf"), Typeface.BOLD);
                 krTextView.setTextSize(15);
 
                 LinearLayout.LayoutParams lineParam = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 1);
@@ -386,7 +402,7 @@ public class Menu_main extends AppCompatActivity {
                 LinearLayout wordSet = new LinearLayout(Menu_main.this);
                 wordSet.setGravity(Gravity.CENTER);
                 wordSet.setLayoutParams(param);
-                wordSet.setElevation(5);
+                wordSet.setElevation(12);
                 wordSet.setBackgroundResource(R.drawable.radiusrec);
                 wordSet.setPadding(100,0,100,0);
                 wordSet.setOrientation(LinearLayout.VERTICAL);

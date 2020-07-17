@@ -272,7 +272,7 @@ public class MyProfile extends AppCompatActivity {
                     profile_user_img.setImageBitmap(img);
 
                     String date = new SimpleDateFormat("yyyy_MM_dd_hh_mm_ss").format(new Date());
-                    File tempSelectFile = new File(Environment.getExternalStorageDirectory()+"/Pictures/upload/", "temp_" + date + ".jpeg");
+                    File tempSelectFile = new File(Environment.getExternalStorageDirectory()+"/Pictures/upload/", Menu_main.getUser_id()+".jpeg");
                     OutputStream outputStream = new FileOutputStream(tempSelectFile);
                     img.compress(Bitmap.CompressFormat.JPEG,100,outputStream);
                     FileUploadUtils.send2Server(tempSelectFile);
