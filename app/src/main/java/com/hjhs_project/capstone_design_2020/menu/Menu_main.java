@@ -380,26 +380,52 @@ public class Menu_main extends AppCompatActivity {
         @Override
         public void handleMessage(Message msg) {
             //레이아웃 생성
+
+
             Bundle bundle = msg.getData();
             String[] todayWordEn = bundle.getStringArray("todayWordEn");
             String[] todayWordKr = bundle.getStringArray("todayWordKr");
             LinearLayout.LayoutParams param = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT);
-            param.setMargins(20,20,0,0);
+                    ViewGroup.LayoutParams.MATCH_PARENT);
+            param.setMargins(20,40,20,40);
+
+
+
             for(int i = 0; i < 5; i++){
                 TextView enTextView = new TextView(Menu_main.this);
                 TextView krTextView = new TextView(Menu_main.this);
-                enTextView.setText(todayWordEn[i]);
-                krTextView.setText(todayWordKr[i]);
+                TextView line = new TextView(Menu_main.this);
+
+                enTextView.setGravity(Gravity.CENTER);
+                krTextView.setGravity(Gravity.CENTER);
+                line.setGravity(Gravity.CENTER);
+
                 enTextView.setTextSize(20);
                 enTextView.setTypeface(null, Typeface.BOLD);
                 krTextView.setTextSize(15);
 
+                LinearLayout.LayoutParams lineParam = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 1);
+                line.setLayoutParams(lineParam);
+                lineParam.setMargins(0,10,0,10);
+                line.setBackgroundResource(R.drawable.line);
+
+                enTextView.setText(todayWordEn[i]);
+                krTextView.setText(todayWordKr[i]);
+
+
+
                 LinearLayout wordSet = new LinearLayout(Menu_main.this);
+                wordSet.setGravity(Gravity.CENTER);
                 wordSet.setLayoutParams(param);
+                wordSet.setElevation(5);
+                wordSet.setBackgroundResource(R.drawable.radiusrec);
+                wordSet.setPadding(100,0,100,0);
                 wordSet.setOrientation(LinearLayout.VERTICAL);
+
                 wordSet.addView(enTextView);
+                wordSet.addView(line);
                 wordSet.addView(krTextView);
+
                 today_word_layout.addView(wordSet);
             }
 
