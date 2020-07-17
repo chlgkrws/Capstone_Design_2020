@@ -21,6 +21,7 @@ import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.hjhs_project.capstone_design_2020.Detector.DetectorActivity;
+import com.hjhs_project.capstone_design_2020.MainActivity;
 import com.hjhs_project.capstone_design_2020.R;
 import com.hjhs_project.capstone_design_2020.menu.Menu_main;
 import com.hjhs_project.capstone_design_2020.notepad.NotePad;
@@ -72,6 +73,11 @@ public class MyProfile extends AppCompatActivity {
         profile_tier_img = findViewById(R.id.profile_tier_img);
 
         change_profile_img = findViewById(R.id.change_profile_img);
+
+        /*이미지 설정*/
+        if(MainActivity.getUser_profile()!=null) {
+            profile_user_img.setImageBitmap(MainActivity.getUser_profile());
+        }
         /*--------------------------Volley php database-------------------*/
 
         //Att request에 대한 리스너 객체
@@ -270,9 +276,10 @@ public class MyProfile extends AppCompatActivity {
                     img = rotateImage(img,90);                                                        //이미지 정상 각도로 회전시키기
                     inputStream.close();
                     profile_user_img.setImageBitmap(img);
+                    MainActivity.setUser_profile(img);
 
                     String date = new SimpleDateFormat("yyyy_MM_dd_hh_mm_ss").format(new Date());
-                    File tempSelectFile = new File(Environment.getExternalStorageDirectory()+"/Pictures/upload/", "temp_" + date + ".jpeg");
+                    File tempSelectFile = new File(Environment.getExternalStorageDirectory()+"/Pictures/upload/", Menu_main.getUser_id()+".jpeg");
                     OutputStream outputStream = new FileOutputStream(tempSelectFile);
                     img.compress(Bitmap.CompressFormat.JPEG,100,outputStream);
                     FileUploadUtils.send2Server(tempSelectFile);

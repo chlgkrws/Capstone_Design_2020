@@ -2,8 +2,10 @@ package com.hjhs_project.capstone_design_2020.menu;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.graphics.Typeface;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -23,6 +25,9 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.hjhs_project.capstone_design_2020.Detector.DetectorActivity;
 import com.hjhs_project.capstone_design_2020.MainActivity;
@@ -31,7 +36,13 @@ import com.hjhs_project.capstone_design_2020.login.Login;
 import com.hjhs_project.capstone_design_2020.myProfile.MyProfile;
 import com.hjhs_project.capstone_design_2020.notepad.NotePad;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 public class Menu_main extends AppCompatActivity {
     private final long FINISH_INTERVAL_TIME = 2000;         //2초내로 두번누르면 화면 종료
@@ -45,6 +56,9 @@ public class Menu_main extends AppCompatActivity {
     Button toeic_btn, tos_btn;
     LinearLayout today_word_layout;
     LinearLayout toeicInfo, tosInfo;
+
+
+
     @Override
     protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +68,7 @@ public class Menu_main extends AppCompatActivity {
         user_name = bundle.getString("user_name");
         String[] toeic = MainActivity.getToeicInfo().split("&&");
         String[] tos = MainActivity.getTosInfo().split("&&");
-
+        getMyImage();                                                                       //유저 프로필 이미지를 가져오는 부분
         target_translation_word = findViewById(R.id.target_translation_word);
         result_translation = findViewById(R.id.result_translation);
 
@@ -98,22 +112,28 @@ public class Menu_main extends AppCompatActivity {
             TextView reception = new TextView(this);
             TextView testDay = new TextView(this);
             TextView score = new TextView(this);
+            TextView line = new TextView(this);
 
-            th.setLayoutParams(paramTh);
+            th.setLayoutParams(paramTh);                        //토익 회차
             th.setGravity(Gravity.CENTER);
             th.setText(temp[0].charAt(0)+" "+temp[0].substring(1));
 
-            reception.setLayoutParams(paramRecept);
+            reception.setLayoutParams(paramRecept);              //접수일자
             reception.setGravity(Gravity.CENTER);
             reception.setText(temp[2]+"\n     "+temp[3]+temp[4]);
 
-            testDay.setLayoutParams(paramDay);
+            testDay.setLayoutParams(paramDay);                   //토익 시험일
             testDay.setGravity(Gravity.CENTER);
             testDay.setText(temp[6]);
 
-            score.setLayoutParams(paramScore);
+            score.setLayoutParams(paramScore);                  //토익 점수발표
             score.setGravity(Gravity.CENTER);
             score.setText(temp[8]);
+
+            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 1);
+            lp.setMargins(0,8,0,8);
+            line.setLayoutParams(lp);
+            line.setBackgroundResource(R.drawable.line);
 
             toeicLayout.addView(th);
             toeicLayout.addView(reception);
@@ -121,6 +141,7 @@ public class Menu_main extends AppCompatActivity {
             toeicLayout.addView(score);
 
             toeicInfo.addView(toeicLayout);
+            toeicInfo.addView(line);
         }
 
         /*토스 날짜*/
@@ -143,6 +164,8 @@ public class Menu_main extends AppCompatActivity {
             TextView tos_reception = new TextView(this);
             TextView tos_testDay = new TextView(this);
             TextView tos_score = new TextView(this);
+            TextView line = new TextView(this);
+
 
             tos_reception.setLayoutParams(paramTosRecept);                      ///토스 접수 기간
             tos_reception.setGravity(Gravity.CENTER);
@@ -156,11 +179,18 @@ public class Menu_main extends AppCompatActivity {
             tos_score.setGravity(Gravity.CENTER);
             tos_score.setText(temp[2]);
 
+            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 1);
+            lp.setMargins(0,8,0,8);
+            line.setLayoutParams(lp);
+            line.setBackgroundResource(R.drawable.line);
+
+
             tosLayout.addView(tos_reception);
             tosLayout.addView(tos_testDay);
             tosLayout.addView(tos_score);
 
             tosInfo.addView(tosLayout);
+            tosInfo.addView(line);
 
         }
 
@@ -174,13 +204,13 @@ public class Menu_main extends AppCompatActivity {
                     language = 1;
                     change_to_language.setText("영어 -> 한국어");
                     target_translation_word.setText(null);
-                    result_translation.setText(null);
+                    result_translation.setText("번역된 문장");
 
                 }else{
                     language = 0;
                     change_to_language.setText("한국어 -> 영어");
                     target_translation_word.setText(null);
-                    result_translation.setText(null);
+                    result_translation.setText("번역된 문장");
                 }
             }
         });
@@ -316,6 +346,7 @@ public class Menu_main extends AppCompatActivity {
     }
 
 
+
     //뒤로가기 종료
     @Override
     public void onBackPressed(){            //뒤로가기 키 두번 누를 시 종료
@@ -370,7 +401,7 @@ public class Menu_main extends AppCompatActivity {
                 line.setGravity(Gravity.CENTER);
 
                 enTextView.setTextSize(20);
-                enTextView.setTypeface(null, Typeface.BOLD);
+                //enTextView.setTypeface(Typeface.createFromAsset("font/nanumsquareroundr.ttf"), Typeface.BOLD);
                 krTextView.setTextSize(15);
 
                 LinearLayout.LayoutParams lineParam = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 1);
@@ -386,7 +417,7 @@ public class Menu_main extends AppCompatActivity {
                 LinearLayout wordSet = new LinearLayout(Menu_main.this);
                 wordSet.setGravity(Gravity.CENTER);
                 wordSet.setLayoutParams(param);
-                wordSet.setElevation(5);
+                wordSet.setElevation(12);
                 wordSet.setBackgroundResource(R.drawable.radiusrec);
                 wordSet.setPadding(100,0,100,0);
                 wordSet.setOrientation(LinearLayout.VERTICAL);
@@ -424,7 +455,64 @@ public class Menu_main extends AppCompatActivity {
         tos_btn.setText("TOEIC SPEAKING");
         toeic_btn.setTextColor(Color.parseColor("#777777"));
         toeic_btn.setText("TOEIC");
+    }
 
+    public void getMyImage(){
+        Response.Listener<String> responseListener = new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    boolean success = jsonObject.getBoolean("success");         //json 객체 success에 해당하는 값 가져오기
+
+                    if(success){
+                        Bitmap bitmap = null;
+                        back task = new back();
+                        task.execute();
+
+                    }else{
+                        Toast.makeText(getApplicationContext(),"10099 오류",Toast.LENGTH_SHORT).show();
+                    }
+                } catch (JSONException e) {
+                    Toast.makeText(getApplicationContext(),"10100 오류 (통신)",Toast.LENGTH_SHORT).show();
+                    e.printStackTrace();
+                }
+
+            }
+        };
+        //requsetQueue에 리스너 add시키기
+        MyImage_request myImage_request = new MyImage_request(user_id, responseListener);
+        RequestQueue queue = Volley.newRequestQueue(Menu_main.this);                //하나만 설정
+        queue.add(myImage_request);
 
     }
+    private class back extends AsyncTask<String, Integer,Bitmap> {
+        @Override
+        protected Bitmap doInBackground(String... urls) {
+            // TODO Auto-generated method stub
+            Bitmap bmImg = null;
+            try{
+
+                URL url = new URL("http://stapl.iptime.org:10/upload/"+user_id+".jpeg");
+                HttpURLConnection conn =  (HttpURLConnection)url.openConnection();
+                conn.setDoInput(true);
+                conn.connect();
+
+                InputStream is = conn.getInputStream();
+
+                bmImg = BitmapFactory.decodeStream(is);
+
+
+            }catch(IOException e){
+                e.printStackTrace();
+            }
+            return bmImg;
+        }
+
+        protected void onPostExecute(Bitmap img){
+            MainActivity.setUser_profile(img);
+        }
+
+    }
+
 }
