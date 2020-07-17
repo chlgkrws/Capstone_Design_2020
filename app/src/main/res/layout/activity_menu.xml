@@ -214,24 +214,62 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginBottom="5dp"/>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="18dp"
+            </LinearLayout>
+
+
+
+            <!-- Toeic , tos btn-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp">
+                <Button
+                    android:id="@+id/toeic_btn"
+                    android:layout_width="190dp"
+                    android:layout_height="35dp"
                     android:text="Toeic"
-                    android:layout_margin="11dp"
+                    android:background="@drawable/testinfobox"
+                    android:textColor="#000000"
+                    android:textSize="17sp"
+                    android:gravity="center"
+                    android:onClick="toeic_btn_clicked"
+                    />
+
+                <Button
+                    android:id="@+id/tos_btn"
+                    android:layout_width="190dp"
+                    android:layout_height="35dp"
+                    android:text="Toeic Speaking"
+                    android:background="@drawable/testinfobox2"
+                    android:textSize="17sp"
+                    android:textColor="#777777"
+                    android:gravity="center"
+                    android:onClick="tos_btn_clicked"
                     />
             </LinearLayout>
+
+
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <!--Toeic -->
                 <LinearLayout
                     android:id="@+id/toeic_info"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:visibility="visible">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@color/main"
                         android:orientation="horizontal"
-                        android:layout_marginTop="5dp"
+                        android:paddingTop="5dp"
                         android:layout_marginBottom="5dp"
                         android:layout_weight="10">
 
@@ -270,62 +308,60 @@
 
                     </LinearLayout>
                 </LinearLayout>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="18dp"
-                android:text="Toeic Speaking"
-                android:layout_margin="11dp"
-                />
 
 
-            <LinearLayout
-                android:id="@+id/tos_info"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
+                <!-- Tos -->
                 <LinearLayout
+                    android:id="@+id/tos_info"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_weight="10">
+                    android:orientation="vertical"
+                    android:visibility="invisible">
 
-
-                    <TextView
-                        android:id="@+id/tos_reception"
-                        android:layout_width="0dp"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="접수 기간"
-                        android:gravity="center"
-                        android:layout_weight="3.3"/>
+                        android:orientation="horizontal"
+                        android:background="@color/main"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_weight="10">
 
-                    <TextView
-                        android:id="@+id/tos_test_day"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:text="시험일"
-                        android:gravity="center"
-                        android:layout_weight="3.3"
-                        />
 
-                    <TextView
-                        android:id="@+id/tos_score"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:text="성적발표"
-                        android:layout_weight="3.3"
-                        android:gravity="center"/>
+                        <TextView
+                            android:id="@+id/tos_reception"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="접수 기간"
+                            android:gravity="center"
+                            android:layout_weight="3.3"/>
 
+                        <TextView
+                            android:id="@+id/tos_test_day"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="시험일"
+                            android:gravity="center"
+                            android:layout_weight="3.3"
+                            />
+
+                        <TextView
+                            android:id="@+id/tos_score"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="성적발표"
+                            android:layout_weight="3.3"
+                            android:gravity="center"/>
+
+                    </LinearLayout>
+
+                <!--수정 후 삭제-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:layout_marginBottom="20dp"/>
                 </LinearLayout>
-
-            </LinearLayout>
-
-
-
-
-
+            </FrameLayout>
         </LinearLayout>
     </ScrollView>
 
