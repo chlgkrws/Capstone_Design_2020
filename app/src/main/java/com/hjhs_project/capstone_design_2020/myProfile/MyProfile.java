@@ -266,17 +266,16 @@ public class MyProfile extends AppCompatActivity {
             if (resultCode == RESULT_OK) {
                 try {
                     InputStream inputStream = getContentResolver().openInputStream(data.getData());
-
                     Bitmap img = BitmapFactory.decodeStream(inputStream);
                     img = rotateImage(img,90);                                                        //이미지 정상 각도로 회전시키기
                     inputStream.close();
                     profile_user_img.setImageBitmap(img);
 
                     String date = new SimpleDateFormat("yyyy_MM_dd_hh_mm_ss").format(new Date());
-                    File tempSelectFile = new File(Environment.getExternalStorageDirectory()+"/Pictures/Facebook/", "temp_" + date + ".jpeg");
+                    File tempSelectFile = new File(Environment.getExternalStorageDirectory()+"/Pictures/upload/", "temp_" + date + ".jpeg");
                     OutputStream outputStream = new FileOutputStream(tempSelectFile);
                     img.compress(Bitmap.CompressFormat.JPEG,100,outputStream);
-                   // ImageUpload_request.send2Server(tempSelectFile);
+                    FileUploadUtils.send2Server(tempSelectFile);
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 } catch (IOException e) {
