@@ -14,7 +14,10 @@
         android:text="Notepad"
         android:textSize="30sp"
         android:fontFamily="@font/dohyeon"
-        android:layout_margin="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginBottom="10dp"
+
         />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -22,7 +25,9 @@
         android:layout_height="match_parent"
         android:id="@+id/recyclerview"
         android:background="@drawable/radiusrec"
-        android:layout_margin="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
         android:padding="13dp"
         android:elevation="10dp"
         >
