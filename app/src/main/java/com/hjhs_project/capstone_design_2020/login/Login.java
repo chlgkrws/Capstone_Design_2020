@@ -58,7 +58,7 @@ public class Login extends AppCompatActivity {
                                 //Toast.makeText(getApplicationContext(), "로그인성공", Toast.LENGTH_SHORT).show();
                                 CToast ct = new CToast();
                                 LayoutInflater inflater = getLayoutInflater();
-                                ct.showCToast("로그인 성공!",inflater,Login.this);
+                                ct.showCToast(user_id+"\n 환영합니다.",inflater,Login.this);
                                 Intent intent = new Intent(Login.this, Menu_main.class);
                                 intent.putExtra("user_id",user_id);
                                 intent.putExtra("user_name",user_name);

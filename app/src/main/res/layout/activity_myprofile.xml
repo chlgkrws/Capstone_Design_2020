@@ -3,23 +3,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#000000"
+    android:background="#ffffff"
     android:orientation="vertical"
-    android:gravity="bottom">
+    android:gravity="bottom"
+    >
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="728dp"
+            android:layout_height="wrap_content"
             android:background="@drawable/whiteback"
+
             >
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginTop="30dp"
                 >
-                <!-- 상단 고정 -->
+                <!-- 프로필 -->
 
 
                 <LinearLayout
@@ -27,7 +28,8 @@
                     android:layout_height="130dp"
                     android:layout_gravity="top"
                     android:orientation="horizontal"
-                    android:layout_marginBottom="30dp">
+                    android:layout_marginBottom="30dp"
+                    android:layout_marginTop="100dp">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -245,19 +247,19 @@
                     android:orientation="vertical">
                     <!--티어 아이콘 box-->
                     <LinearLayout
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
                         android:background="@drawable/circle"
                         android:elevation="10dp"
                         android:layout_gravity="center"
+                        android:gravity="center"
                         android:layout_marginTop="20dp"
                         android:layout_marginBottom="20dp">
 
                         <ImageView
                             android:id="@+id/profile_tier_img"
                             android:layout_width="40dp"
-                            android:layout_height="70dp"
-                            android:layout_marginLeft="28dp"
+                            android:layout_height="50dp"
                             android:layout_gravity="center"
                             android:src="@drawable/platinum"></ImageView>
 
@@ -361,7 +363,7 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView_profile"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="55dp"
         android:background="@color/colorPrimary"
         app:itemBackground="@color/lightblue"
         app:itemIconTint="@android:color/white"

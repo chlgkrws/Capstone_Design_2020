@@ -343,7 +343,7 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView_show_naver_word"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="55dp"
         android:background="@color/colorPrimary"
         app:itemBackground="@color/lightblue"
         app:itemIconTint="@android:color/white"
