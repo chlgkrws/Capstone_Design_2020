@@ -4,15 +4,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center">
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="#000000"
+    android:id="@+id/lin_lay">
 
-    <com.github.ybq.android.spinkit.SpinKitView
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/spin_kit"
-        style="@style/SpinKitView.Large.ChasingDots"
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/splash"
+        android:src="@drawable/logo"
+        android:background="@drawable/ring"/>
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        app:SpinKit_Color="@color/lightblue" />
+        android:text="STAPL"
+        android:fontFamily="@font/dohyeon"
+        android:textSize="40sp"
+        android:textColor="#ffffff"/>
 
 </LinearLayout>
