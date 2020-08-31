@@ -6,7 +6,7 @@
         android:color="@color/lightblue"/>
 
     <solid
-        android:color="@color/main"/>
+        android:color="#ccE3F2FD"/>
 
     <padding
         android:bottom="20dp"
@@ -15,8 +15,9 @@
         android:top="20dp"/>
     <corners
         android:bottomRightRadius="15dp"
-        android:topLeftRadius="30dp"
+        android:topLeftRadius="15dp"
         android:topRightRadius="15dp"
+        android:bottomLeftRadius="15dp"
         />
 
 </shape>
