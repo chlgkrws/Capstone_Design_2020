@@ -102,7 +102,8 @@ public class ShowWordsFromNaver extends AppCompatActivity  implements Serializab
             public void onClick(View view) {
                 if(availableTouch){
                     index = 0;               //값을 다시 받아와야하므로
-                    showResultCrawl();       //화면이 깜빡거리므로 intent
+                    pageIndex = 0;
+                    showResultCrawl();       //
                 }else{
                     Toast.makeText(getApplicationContext(),"학습 중입니다. 잠시만 기다려주세요.",Toast.LENGTH_SHORT).show();
                     return;
@@ -234,7 +235,7 @@ public class ShowWordsFromNaver extends AppCompatActivity  implements Serializab
                     String kr_word = " - "+titleWordMean[pageIndex].split("&&")[1];
                     String en_sentence = enSentence[2];
                     String kr_sentence = krSentence[2];
-
+                    Toast.makeText(getApplicationContext(),en_sentence,Toast.LENGTH_SHORT).show();
                     addNote(user_id, en_word, kr_word, en_sentence, kr_sentence);
 
 

@@ -224,7 +224,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                >
                 <Button
                     android:id="@+id/toeic_btn"
                     android:layout_width="190dp"
@@ -263,7 +264,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:visibility="visible">
+                    android:visibility="visible"
+                    android:textSize="13sp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -273,7 +275,9 @@
                         android:paddingTop="5dp"
                         android:paddingBottom="5dp"
                         android:layout_marginBottom="5dp"
-                        android:layout_weight="10">
+                        android:layout_weight="10"
+                        android:textSize="13sp"
+                        >
 
                         <TextView
                             android:id="@+id/toeic_th"
@@ -281,6 +285,7 @@
                             android:layout_height="wrap_content"
                             android:text="회차"
                             android:gravity="center"
+                            android:textSize="13sp"
                             android:layout_weight="1"/>
 
                         <TextView
@@ -289,6 +294,7 @@
                             android:layout_height="wrap_content"
                             android:text="접수 기간"
                             android:gravity="center"
+                            android:textSize="13sp"
                             android:layout_weight="4"/>
 
                         <TextView
@@ -297,6 +303,7 @@
                             android:layout_height="wrap_content"
                             android:text="시험일"
                             android:gravity="center"
+                            android:textSize="13sp"
                             android:layout_weight="2.5"
                             />
 
@@ -306,6 +313,7 @@
                             android:layout_height="wrap_content"
                             android:text="성적발표"
                             android:layout_weight="2.5"
+                            android:textSize="13sp"
                             android:gravity="center"/>
 
                     </LinearLayout>
@@ -318,7 +326,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:visibility="invisible">
+                    android:visibility="invisible"
+                    android:textSize="13sp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -326,8 +335,8 @@
                         android:orientation="horizontal"
                         android:paddingBottom="5dp"
                         android:paddingTop="5dp"
-
                         android:layout_marginBottom="5dp"
+                        android:textSize="13sp"
                         android:background="@color/main"
                         android:layout_weight="10">
 
@@ -338,6 +347,7 @@
                             android:layout_height="wrap_content"
                             android:text="접수 기간"
                             android:gravity="center"
+                            android:textSize="13sp"
                             android:layout_weight="3.3"/>
 
                         <TextView
@@ -346,6 +356,7 @@
                             android:layout_height="wrap_content"
                             android:text="시험일"
                             android:gravity="center"
+                            android:textSize="13sp"
                             android:layout_weight="3.3"
                             />
 
@@ -354,6 +365,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:text="성적발표"
+                            android:textSize="13sp"
                             android:layout_weight="3.3"
                             android:gravity="center"/>
 

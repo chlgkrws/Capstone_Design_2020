@@ -116,18 +116,22 @@ public class Menu_main extends AppCompatActivity {
 
             th.setLayoutParams(paramTh);                        //토익 회차
             th.setGravity(Gravity.CENTER);
+            th.setTextSize(13);
             th.setText(temp[0].charAt(0)+" "+temp[0].substring(1));
 
             reception.setLayoutParams(paramRecept);              //접수일자
             reception.setGravity(Gravity.CENTER);
+            reception.setTextSize(13);
             reception.setText(temp[2]+"\n     "+temp[3]+temp[4]);
 
             testDay.setLayoutParams(paramDay);                   //토익 시험일
             testDay.setGravity(Gravity.CENTER);
+            testDay.setTextSize(13);
             testDay.setText(temp[6]);
 
             score.setLayoutParams(paramScore);                  //토익 점수발표
             score.setGravity(Gravity.CENTER);
+            score.setTextSize(13);
             score.setText(temp[8]);
 
             LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 1);
@@ -169,14 +173,17 @@ public class Menu_main extends AppCompatActivity {
 
             tos_reception.setLayoutParams(paramTosRecept);                      ///토스 접수 기간
             tos_reception.setGravity(Gravity.CENTER);
+            tos_reception.setTextSize(13);
             tos_reception.setText(temp[1]);
 
             tos_testDay.setLayoutParams(paramTosDay);                           //토스 시험일
             tos_testDay.setGravity(Gravity.CENTER);
+            tos_testDay.setTextSize(13);
             tos_testDay.setText(temp[0]);
 
             tos_score.setLayoutParams(paramTosScore);                           //토스 결과발표
             tos_score.setGravity(Gravity.CENTER);
+            tos_score.setTextSize(13);
             tos_score.setText(temp[2]);
 
             LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 1);
