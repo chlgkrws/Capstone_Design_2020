@@ -62,7 +62,7 @@ public class ExpandableListAdapter extends RecyclerView.Adapter<RecyclerView.Vie
 
 
                 LinearLayout.LayoutParams pa = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,1);
-                pa.setMargins(0,100,0,10);
+                pa.setMargins(0,50,0,10);
                 imageTextView.setLayoutParams(pa);
 
                 imageTextView.setBackgroundResource(R.drawable.line);
