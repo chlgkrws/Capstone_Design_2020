@@ -64,6 +64,7 @@ public class NotePad extends AppCompatActivity {
                             sentence = en_sentence + "\n"+kr_sentence;
 
                             if(!compareKey.equals(word)){
+                                System.out.println(word);
                                 places.invisibleChildren.add(new ExpandableListAdapter.Item(ExpandableListAdapter.IMAGE, "hi"));
                                 data.add(places);
                                 places = new ExpandableListAdapter.Item(ExpandableListAdapter.HEADER, word);
@@ -74,6 +75,7 @@ public class NotePad extends AppCompatActivity {
 
                             compareKey = word;
                         }
+                        places.invisibleChildren.add(new ExpandableListAdapter.Item(ExpandableListAdapter.IMAGE, "hi"));
                         data.add(places);
                         recyclerview.setAdapter(new ExpandableListAdapter(data));
 

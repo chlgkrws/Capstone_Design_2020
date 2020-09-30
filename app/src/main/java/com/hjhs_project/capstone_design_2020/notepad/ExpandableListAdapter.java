@@ -62,7 +62,7 @@ public class ExpandableListAdapter extends RecyclerView.Adapter<RecyclerView.Vie
 
 
                 LinearLayout.LayoutParams pa = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,1);
-                pa.setMargins(0,100,0,10);
+                pa.setMargins(0,50,0,10);
                 imageTextView.setLayoutParams(pa);
 
                 imageTextView.setBackgroundResource(R.drawable.line);
@@ -88,7 +88,7 @@ public class ExpandableListAdapter extends RecyclerView.Adapter<RecyclerView.Vie
                 itemController.btn_expand_toggle.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (item.invisibleChildren == null) {
+                        if (item.invisibleChildren == null) {           //\닫을때
                             item.invisibleChildren = new ArrayList<Item>();
                             int count = 0;
                             int pos = data.indexOf(itemController.refferalItem);
@@ -100,7 +100,8 @@ public class ExpandableListAdapter extends RecyclerView.Adapter<RecyclerView.Vie
                             count++;
                             notifyItemRangeRemoved(pos + 1, count);
                             itemController.btn_expand_toggle.setImageResource(R.drawable.circle_down);
-                        } else {
+
+                        } else {                                        //열때
                             int pos = data.indexOf(itemController.refferalItem);
                             int index = pos + 1;
                             for (Item i : item.invisibleChildren) {
