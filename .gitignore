@@ -15,3 +15,5 @@
 .idea/jarRepositories.xml
 app/src/main/res/drawable-xxhdpi/shadow.xml
 app/src/main/res/layout/activity_login_view.xml
+app/src/main/assets/labelmap.txt
+app/src/main/AndroidManifest.xml

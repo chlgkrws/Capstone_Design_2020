@@ -146,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
                     Bundle bundle = new Bundle();
                     bundle.putString("tos1",tos1);
                     bundle.putString("tos2",tos2);
-                    Thread.sleep(3000);                                                 //스플래쉬 표시시간
+                    Thread.sleep(300);                                                 //스플래쉬 표시시간
                     Message msg = tosHandler.obtainMessage();
                     msg.setData(bundle);
                     tosHandler.sendMessage(msg);
