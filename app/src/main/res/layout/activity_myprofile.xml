@@ -340,7 +340,7 @@
                             android:layout_marginLeft="13dp"
                             android:fontFamily="@font/dohyeon"
                             android:gravity="center"
-                            android:text="Temp"
+                            android:text=""
                             android:textSize="20sp" />
 
                         <TextView
@@ -349,7 +349,7 @@
                             android:layout_alignParentTop="true"
                             android:layout_alignParentRight="true"
                             android:fontFamily="@font/nanumsquareroundr"
-                            android:text="2020.07.05" />
+                            android:text="2020.10.08" />
                     </RelativeLayout>
 
 
