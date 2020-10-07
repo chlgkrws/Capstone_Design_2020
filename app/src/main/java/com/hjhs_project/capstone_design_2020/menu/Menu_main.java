@@ -68,6 +68,7 @@ public class Menu_main extends AppCompatActivity {
         user_name = bundle.getString("user_name");
         String[] toeic = MainActivity.getToeicInfo().split("&&");
         String[] tos = MainActivity.getTosInfo().split("&&");
+        System.out.println(tos[0] +" th "+tos[1]);
         getMyImage();                                                                       //유저 프로필 이미지를 가져오는 부분
         target_translation_word = findViewById(R.id.target_translation_word);
         result_translation = findViewById(R.id.result_translation);
@@ -158,6 +159,7 @@ public class Menu_main extends AppCompatActivity {
         LinearLayout.LayoutParams paramTosDay = (LinearLayout.LayoutParams) tos_test_day.getLayoutParams();
         LinearLayout.LayoutParams paramTosScore = (LinearLayout.LayoutParams) tos_score.getLayoutParams();
         for(int i = 0; i < 2; i++){
+            System.out.println(tos[i].split(",")[0]);
             String[] temp = tos[i].split(",");
             LinearLayout tosLayout = new LinearLayout(this);
             tosLayout.setLayoutParams(param_tos);
@@ -174,7 +176,7 @@ public class Menu_main extends AppCompatActivity {
             tos_reception.setLayoutParams(paramTosRecept);                      ///토스 접수 기간
             tos_reception.setGravity(Gravity.CENTER);
             tos_reception.setTextSize(13);
-            tos_reception.setText(temp[1]);
+            tos_reception.setText(temp[2].substring(7));
 
             tos_testDay.setLayoutParams(paramTosDay);                           //토스 시험일
             tos_testDay.setGravity(Gravity.CENTER);
@@ -184,7 +186,7 @@ public class Menu_main extends AppCompatActivity {
             tos_score.setLayoutParams(paramTosScore);                           //토스 결과발표
             tos_score.setGravity(Gravity.CENTER);
             tos_score.setTextSize(13);
-            tos_score.setText(temp[2]);
+            tos_score.setText(temp[1]);
 
             LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 1);
             lp.setMargins(0,8,0,8);
